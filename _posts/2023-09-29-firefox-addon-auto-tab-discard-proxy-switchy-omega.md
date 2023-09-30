@@ -32,7 +32,7 @@ Cách sử dụng thì cứ tạo profile proxy bình thường rồi nhấp bi�
 
 Còn tính năng chỉ dùng proxy trên tên miền/trang mà mình ưa thích thì tạo một cái `Profile Auto-Switch` nhé, rồi để `Default` là `Direct`, còn phần `Switch Rules` để `Condition type` là `wildcard` cho dễ dùng, phần `Condition Details` thì ví dụ mình muốn chỉ dùng proxy trên `artstation.com` chẳng hạn thì để là `artstation.com`, còn phần `Profile` thì dẫn tới profile của proxy được tạo bên trên thôi.
 
-## Cách fake mà không fake IP để vào các trang bị nhà mạng chặn[^fn-nth-3]
+## 1. Cách fake mà không fake IP để vào các trang bị nhà mạng chặn[^fn-nth-3]
 
 Hướng dẫn cách fake IP mà không fake IP để vượt DPI những trang cần vượt sử dụng ProxySwitchy Omega ở #1 tại một số bạn không dùng ECH được.
 
@@ -74,7 +74,7 @@ Vào Medium, Bonhup hay ẾchVid... test là thấy sẽ qua tuốt.
 
 ![](https://voz.vn/attachments/1683953882046-png.1831628/)
 
-## Fake IP miễn phí vĩnh cửu chọn quốc gia tùy ý với Tor Control Panel[^fn-nth-4]
+## 2. Fake IP miễn phí vĩnh cửu chọn quốc gia tùy ý với Tor Control Panel[^fn-nth-4]
 
 [Tải về cài đặt](https://github.com/abysshint/tor-control-panel/releases), chạy rồi Start, đợi một lúc, sau đó đặt proxy mà nó hiện ra ở phần mềm thường là `127.0.0.1:9050` hoặc `127.0.0.1:9051` vào socks của ProxySwitchy là xong thôi. Cụ thể port nó nằm ở:
 
@@ -86,7 +86,7 @@ Muốn nhanh chọn các nước có ping thấp và gần Việt Nam, thông s�
 ![](https://voz.vn/attachments/1682008215021-png.1791084/)
 
 
-## Vào các trang đuôi `.onion` với Tor Control Panel mà không khiến trang web thường bị chậm đi[^fn-nth-5]
+## 3. Vào các trang đuôi `.onion` với Tor Control Panel mà không khiến trang web thường bị chậm đi[^fn-nth-5]
 
 
 Đọc thấy bài viết này [Cần phải sử dụng trình duyệt tor một lần trong đời, kèm địa chỉ hidden wiki](https://voz.vn/t/can-phai-su-dung-trinh-duyet-tor-mot-lan-trong-doi-kem-dia-chi-hidden-wiki.847804/)
@@ -95,7 +95,7 @@ Thế Firefox hay Floorp thường có thể vào Tor được hay không thì c
 
 ### Ưu điểm:
 
-- [B][COLOR=rgb(226, 80, 65)]Không bao giờ khiến trang web hàng ngày hay vào chậm đi[/COLOR][/B]
+- Không bao giờ khiến trang web hàng ngày hay vào chậm đi
 - Chọn được quốc gia nên không có chuyện dùng máy chủ Tor tận châu Phi gây chậm, mà dùng hẳn Singapore, Hong Kong
 
 ### Yêu cầu:
@@ -129,7 +129,6 @@ Thế Firefox hay Floorp thường có thể vào Tor được hay không thì c
 
 Rất là ez nhé:
 ![](https://voz.vn/attachments/1695435721069-png.2087820/)
-
 
 # Nguồn:
 [^footnote]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/>

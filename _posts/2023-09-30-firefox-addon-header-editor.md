@@ -1,8 +1,8 @@
 ---
 title: "[Firefox Awesome] Part 2b: Các add-on hay ho - HeaderEditor"
-date: 2023-09-29 21:30:00:00 +0700
+date: 2023-09-29 21:30:00 +0700
 categories: [awesome, firefox, add-on]
-tags: [awesome, firefox, add-on, auto tab discard , proxy switchy omega]     # TAG names should always be lowercase
+tags: [awesome, firefox, add-on, header editor]     # TAG names should always be lowercase
 ---
 # [Header Editor](https://add-ons.mozilla.org/en-US/firefox/add-on/header-editor/) - Đổi User-Agent/Language, tùy ý thay đổi nội dung trang web[^footnote]
 `Header Editor` là  add-on cực mạnh giúp phá và sửa trang web, tính năng:
