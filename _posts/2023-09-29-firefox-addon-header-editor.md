@@ -46,17 +46,17 @@ Cái Header Editor này cực mạnh, nó giúp thay đổi gần như tất c�
 
 Ví dụ: <https://www.st.com/resource/en/datasheet/stm32f303re.pdf>
 
-## Biển hiện:
+### Biển hiện:
 - Khi bấm vào thì Firefox không mở xem bằng trình xem pdf.js cùi bắp mặc định được
 
-## Lý do:
+### Lý do:
 
 - Response header Content-Disposition có tác dụng ép tất cả mọi thể loại link phải tải về, không cho xem trên trình duyệt, rất nhiều trang web truyện tranh cũng làm điều tương tự bằng cách sử dụng Google Image Proxy, mở file ảnh ra thì bị tải về `p.txt`. Chi tiết: <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition>
 
-## Cách thức:
+### Cách thức:
 - Chặt response header Content-Disposition
 
-## Vận hành:
+### Vận hành:
 
 - Mở cửa sổ Header Editor -> Add
 - Chọn Modify Response Header
@@ -64,7 +64,6 @@ Ví dụ: <https://www.st.com/resource/en/datasheet/stm32f303re.pdf>
 - Match Rule điền vào `www.st.com`
 - Header name điền `Content-Disposition`
 - Header value điền `_header_editor_remove_`
-
 
 Cứ muốn xóa header thì dùng `_header_editor_remove_` nhé, nó là cú pháp đặc biệt của thằng này: <https://he.firefoxcn.net/en/FAQ.html#can-i-delete-a-header-in-a-simple-way>
 
@@ -74,7 +73,7 @@ Xong, mở link trên và test, sẽ thấy Firefox mở ra xem được bằng 
 
 Thêm một bài viết nữa về Header Editor (HE) để chỉnh sửa, ở đây mình lấy ví dụ là thêm header [`Sec-CH-Prefers-Reduced-Motion: "reduce"`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-CH-Prefers-Reduced-Motion) để hỏi trang web rằng có thể trả lại nội dung web không có animation (nội dung chuyển động).
 
-## Thao tác:
+### Thao tác:
 - Đầu tiên cái HE ở #1 nếu chưa làm, đây là một add-on rất hay và nhẹ, làm được rất nhiều trò bệnh hoạn.
 - Sau đó click vào biểu tượng HE ở thanh công cụ, chọn Manage
 - Click vào dấu `+`
