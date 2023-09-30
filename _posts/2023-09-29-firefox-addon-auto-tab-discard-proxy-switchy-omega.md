@@ -76,7 +76,7 @@ Vào Medium, Bonhup hay ẾchVid... test là thấy sẽ qua tuốt.
 
 ## Fake IP miễn phí vĩnh cửu chọn quốc gia tùy ý với Tor Control Panel[^fn-nth-4]
 
-[Tải về cài đặt](URL='https://github.com/abysshint/tor-control-panel/releases'), chạy rồi Start, đợi một lúc, sau đó đặt proxy mà nó hiện ra ở phần mềm thường là `127.0.0.1:9050` hoặc `127.0.0.1:9051` vào socks của ProxySwitchy là xong thôi. Cụ thể port nó nằm ở:
+[Tải về cài đặt](https://github.com/abysshint/tor-control-panel/releases), chạy rồi Start, đợi một lúc, sau đó đặt proxy mà nó hiện ra ở phần mềm thường là `127.0.0.1:9050` hoặc `127.0.0.1:9051` vào socks của ProxySwitchy là xong thôi. Cụ thể port nó nằm ở:
 
 ![](https://voz.vn/attachments/1695470625450-png.2088817/)
 
