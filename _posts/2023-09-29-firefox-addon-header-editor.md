@@ -82,7 +82,7 @@ Thêm một bài viết nữa về Header Editor (HE) để chỉnh sửa, ở �
 
 ![](https://voz.vn/attachments/1685262571667-png.1861563/)
 
-Để kiểm tra, vào trang này: <http://httpbin.org/headers>
+Để kiểm tra, vào trang này: <https://httpbin.org/headers>
 
 Thành công nghĩa là sẽ giống thế này `"Sec-Ch-Prefers-Reduced-Motion": "\"reduce\"",`:
 
