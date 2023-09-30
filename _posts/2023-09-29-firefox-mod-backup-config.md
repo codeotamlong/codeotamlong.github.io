@@ -23,7 +23,7 @@ Nếu như nói tới bản mod uy tín và lâu đời nhất (từ Firefox 2 n
 Hiện tại (14/9/23) Tete đã chính thức lên kệ AVX2.
 
 Ngoài ra một điểm mạnh nữa của tete là bản này là bản stable nhưng lại là Nightly, nên nó có thể cài được Fastforward, Multi-Threaded Download Manager và iMacros.
-- Download: <www1.plala.or.jp/tete009/en-US/software.html#FFDL>
+- Download: <http://www1.plala.or.jp/tete009/en-US/software.html#FFDL>
 - Folder chứa các bản cũ (có cả 32bit): <https://drive.google.com/drive/folders/0BwJVYWis62cRalRwX2tsZklqUkk>
 - Cách đặt Tete thành Firefox Portable xịn Pin được, đặt Default Browser được:<https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-23354773>
 - Cách đặt Tete Portable thành Default Browser:<https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-24612099>
