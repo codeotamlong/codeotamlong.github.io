@@ -27,11 +27,11 @@ UA: `Mozilla/5.0 (Android 12; Mobile; rv:109.0) Gecko/113.0 Firefox/113.0`
 Còn nếu muốn ép Bing Chat chạy trên Firefox thì tương tự như trên tạo cái rule mới cho `bing.com` và `www.bing.com` với UA:
 
 
-- **<span style="color:rgb(65, 168, 95)]Nếu là Firefox PC:</span> **`Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/112.0.1722.48`
-- **<span style="color:rgb(41, 105, 176)]Nếu là Firefox Mobile:</span>** `Mozilla/5.0 (Linux; Android 8.1.0; Pixel Build/OPM4.171019.021.D1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36 EdgA/42.0.0.2057`
+- **<span style="color:rgb(65, 168, 95)">Nếu là Firefox PC:</span>** `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/112.0.1722.48`
+- **<span style="color:rgb(41, 105, 176)">Nếu là Firefox Mobile:</span>** `Mozilla/5.0 (Linux; Android 8.1.0; Pixel Build/OPM4.171019.021.D1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36 EdgA/42.0.0.2057`
 
 
-Vào about:config chỉnh `layout.css.overflow-overlay.enabled` thành true.
+Vào `about:config` chỉnh `layout.css.overflow-overlay.enabled` thành true.
 
 Đây là add-on rất hay nếu có hiểu biết về lập trình web, bởi nó hỗ trợ không chỉ thay đổi Request header mà nó còn hỗ trợ thay đổi Response header và Response body (giống Proximitron/Proxidomo) giúp sửa xóa trang web tùy ý. Và vì nó rất nâng cao nên các bạn tự tìm hiểu nhé mình chỉ giới thiệu sơ qua.
 
@@ -72,7 +72,7 @@ Xong, mở link trên và test, sẽ thấy Firefox mở ra xem được bằng 
 
 ## Cách sửa xóa Request header[^fn-nth-4]
 
-Thêm một bài viết nữa về Header Editor (HE) để chỉnh sửa, ở đây mình lấy ví dụ là thêm header <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-CH-Prefers-Reduced-Motion> `Sec-CH-Prefers-Reduced-Motion: "reduce"` để hỏi trang web rằng có thể trả lại nội dung web không có animation (nội dung chuyển động).
+Thêm một bài viết nữa về Header Editor (HE) để chỉnh sửa, ở đây mình lấy ví dụ là thêm header [`Sec-CH-Prefers-Reduced-Motion: "reduce"`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-CH-Prefers-Reduced-Motion) để hỏi trang web rằng có thể trả lại nội dung web không có animation (nội dung chuyển động).
 
 ## Thao tác:
 - Đầu tiên cái HE ở #1 nếu chưa làm, đây là một add-on rất hay và nhẹ, làm được rất nhiều trò bệnh hoạn.
@@ -149,7 +149,7 @@ Thao tác:
 Custom function
 ```javascript
 if(detail.type === 'main_frame'){
-return val.replace(/devtoolsDetector.launch\(\);/g, '');
+    return val.replace(/devtoolsDetector.launch\(\);/g, '');
 }
 ```
 
@@ -210,11 +210,12 @@ Các bạn chắc đã quá quen với tính năng Element Picker của Adblock 
 - Xóa được những quảng cáo khó nhất **đọc bài về cách mình dùng HE chặn Anti-Ablock mà cả uBlock cũng gần như chịu thua (chỉ uBlock của Firefox mới qua được nhưng khó vô cùng)**[^fn-nth-7]
 
 **Bài viết yêu cầu người đọc có hiểu biết về Regex ở mức độ vừa phải để sau này tự phát triển ra khi cần.**
-<https://voz.vn/t/tong-hop-nhung-add-on-chat-cho-firefox-pc-mobile.682181/post-27875389> Sử dụng trang web RegEx101 này để viết code, copy nội dung web vào trang này rồi viết code theo thời gian thực sẽ rất dễ dàng.
-> Regex dễ học thôi, cứ dùng trang [URL]https://regex101.com/[/URL] viết và kiểm tra thời gian thực luôn, họ dạy cách dùng từng tính năng một và giải thích cả cách thức hoạt động:
+
+[Sử dụng trang web RegEx101 này để viết code, copy nội dung web vào trang này rồi viết code theo thời gian thực sẽ rất dễ dàng.](https://voz.vn/t/tong-hop-nhung-add-on-chat-cho-firefox-pc-mobile.682181/post-27875389)
+> Regex dễ học thôi, cứ dùng trang <https://regex101.com/> viết và kiểm tra thời gian thực luôn, họ dạy cách dùng từng tính năng một và giải thích cả cách thức hoạt động:
 > ![](https://voz.vn/attachments/1695307557133-png.2085373/)
 
-### Đầu tiên là trang web ví dụ, mình dùng trang này: `https://blogtruyenmoi.com/c402446/bat-nat-chap-1`
+### Đầu tiên là trang web ví dụ, mình dùng trang này: (https://blogtruyenmoi.com/c402446/bat-nat-chap-1)
 
 #### Vấn đề: 
 Khi tải trang nó tải cả phần comment với ảnh động, tốn bandwidth và tài nguyên CPU/GPU để render.
@@ -245,7 +246,8 @@ Khi tải trang nó tải cả phần comment với ảnh động, tốn bandwid
 **Kết bài:**
 HE là một vũ khí khủng khiếp giúp bạn thâm nhập sâu vào mã nguồn trang web, nếu thành thạo các bạn có thể tăng tốc lướt web lên bằng cách xóa những thứ rác không cần thiết, cách này vượt trội so với ẩn đi bằng CSS `display:none` của uBlock/Adguard/ABP, và trị những quảng cáo cứng đầu nhất.
 
-**<span style="color:rgb(226, 80, 65)">Tuy nhiên nhược điểm là nó yêu cầu khá cao từ phía người dùng.</span>**
+> **<span style="color:rgb(226, 80, 65)">Tuy nhiên nhược điểm là nó yêu cầu khá cao từ phía người dùng.</span>**
+{: .prompt-warning }
 
 ### Ví dụ đời thực là trang chủ Đen Vâu:
 
@@ -269,7 +271,9 @@ F5 lại cái, và anh ấy đã trết, trang tải nhanh như tên lửa, đó
 ![](https://voz.vn/attachments/1695314519849-png.2085533/)
 ![](https://voz.vn/attachments/1695314749241-png.2085538/)
 
-Đó là sức mạnh của Header Editor (HE), khi mà đẩy giới hạn của nó lên mức cao nhất.
+> Đó là sức mạnh của Header Editor (HE), khi mà đẩy giới hạn của nó lên mức cao nhất.
+{: .prompt-info }
+
 # Nguồn:
 [^footnote]: <https://voz.vn/t/tong-hop-nhung-add-on-chat-cho-firefox-pc-mobile.682181/>
 [^fn-nth-2]: <https://voz.vn/t/tong-hop-nhung-add-on-chat-cho-firefox-pc-mobile.682181/post-24051554>
