@@ -2,15 +2,15 @@
 title: "[Firefox Awesome] Part 2b: Các add-on hay ho - HeaderEditor"
 date: 2023-09-29 21:30:00 +0700
 categories: [awesome, firefox, add-on]
-tags: [awesome, firefox, add-on, header editor]     # TAG names should always be lowercase
+tags: [awesome, firefox, add-on, header editor]     ## TAG names should always be lowercase
 ---
-# [Header Editor](https://add-ons.mozilla.org/en-US/firefox/add-on/header-editor/) - Đổi User-Agent/Language, tùy ý thay đổi nội dung trang web[^footnote]
+## [Header Editor](https://add-ons.mozilla.org/en-US/firefox/add-on/header-editor/) - Đổi User-Agent/Language, tùy ý thay đổi nội dung trang web[^footnote]
 `Header Editor` là  add-on cực mạnh giúp phá và sửa trang web, tính năng:
 - Thêm/xóa/sửa header kiểu User-Agent, Referer.. từ đó ép các trang web dùng bản Mobile hay hiển thị theo ý thích, vượt giới hạn trình duyệt kiểu các trang chỉ cho Chrome/Edge vào
 - Thêm/xóa/sửa NỘI DUNG WEB (nâng cao) giúp chặn những loại quảng cáo, anti-adblock khó nhằn nhất
 - Và rất nhiều trò khác mà cụ thể xem ở dưới:
 
-## Cách ép Youtube Mobile, ép Bing Chat chạy trên Firefox[^fn-nth-2]
+### Cách ép Youtube Mobile, ép Bing Chat chạy trên Firefox[^fn-nth-2]
 
 Mà thằng CUAS này kể ra dùng cứ lỗi lỗi kiểu gì ấy, có thằng này hay hơn :D
 
@@ -39,24 +39,24 @@ Kết quả đây, không cần CUAS vẫn ép Youtube Mobile được:
 
 ![](https://voz.vn/attachments/1682059348762-png.1792114/)
 
-## Cách sửa xóa Response header[^fn-nth-3]
+### Cách sửa xóa Response header[^fn-nth-3]
 Cập nhập thêm bài viết và add-on Header Editor nà, lần này là cách để xóa Response header, giúp ép liên kết bắt phải tải về phải mở trong trình duyệt web :D
 
 Cái Header Editor này cực mạnh, nó giúp thay đổi gần như tất cả mọi thứ trên trang web, cái chính là biết cách sử dụng thôi, nếu nói về tính tùy biến nó cũng ngang cơ với uBlock hay External Application, có thể phát triển thêm nhiều hướng dẫn được, thậm chí nó chặn được những quảng cáo mà uBlock không thể (chỉ trên Firefox vì Firefox có API cho lọc nội dung gói tin HTTP), kết hợp qua lại với External Application thì sẽ làm được thêm nhiều trò đồi bại nữa :D <https://voz.vn/t/tong-hop-nhung-add-on-chat-cho-firefox-pc-mobile.682181/post-24051554>
 
 Ví dụ: <https://www.st.com/resource/en/datasheet/stm32f303re.pdf>
 
-### Biển hiện:
+#### Biển hiện:
 - Khi bấm vào thì Firefox không mở xem bằng trình xem pdf.js cùi bắp mặc định được
 
-### Lý do:
+#### Lý do:
 
 - Response header Content-Disposition có tác dụng ép tất cả mọi thể loại link phải tải về, không cho xem trên trình duyệt, rất nhiều trang web truyện tranh cũng làm điều tương tự bằng cách sử dụng Google Image Proxy, mở file ảnh ra thì bị tải về `p.txt`. Chi tiết: <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition>
 
-### Cách thức:
+#### Cách thức:
 - Chặt response header Content-Disposition
 
-### Vận hành:
+#### Vận hành:
 
 - Mở cửa sổ Header Editor -> Add
 - Chọn Modify Response Header
@@ -69,11 +69,11 @@ Cứ muốn xóa header thì dùng `_header_editor_remove_` nhé, nó là cú ph
 
 Xong, mở link trên và test, sẽ thấy Firefox mở ra xem được bằng trình xem `pdf.js` cùi bắp :D
 
-## Cách sửa xóa Request header[^fn-nth-4]
+### Cách sửa xóa Request header[^fn-nth-4]
 
 Thêm một bài viết nữa về Header Editor (HE) để chỉnh sửa, ở đây mình lấy ví dụ là thêm header [`Sec-CH-Prefers-Reduced-Motion: "reduce"`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-CH-Prefers-Reduced-Motion) để hỏi trang web rằng có thể trả lại nội dung web không có animation (nội dung chuyển động).
 
-### Thao tác:
+#### Thao tác:
 - Đầu tiên cái HE ở #1 nếu chưa làm, đây là một add-on rất hay và nhẹ, làm được rất nhiều trò bệnh hoạn.
 - Sau đó click vào biểu tượng HE ở thanh công cụ, chọn Manage
 - Click vào dấu `+`
@@ -105,7 +105,7 @@ Rất ez, bài viết này mục đích để làm ví dụ khả năng dùng HE
 Còn header [`Sec-CH-Prefers-Reduced-Motion: "reduce"`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-CH-Prefers-Reduced-Motion) vẫn đang trong giai đoạn thử nghiệm, cơ mà khi thành chính thức và các trang web áp dụng vào sẽ ít bị quấy rối bằng animation nặng nề khiến nóng máy.
 
 
-## Cách cho phép CORS không cần cài thêm add-on CORS[^fn-nth-5]
+### Cách cho phép CORS không cần cài thêm add-on CORS[^fn-nth-5]
 Dùng thằng Header Editor thì mình support được nhé, vì chuẩn hóa add-on không dùng khác nhau với lại thằng nay uy tín và mạnh: (https://voz.vn/t/tong-hop-nhung-add-on-chat-cho-firefox-pc-mobile.682181/post-24125806)
 
 Muốn cho phép CORS cho trang nào thì:
@@ -129,7 +129,7 @@ Muốn cho phép CORS cho trang nào thì:
 Thông tin về CORS: <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin>
 Làm như này sẽ hiểu sâu được cách thức CORS hoạt động ra sao thay vì cài vào xong không rõ nó làm gì.
 
-## Cách sửa mọi thứ trong trang web, phá tan nát trang web, chặn những quảng cáo gần như khó nhất với Header Editor[^fn-nth-6]
+### Cách sửa mọi thứ trong trang web, phá tan nát trang web, chặn những quảng cáo gần như khó nhất với Header Editor[^fn-nth-6]
 
 Hướng dẫn sử dụng Header Editor để triệt hạ thẳng tay mọi thể loại quảng cáo khó nhất vũ trụ, sử dụng trang của nợ ` idoitmyself.xyz` làm ví dụ để cho thấy **sự bá cháy của Header Editor, bố tụi nó cũng bó tay chịu trói.**
 
@@ -160,12 +160,12 @@ Kết đắng ngắt, bố nó cũng chết dưới tay Header Editor :D
 
 Cơ mà mình đặc biệt khuyến nghị các bạn báo cho uBlock để họ sửa lỗi nhé, như vậy sẽ tốt hơn, mọi người cũng được hưởng lợi: <https://github.com/uBlockOrigin/uBlock-issues/issues>
 
-## Chuyển hướng trang web với HE mà không cần add-on như Redirector/RequestControl[^fn-nth-7] và Nâng cao với Custom function[^fn-nth-8]
+### Chuyển hướng trang web với HE mà không cần add-on như Redirector/RequestControl[^fn-nth-7] và Nâng cao với Custom function[^fn-nth-8]
 Hôm nay lại tiếp tục viết một hướng dẫn khác về HE, chủ đề: **Chuyển hướng trang web**
 
 HE chính là lý do tại sao mình không giới thiệu Redirector luôn mặc dù nó là một add-on "đinh" của Firefox nhé, một thời nó luôn nằm trong bảng xếp hạng các add-on bảo mật tốt nhất của Firefox, thế nhưng HE làm được tất cả mọi thứ Redirector có thể + nhiều thứ không thể.
 
-### Bài viết này lấy ví dụ là sử dụng Reddit chuyển hướng bản New thành bản Old, rất ez thôi.
+#### Bài viết này lấy ví dụ là sử dụng Reddit chuyển hướng bản New thành bản Old, rất ez thôi.
 
 Tạo một rule mới:
 
@@ -175,7 +175,7 @@ Tạo một rule mới:
 - Match: `^https://www.reddit.com/(.*?$)`
 - Redirect: `https://old.reddit.com/$1`
 
-### Tiếp tục một ví dụ nữa cho hiểu bài, link trực tiếp cho `v.redd.it` để xem Reddit mà không cần phải tải trang, lưu file dễ dàng:
+#### Tiếp tục một ví dụ nữa cho hiểu bài, link trực tiếp cho `v.redd.it` để xem Reddit mà không cần phải tải trang, lưu file dễ dàng:
 
 - Name: Direct VReddit
 - Redirect request
@@ -188,7 +188,7 @@ Thế là có thể xem video mà nó tải thẳng video luôn, có thể lưu 
 
 Ngoài ra lưu ý là TẤT CẢ rule của Redirector đều có thể sử dụng cho HE mà không cần sửa một chữ.
 
-### Dùng HE để bypass trang redirect "vô dụng" của vn-z
+#### Dùng HE để bypass trang redirect "vô dụng" của vn-z
 
 - Name: Bypass Redirect VN-Z
 - Redirect request
@@ -196,7 +196,7 @@ Ngoài ra lưu ý là TẤT CẢ rule của Redirector đều có thể sử d�
 - Match: `https://vn-z.vn/redirect`
 - Redirect (Custom Function): `return atob(detail.url.split('to=')[1])`
 
-## Chặn quảng cáo theo kiểu triệt hạ[^fn-nth-9] (_Ví dụ:_ Xóa triệt thanh sidebar ở trang chủ Voz khiến trang load nhanh như điện[^fn-nth-10])
+### Chặn quảng cáo theo kiểu triệt hạ[^fn-nth-9] (_Ví dụ:_ Xóa triệt thanh sidebar ở trang chủ Voz khiến trang load nhanh như điện[^fn-nth-10])
 
 Một bài hướng dẫn nữa về HE: **Cách *xóa triệt* nội dung web**</span>****
 
@@ -214,15 +214,15 @@ Các bạn chắc đã quá quen với tính năng Element Picker của Adblock 
 > Regex dễ học thôi, cứ dùng trang <https://regex101.com/> viết và kiểm tra thời gian thực luôn, họ dạy cách dùng từng tính năng một và giải thích cả cách thức hoạt động:
 > ![](https://voz.vn/attachments/1695307557133-png.2085373/)
 
-### Đầu tiên là trang web ví dụ, mình dùng trang này: (https://blogtruyenmoi.com/c402446/bat-nat-chap-1)
+#### Đầu tiên là trang web ví dụ, mình dùng trang này: (https://blogtruyenmoi.com/c402446/bat-nat-chap-1)
 
-#### Vấn đề: 
+##### Vấn đề: 
 Khi tải trang nó tải cả phần comment với ảnh động, tốn bandwidth và tài nguyên CPU/GPU để render.
 ![](https://voz.vn/attachments/1695310955464-png.2085463/)
 
-#### Giải pháp: Xóa tiệt nó đi
+##### Giải pháp: Xóa tiệt nó đi
 
-#### Cách thức:
+##### Cách thức:
 
 - Bật `Modify response body (only supports Firefox)` nếu chưa từng bật
 - Từ HE, tạo một rule mới
@@ -248,12 +248,12 @@ HE là một vũ khí khủng khiếp giúp bạn thâm nhập sâu vào mã ngu
 > **<span style="color:rgb(226, 80, 65)">Tuy nhiên nhược điểm là nó yêu cầu khá cao từ phía người dùng.</span>**
 {: .prompt-warning }
 
-### Ví dụ đời thực là trang chủ Đen Vâu:
+#### Ví dụ đời thực là trang chủ Đen Vâu:
 
 Ở đây là mình ẩn bằng uBlock, nghĩa là kể cả ẩn đi rồi Tiktok vẫn load ầm ầm, vẫn track người dùng, vẫn tốn bandwidth và tất nhiên áp dụng cho cả Youtube, nếu sử dụng HE xóa triệt sẽ lại là một câu chuyện khác:
 ![](https://voz.vn/attachments/1695314107674-png.2085528/)
 
-#### Cách thức:
+##### Cách thức:
 
 - Bật `Modify response body (only supports Firefox)` nếu chưa từng bật
 - Từ HE, tạo một rule mới
@@ -273,7 +273,7 @@ F5 lại cái, và anh ấy đã trết, trang tải nhanh như tên lửa, đó
 > Đó là sức mạnh của Header Editor (HE), khi mà đẩy giới hạn của nó lên mức cao nhất.
 {: .prompt-info }
 
-# Nguồn:
+## Nguồn:
 [^footnote]: <https://voz.vn/t/tong-hop-nhung-add-on-chat-cho-firefox-pc-mobile.682181/>
 [^fn-nth-2]: <https://voz.vn/t/tong-hop-nhung-add-on-chat-cho-firefox-pc-mobile.682181/post-24051554>
 [^fn-nth-3]: <https://voz.vn/t/tong-hop-nhung-add-on-chat-cho-firefox-pc-mobile.682181/post-24125806>

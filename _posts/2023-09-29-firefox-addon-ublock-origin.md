@@ -2,9 +2,9 @@
 title: "[Firefox Awesome] Part 2a: Các addon hay ho - uBlock Origin"
 date: 2023-09-29 16:00:00 +0700
 categories: [awesome, firefox, addon]
-tags: [awesome, firefox, addon, ublock, ublock origin]     # TAG names should always be lowercase
+tags: [awesome, firefox, addon, ublock, ublock origin]     ## TAG names should always be lowercase
 ---
-# [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin) (uBO)- Chặn quảng cáo, tăng cường bảo mật, riêng tư[^footnote]
+## [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin) (uBO)- Chặn quảng cáo, tăng cường bảo mật, riêng tư[^footnote]
 
 Đây là addon chặn quảng cáo đạt tới mức độ chân - thiện - mỹ với thuật toán Regex được tối ưu cho tốc độ và thuật toán nhúng CSS để ẩn nội dụng được chau chuốt, đó là lý do tại sao addon này tốt hơn nhiều lần Adblock Plus với thuật toán tệ hơn cho hiệu năng tệ hơn, với người dùng Việt Nam thì tất nhiên **sau khi cài xong uBlock các bạn vào Dashboard rồi kéo xuống dưới tìm ABPVN** rồi bật lên để chặn quảng cáo Việt Nam hiệu quả.
 
@@ -12,7 +12,7 @@ Ngoài ra việc chặn quảng cáo sẽ giúp các bạn tránh khỏi những
 
 Cũng như tăng cường sự riêng tư vì các tracker bị chặn luôn, khiến các trang web không theo dõi được bạn.
 
-## 1. Các bộ lọc đáng dùng không lỗi cho uBlock[^fn-nth-2]
+### 1. Các bộ lọc đáng dùng không lỗi cho uBlock[^fn-nth-2]
 
 Tiếp tục chủ đề về uBlock, addon #1 ở thread nên phải tiếp tục mở rộng công năng của nó, sau đây là những filter (bộ lọc) hay cho uBlock mà không gây lỗi web, bởi nó là bộ lọc tính năng hoặc chỉ dành cho một đối tượng nhất định nào đó:
 
@@ -30,7 +30,7 @@ Và không quên lưu ý, luật bất thành văn khi thêm bộ lọc vào uBl
 >- [FMSF2](https://nmtrung.com/fmsf-2/): <https://raw.githubusercontent.com/nmtrung/FMSF-2.0/master/fmsf_2.0.txt>
 {: .prompt-info }
 
-## 2. Cách chặn các tên miền mới tạo (thường là lừa bịp, virus) bằng uBlock[^fn-nth-3]
+### 2. Cách chặn các tên miền mới tạo (thường là lừa bịp, virus) bằng uBlock[^fn-nth-3]
 
 NextDNS có cái tính năng chặn tên miền mới (NRD) rất hay, tuy nhiên NextDNS thì cũng có giới hạn nếu xài miễn phí, vậy nên mình tìm hiểu xem có giải pháp thay thế nào không và kết quả là hóa ra uBlock cũng làm được tương tự.
 
@@ -54,7 +54,7 @@ Chọn cái nào là tùy ý cơ mà chỉ nên chọn 1 trong 2, nói chung c�
 
 Mặc định **uBlock cứ 7 tiếng cập nhập filter một lần**[^fn-nth-4], thêm vào là xong chả cần làm gì thêm nữa.
 
-## 3. Sử dụng uBlock thay thế NoScript/RequestPolicy để chặn script/ảnh/iframe bằng 2 cái nháy chuột[^fn-nth-5] và Cơ bản cách sử dụng Dynamic Filtering[^fn-nth-6]
+### 3. Sử dụng uBlock thay thế NoScript/RequestPolicy để chặn script/ảnh/iframe bằng 2 cái nháy chuột[^fn-nth-5] và Cơ bản cách sử dụng Dynamic Filtering[^fn-nth-6]
 
 Bạn có thể tiết kiệm một addon Noscript bằng cách dùng uBlock, bật Advanced features lên:
 ![](https://voz.vn/attachments/1684062491489-png.1834001/){: width="972" height="589" }
@@ -89,12 +89,12 @@ Ngoài ra khi ấn Ctrl 2 lần khi mở giao diện Lọc cơ động này thì
 - <span style="color:GREY">**Cột GHI**</span> Không làm gì cả
 - <span style="color:RED">**Cột ĐỎ:**</span> Chặn, nghĩa là khi chọn nó sẽ chặn kể cả kết nối đã được ngoại lệ trong bộ lọc rồi
 
-### Mục đích sử dụng:
+#### Mục đích sử dụng:
 
 Mục đích khi dùng là để nhanh chóng xử lý quảng cáo mà không muốn phải đợi bộ lọc cập nhập
 Hoặc để ép trang web load nhanh hết mức có thể bằng cách chặn đi gần hết nội dung trang web không cần thiết
 
-### Thực tế:
+#### Thực tế:
 
 - Ví dụ vào một trang web đọc tiểu thuyết, nghĩa là trang web toàn chữ thì nên chặn hết script, iframe, ảnh.. để trang web tải hết tốc độ
 - Ví dụ những trang tin tức cũng toàn chữ và ảnh, có thể chặn iframe, script để trang web chỉ còn mỗi chữ và ảnh, ví dụ như VnExpress, DanTri...
@@ -103,15 +103,15 @@ Hoặc để ép trang web load nhanh hết mức có thể bằng cách chặn 
 > **Xem thêm**: <https://github.com/gorhill/uBlock/wiki/Dynamic-filtering:-quick-guide>
 {: .prompt-info }
 
-## 4. Sự khác biệt của `uBlock Firefox` vs `Chrome` vs `Manifest V3` vs `Adguard`[^fn-nth-7]
+### 4. Sự khác biệt của `uBlock Firefox` vs `Chrome` vs `Manifest V3` vs `Adguard`[^fn-nth-7]
 
 Tiện nhắc tới uBlock mình viết một bài phân tích sự khác biệt giữa:
 - uBlock của Firefox và uBlock của Chrome
 - uBlock Manifest V2 vs uBlock Manifest V3
 - uBlock và Adguard
 
-### a. uBlock của Firefox và uBlock của Chrome
-#### Hiệu năng:
+#### a. uBlock của Firefox và uBlock của Chrome
+##### Hiệu năng:
 
 - Biến code thành mã máy: uBlock của Firefox nhanh hơn rất nhiều lần uBlock của Chrome (cũng như Adguard), vì uBlock của Firefox hỗ trợ WebAssembly, nghĩa là khi lọc trang web, uBlock biến code từ Javascript thành mã máy, khiến tăng tốc quá trình lọc lên rất rất nhiều lần. Để nói về hiệu năng của Web Assembly so với Javascript thì nếu bạn học lập trình bạn sẽ thấy nó có ngôn ngữ thông dịch (interpreted language) và ngôn ngữ biên dịch (compiled language), sự khác biệt về hiệu năng giữa Web Assembly và Javascript như so sánh trời với đất, nó gấp rất rất nhiều lần, cũng y như so trình xem HTML của Firefox/Chrome (viết bằng HTML5=HTML+Javascript) với MPV (viết bằng C nguyên chất) vậy.
 - Sử dụng IndexedDB thay vì localStorage: IndexedDB có hiệu năng tốt hơn nhiều localStorage nên khi mở Firefox lên, uBlock hoạt động ngay lập tức sau 0.5s (đối với con máy cùi bép của mình), nhưng với Chrome thì nếu bạn mở ngay trang web, khả năng lớn là quảng cáo sẽ lọt vì Chrome dùng localStorage chứa các bộ lọc của uBlock, nhiều người từng trải nghiệm uBlock trên Chrome tốn 15 phút để load xong các bộ lọc.
@@ -125,7 +125,7 @@ Tiện nhắc tới uBlock mình viết một bài phân tích sự khác biệt
 > - <https://github.com/gorhill/uBlock/wiki/uBlock-Origin-works-best-on-Firefox#webassembly>
 {: .prompt-info }
 
-#### Tính năng:
+##### Tính năng:
 
 - uBlock của Firefox hỗ trợ bóc tách CNAME của tên miền, giúp tìm ra những tên miền con cùng là một bố mẹ đẻ ra rồi chặt luôn một thể, nên kết quả là uBlock nghiễm nhiên chặn nhiều quảng cáo hơn mà không tốn công sức: <https://github.com/gorhill/uBlock/wiki/uBlock-Origin-works-best-on-Firefox#cname-uncloaking>
 - uBlock của Firefox hỗ trợ lọc nội dung web, giúp thoải mái cắt xén trang web, chặn những quảng cáo mà bình thường không thể chặn được.
@@ -134,7 +134,7 @@ Tiện nhắc tới uBlock mình viết một bài phân tích sự khác biệt
 > - <https://github.com/gorhill/uBlock/wiki/uBlock-Origin-works-best-on-Firefox#html-filtering>
 > - [Cách sửa mọi thứ trong trang web, phá tan nát trang web, chặn những quảng cáo gần như khó nhất với Header Editor](https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-25473236)
 
-### b. uBlock (Adblock) Manifest V2 vs uBlock (Adblock) Manifest V3 - Áp dụng cho mọi tiện ích chặn quảng cáo viết bằng Manifest V3
+#### b. uBlock (Adblock) Manifest V2 vs uBlock (Adblock) Manifest V3 - Áp dụng cho mọi tiện ích chặn quảng cáo viết bằng Manifest V3
 
 - AdBlock Manifest V3 sẽ không thể tự động cập nhập bộ lọc, trong khi thế giới web các trang web thay đổi cứ vài giây một lần, thêm sửa quảng cáo, không tự động cập nhập được nghĩa là thành phế
 - AdBlock Manifest V3 sẽ không thể có nhiều hơn 30.000 rule (dòng chặn, chi tiết: [MV3: overcoming the 30000 rules limit](https://old.reddit.com/r/uBlockOrigin/comments/xlw1wi/mv3_overcoming_the_30000_rules_limit/)), trong khi số lượng trang web tăng không ngừng mỗi ngày, ngoài ra adblock còn được dùng để chặn các trang có nội dung malware nữa nên thậm chí để an toàn thì một người dùng cần dùng tới hàng triệu rule, ví dụ như chỉ để chặn các tên miền mới tạo ra trong vòng 31 ngày đã ngốn nguyên 3 triệu rule: Cách chặn các tên miền mới tạo (thường là lừa bịp, virus) bằng uBlock[^fn-nth-3]
@@ -151,7 +151,7 @@ Còn đây là thông tin do chính `gorhill` cung cấp.[^fn-nth-7]:
 > - No [dynamic filtering
 > - No importing external lists
 
-### c. uBlock và Adguard
+#### c. uBlock và Adguard
 Gần như giống nhau, thích dùng gì thì dùng, nhưng uBlock hơn ở hiệu năng do sử dụng Web Assembly (chỉ Firefox), đã được xác nhận đóng dấu trên trang liệt kê các ứng dụng sử dụng Web Assembly (WASM) trên kèm benchmark hiệu năng: <https://madewithwebassembly.com/showcase/ublock-origin/>
 
 > uBlock Origin is a very popular add-on, and uses WebAssembly for multiple parts of it's codebase. The most notable being, uBlock Origin uses Wasm for hostname lookup for it's data structures that contain the list of origins it intends to block. This is a great use of WebAssembly, as it offered them better performance, compared to a JavaScript implementation, in the web browser for doing computationally intensive processing tasks over a large set of data. This can be tested in your own browser, by checking out the benchmark.
@@ -179,10 +179,10 @@ Vậy chốt lại là uBlock trên Firefox hơn Adguard ở những điểm:
 
 Nghĩa là nếu dùng **Firefox thì uBlock có nhiều tính năng hơn**, còn dòng Chrome thì cả hai như nhau như đã nói bên trên, thích dùng gì thì dùng.
 
-## Góc drama - Nano Defenders: The shit hits the fan
+### Góc drama - Nano Defenders: The shit hits the fan
 <https://www.reddit.com/r/HobbyDrama/comments/jo9wxn/open_source_development_the_fall_of_nano_defender/>
 
-# Nguồn:
+## Nguồn:
 [^footnote]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/>
 [^fn-nth-2]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-24996350>
 [^fn-nth-3]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-24961417>
