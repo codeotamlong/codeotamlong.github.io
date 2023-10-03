@@ -1,5 +1,5 @@
 ---
-title: "[Firefox Awesome] Part 0: Tại sao lại là Firefox"
+title: "[Firefox Awesome] Tại sao lại là Firefox?"
 date: 2023-08-28 11:33:00 +0700
 categories: [firefox, awesome]
 tags: [firefox, awesome]
@@ -12,7 +12,8 @@ Chrome nó có tính năng "ăn gian" mà Firefox không có, nghĩa là khi b�
 
 Với Chrome:
 > or instance, Chrome, predicts what the user is typing and fires the request even before the user has done typing and hitting enter. By the time they hit enter, the page is ready to load front the cache. This is done with some fair amount of ML.
-
+_Tạm dịch_
+> Ví dụ, trình duyệt Chrome có khả năng dự đoán những gì người dùng đang gõ và gửi yêu cầu trước cả khi người dùng đã gõ xong và nhấn Enter. Khi họ nhấn Enter, trang web đã sẵn sàng để tải từ bộ nhớ cache. Điều này được thực hiện thông qua một lượng lớn thuật toán học máy.
 Với Firefox (ý nói là Firefox không tải trước trang như Chrome) [^fn-nth-2] [^fn-nth-3]
 
 > - Firefox will prefetch certain links if any of the websites you are viewing uses the special prefetch-link tag.
@@ -20,7 +21,6 @@ Với Firefox (ý nói là Firefox không tải trước trang như Chrome) [^fn
 > - To improve the loading speed, Firefox will open predictive connections to sites when the user hovers their mouse over thumbnails on the New Tab page or the user starts to search in the Search Bar, or in the search field on the Home or the New Tab page. In case the user follows through with the action, the page can begin loading faster since some of the work was already started in advance.
 
 *Tạm dịch:*
-
 > - Firefox sẽ tìm tải trước trước một số liên kết nhất định nếu trang web đang truy cập sử dụng thẻ `prefetch-link`, ví dụ: `<link rel="prefetch" href="https://example.com/landing-page" />`
 > - Để giảm độ trễ, Firefox sẽ chủ động thực hiện phân giải tên miền trên các liên kết mà người dùng có thể chọn theo dõi cũng như URL của các mục được tham chiếu bởi các thành phần trong trang web, ví dụ `<link rel="dns-prefetch" href="https://example.com/" />`. Xem thêm: <https://bitsup.blogspot.com/2008/11/dns-prefetching-for-firefox.html>
 > - Để cải thiện tốc độ tải, Firefox sẽ **mở các kết nối được dự đoán** tới các trang web khi người dùng di chuột qua hình thu nhỏ trên trang `New Tab` hoặc người dùng bắt đầu tìm kiếm trong `Thanh tìm kiếm` hoặc trong trường tìm kiếm trên `Homepage` hoặc trang `New Tab`. Trong trường hợp người dùng thực hiện theo dự đoán, trang có thể bắt đầu tải nhanh hơn vì một số công việc đã được bắt đầu trước.

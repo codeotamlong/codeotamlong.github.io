@@ -1,5 +1,5 @@
 ---
-title: "[Firefox Awesome] Part 1: Cách nhảy nhót các bản mod của Firefox mà không mất dữ liệu (.aka backup dữ liệu Firefox)"
+title: "[Firefox Awesome] Cách nhảy nhót các bản mod của Firefox mà không mất dữ liệu (.aka backup dữ liệu Firefox)"
 date: 2023-09-29 09:20:00 +0700
 categories: [awesome, firefox]
 tags: [awesome, firefox]     ## TAG names should always be lowercase

@@ -1,5 +1,5 @@
 ---
-title: "[Firefox Awesome] Part 2b: Các add-on hay ho - HeaderEditor"
+title: "[Firefox Awesome] Các add-on hay ho (P3): HeaderEditor"
 date: 2023-09-29 21:30:00 +0700
 categories: [awesome, firefox, add-on]
 tags: [awesome, firefox, add-on, header editor]     ## TAG names should always be lowercase

@@ -1,5 +1,5 @@
 ---
-title: "[Firefox Awesome] Part 2a: Các addon hay ho - uBlock Origin"
+title: "[Firefox Awesome] Các addon hay ho (P1): uBlock Origin"
 date: 2023-09-29 16:00:00 +0700
 categories: [awesome, firefox, addon]
 tags: [awesome, firefox, addon, ublock, ublock origin]     ## TAG names should always be lowercase

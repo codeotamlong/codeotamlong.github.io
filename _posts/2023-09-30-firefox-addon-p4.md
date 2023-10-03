@@ -1,5 +1,5 @@
 ---
-title: "[Firefox Awesome] Part 2c: Các add-on hay ho - FileCentipede; Multi-Threaded Download Manager"
+title: "[Firefox Awesome] Các add-on hay ho (P4): FileCentipede; Multi-Threaded Download Manager"
 date: 2023-09-30 21:30:00 +0700
 categories: [awesome, firefox, add-on]
 tags: [awesome, firefox, add-on, file centipede, multithreaded download manager, mdm]     # TAG names should always be lowercase

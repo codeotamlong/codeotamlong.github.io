@@ -1,5 +1,5 @@
 ---
-title: "[Firefox Awesome] Part 2b: Các addon hay ho - Auto Tab Discard và ProxySwitchy Omega"
+title: "[Firefox Awesome] Các addon hay ho (P2): Auto Tab Discard và ProxySwitchy Omega"
 date: 2023-09-29 21:30:00:00 +0700
 categories: [awesome, firefox, addon]
 tags: [awesome, firefox, addon, auto tab discard , proxy switchy omega]     ## TAG names should always be lowercase
