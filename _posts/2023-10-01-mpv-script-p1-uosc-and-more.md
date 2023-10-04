@@ -9,11 +9,13 @@ Bạn đã cài uosc cho MPV chưa ? Nếu chưa thì nên cài vì nó tiện c
 
 Thôi mình dùng post này làm thành một bài cài uosc hoàn chỉnh cho tiện, sau này có bạn khác hỏi cứ đưa link là chuẩn 100% không bao giờ nhầm lẫn:
 
-* Tạo folder `portable_config` trong cùng một thư mục với `mpv.exe` nếu chưa tạo (**Xem:** **[Cấu trúc folder chuẩn để dễ dàng làm theo hướng dẫn trong thread]('https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-23849603'))**
+* Tạo folder `portable_config` trong cùng một thư mục với `mpv.exe` nếu chưa tạo (**Xem:** **[Cấu trúc folder chuẩn để dễ dàng làm theo hướng dẫn trong thread\](https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/page-48#post-23849603))**
 * Tạo folder tên `scripts` và tên `script-opts` trong thư mục `portable_config`
 * Tải **uosc.zip** tại đây vào đúng folder `portable_config`: <https://github.com/tomasklaen/uosc/releases>
 * Giải nén `Extract Here` (sao cho folder `scripts` trong file nén chèn vào folder `scripts` trong thư mục `portable_config` và thư mục `fonts` nằm chung với thư mục `scripts`). Chi tiết xem ảnh sau:
-![]("https://voz.vn/attachments/1695213956640-png.2083027/")
+
+![](https://voz.vn/attachments/1695213956640-png.2083027/)
+
 * (Không cần thiết lắm) Tải file config của uosc tại đây vào folder `script-opts`: <https://raw.githubusercontent.com/tomasklaen/uosc/main/script-opts/uosc.conf>
 * (CỰC KỲ QUAN TRỌNG) Tạo một file tên `mpv.conf` (nếu chưa từng tạo) trong thư mục `portable_config` rồi copy toàn bộ đoạn dưới này vào rồi Save:
 
@@ -45,8 +47,8 @@ Ngoài ra cái thumbfast này siêu nhẹ vì nó hoạt động dựa trên cá
 
 Mẹo cho uosc:
 
-* [**Giảm kích thước timeline (thanh trạng thái xem)**]('https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-24989650')
-* [**Giao diện mod song ngữ, tím huế Twitch tinh giảm**]('https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-25899316')
+* [**Giảm kích thước timeline (thanh trạng thái xem)**\](https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/page-110#post-24989650)
+* [**Giao diện mod song ngữ, tím huế Twitch tinh giảm**\](https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/page-191#post-25899316)
 
 
 Sau đó mỗi khi muốn hạ độ phân giải bạn ấn vào nút Quality rồi hạ thôi, dùng như dùng Youtube + nhiều tính năng hơn, sâu cày tính năng đổi chất lượng: <https://gfycat.com/JitterySatisfiedBlackfly>
@@ -58,11 +60,11 @@ Kết quả và hướng dẫn:
 ![https://user-images.githubusercontent.com/47283320/195072935-44d591d9-00bb-4a55-8795-9cf81f65d397.png](https://user-images.githubusercontent.com/47283320/195072935-44d591d9-00bb-4a55-8795-9cf81f65d397.png)
 
 
-Mình vừa test thấy được thumbfast, để cho nhanh thì [**tải file này**]('https://voz.vn/attachments/portable_config-zip.1863600/') giải nén phát xong luôn, có gì tự chỉnh trong thumbfast.conf nhé của mình để thumbnail bự vậy cho dễ nhìn thôi.
+Mình vừa test thấy được thumbfast, để cho nhanh thì [**tải file này**\](https://voz.vn/attachments/portable_config-zip.1863600/) giải nén phát xong luôn, có gì tự chỉnh trong thumbfast.conf nhé của mình để thumbnail bự vậy cho dễ nhìn thôi.
 
 Mở folder `portable_config` rồi `Extract Here` cho nó chèn đè vào nhé, kớt quở:
 
-![]("https://voz.vn/attachments/1685352409501-png.1863593/")
+![](https://voz.vn/attachments/1685352409501-png.1863593/)
 
 
 Test thử: `mpvnet.exe https://www.youtube.com/watch?v=M-8HZCFTbtk`

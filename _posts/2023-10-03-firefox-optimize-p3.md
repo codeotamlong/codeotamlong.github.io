@@ -88,10 +88,10 @@ user_pref("network.trr.mode", 2);
 ```
 {: file="user.js"}
 
-> Nếu muốn dùng profile NextDNS của riêng, sửa thành `https://doh3.dns.nextdns.io/ID_NEXTDNS`, ví dụ `https://doh3.dns.nextdns.io/75a58e` nghĩa là ID_NEXTDNS không chặn quảng cáo, tracking của [thread NextDNS]('https://voz.vn/t/tat-tan-tat-ve-dich-vu-nextdns.522718/'), các bạn nên sử dụng ID này hoặc ID của riêng cá nhân với thiết lập tương đương để tăng tính ổn định cho Firefox bởi uBlock bao khoản chặn quảng cáo rồi, nếu dùng ID có chặn quảng cáo thì sẽ gây lỗi web hay bị phát hiện chặn quảng cáo bởi nhiều trang web khác, `nghĩa là các bạn chỉ dùng NextDNS để lấy ECS kiếm máy chủ gần Việt Nam nhất có thể cho Firefox - và để chặn các trang độc hại, lừa đảo`, cụ thể:
+> Nếu muốn dùng profile NextDNS của riêng, sửa thành `https://doh3.dns.nextdns.io/ID_NEXTDNS`, ví dụ `https://doh3.dns.nextdns.io/75a58e` nghĩa là ID_NEXTDNS không chặn quảng cáo, tracking của [thread NextDNS\](https://voz.vn/t/tat-tan-tat-ve-dich-vu-nextdns.522718/), các bạn nên sử dụng ID này hoặc ID của riêng cá nhân với thiết lập tương đương để tăng tính ổn định cho Firefox bởi uBlock bao khoản chặn quảng cáo rồi, nếu dùng ID có chặn quảng cáo thì sẽ gây lỗi web hay bị phát hiện chặn quảng cáo bởi nhiều trang web khác, `nghĩa là các bạn chỉ dùng NextDNS để lấy ECS kiếm máy chủ gần Việt Nam nhất có thể cho Firefox - và để chặn các trang độc hại, lừa đảo`, cụ thể:
 >
-> | network.trr.uri | [https://doh3.dns.nextdns.io/b7b3b7]('https://dns.nextdns.io/b7b3b7') |
-> | network.trr.custom_uri | [https://doh3.dns.nextdns.io/b7b3b7]('https://dns.nextdns.io/b7b3b7') |
+> | network.trr.uri | https://dns.nextdns.io/b7b3b7 |
+> | network.trr.custom_uri | https://dns.nextdns.io/b7b3b7 |
 > | network.trr.mode | 2 |
 >
 > ```javascript
@@ -141,7 +141,7 @@ user_pref("network.http.http3.alt-svc-mapping-for-testing", 'doh3.dns.nextdns.io
 > ```
 > {: file="user.js"}
 
-> Hoặc nếu bạn không muốn dùng NextDNS+GoogleDNS thì có thể thử Cloudflare Zero Trust: [Hướng dẫn dùng Cloudflare Zero Trust]('https://voz.vn/t/huong-dan-dung-cloudflare-zero-trust.822971/unread')
+> Hoặc nếu bạn không muốn dùng NextDNS+GoogleDNS thì có thể thử Cloudflare Zero Trust: [Hướng dẫn dùng Cloudflare Zero Trust\](https://voz.vn/t/huong-dan-dung-cloudflare-zero-trust.822971/)
 {: .prompt-info }
 
 

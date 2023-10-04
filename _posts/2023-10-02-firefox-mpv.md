@@ -12,7 +12,7 @@ Cơ chế cơ bản vẫn sẽ là các
 
 ## Cách sử dụng Handlers của Firefox để xổ MPV không cần addon+native-client[^fn-nth-1]
 
-Cập nhập Handlers dành cho MPV, hỗ trợ thêm rất nhiều tính năng khi so sánh với [**phiên bản trước đó**]('https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-27172396'), cách sử dụng cũng nhẹ nhàng hơn :D
+Cập nhập Handlers dành cho MPV, hỗ trợ thêm rất nhiều tính năng khi so sánh với [**phiên bản trước đó**](https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/page-247#post-27172396), cách sử dụng cũng nhẹ nhàng hơn :D
 
 **Nếu các bạn thấy lỗi báo cho mình bởi mình chưa có test kỹ.**
 
@@ -30,20 +30,22 @@ Video demo: <https://streamable.com/o3sxe1>
 
 * V1.0: Bản thử nghiệm đầu tiên
 * V1.1: Sửa lỗi M3U8 không cho script kéo link
-* V1.2: Không cập nhập gì nhiều, thêm sẵn `Hướng` cho chéo lên phải, chéo lên trái, chéo xuống phải, chéo xuống trái và [**hướng dẫn cách phát triển thêm tính năng cho script**]('https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-27797344')
+* V1.2: Không cập nhập gì nhiều, thêm sẵn `Hướng` cho chéo lên phải, chéo lên trái, chéo xuống phải, chéo xuống trái và [**hướng dẫn cách phát triển thêm tính năng cho script**](https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/page-304#post-27797344xs)
 * V1.3: Sửa lỗi kèm với làm theo một số khuyến nghị từ Firemonkey (`@include` thay cho `@match` sai chuẩn)
 * V1.4: Chuyển code sang chuẩn switch case cho đẹp bởi [USER=1862337]@pTalent[/USER]
 * V1.5: Hỗ trợ tính năng mới (chú ý để có tính năng mới các bạn cập nhập cả `protocol_hook.lua` mới đính kèm):
 
-* [Chọn nhiều video bằng cách giữ chuột phải 0.4s sau đó mở hàng loạt qua MPV/Streamlink, tải hàng loạt qua YTDL]('https://raw.githubusercontent.com/gunir/My/main/ezgif-5-76a8e47ef4.webp')
+![](../../assets/img/firefox-mpv/ezgif-5-76a8e47ef4.webp)
+_Chọn nhiều video bằng cách giữ chuột phải 0.4s sau đó mở hàng loạt qua MPV/Streamlink, tải hàng loạt qua YTDL_
+
 * Hỗ trợ Linux, MacOS (sửa lỗi URL bị hỏng của Mac)
 * Không còn phải nhập tay thư mục MPV nữa
-* [Kéo lên để xem playlist dạng stream]('https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-27973646')
+* [Kéo lên để xem playlist dạng stream](https://streamable.com/se2yn7)
 
 * V1.6: Hỗ trợ `mpv://`, sửa lại code cho đúng quy chuẩn
 
 ### Cài đặt
-1. Cài đặt tại [**Greasyfork.org**]('https://greasyfork.org/en/scripts/475574-handlers-helper') hoặc Từ addon quản lý Userscript như Violent/Fire/Tamplermonkey, tạo script mới rồi paste chỗ này vào, Save.
+1. Cài đặt tại [**Greasyfork.org**](https://greasyfork.org/en/scripts/475574-handlers-helper) hoặc Từ addon quản lý Userscript như Violent/Fire/Tamplermonkey, tạo script mới rồi paste chỗ này vào, Save.
 
 ```javascript
 // ==UserScript==
@@ -405,7 +407,7 @@ document.addEventListener('mousedown', function(e) {
 
 ## Cách dùng Userscript lấy link video để xem trong MPV[^fn-nth-2]
 
-Thằng [M3U8 Video Detector and Downloader]('https://greasyfork.org/en/scripts/449581-m3u8%E8%A7%86%E9%A2%91%E4%BE%A6%E6%B5%8B%E4%B8%8B%E8%BD%BD%E5%99%A8-%E8%87%AA%E5%8A%A8%E5%97%85%E6%8E%A2') mới update bản mới nên mình có chỉnh lại 1 tí là tận dụng luôn cái link nó get ra để sử dụng với External Application Launcher. Cái script của mình đã remove đi giá trị ## `// @homepage` nên sẽ không update được. Nếu ai muốn update thì cứ giữ nguyên giá trị ## `// @homepage`  nhưng mà khi update thì nó sẽ trả về y như nguyên tác của tác giả đã viết nên vì vậy những thứ mình đã chỉnh lại sẽ mất hết.
+Thằng [M3U8 Video Detector and Downloader](https://greasyfork.org/en/scripts/449581-m3u8%E8%A7%86%E9%A2%91%E4%BE%A6%E6%B5%8B%E4%B8%8B%E8%BD%BD%E5%99%A8-%E8%87%AA%E5%8A%A8%E5%97%85%E6%8E%A2) mới update bản mới nên mình có chỉnh lại 1 tí là tận dụng luôn cái link nó get ra để sử dụng với External Application Launcher. Cái script của mình đã remove đi giá trị ## `// @homepage` nên sẽ không update được. Nếu ai muốn update thì cứ giữ nguyên giá trị ## `// @homepage`  nhưng mà khi update thì nó sẽ trả về y như nguyên tác của tác giả đã viết nên vì vậy những thứ mình đã chỉnh lại sẽ mất hết.
 
 ```javascript
 // ==UserScript==

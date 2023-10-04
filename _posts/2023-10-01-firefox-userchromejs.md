@@ -69,7 +69,7 @@ Rồi, đơn giản lắm giờ cài script Extension Option Panel thôi:
 
 Khởi động lại là xong (tốt nhất là dùng `about:support` -> `Clear startup cache...` để Firefox đào thải cache cũ khiến Loader không nạp được), kết quả y như bài bên trên: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-27662443>
 
-Ngoài ra đọc bài [**giới thiệu các script userChrome.js này để kiểm script ngon**]('https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-27662881')**.**
+Ngoài ra đọc bài [**giới thiệu các script userChrome.js này để kiểm script ngon**\](https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/page-292#post-27662881)**.**
 
 
 
