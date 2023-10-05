@@ -6,7 +6,7 @@ tags: [awesome, firefox, optimize]     ## TAG names should always be lowercase
 ---
 > Có **02*- cách chính để thay đổi các tham số của Firefox:
 > 1. Vào `about:config`, tìm và sửa tham số theo nhu cầu
-> 2. Sửa file `user.js` (**khuyến khích*- để có thể theo dõi thay đổi và backup):
+> 2. Sửa file `user.js` (**khuyến khích** để có thể theo dõi thay đổi và backup):
 >       + Mở `about:support` => Open Profile Folder
 >       + Đóng Firefox (tắt hẳn - _chú ý với MacOS: Close khác với Quit_)
 >       + Tạo mới nếu chưa có
@@ -19,7 +19,7 @@ tags: [awesome, firefox, optimize]     ## TAG names should always be lowercase
 
 ## Kháng Tracking + Canvas Fingerprint + Font Fingerprint với RFP + FluxFont [^fn-nth-2]
 
-Cái này tí mình quên tại ban đầu là viết cho addon JShelter+Fluxfonts, chữa cháy tạm với RFP+Fluxfonts nên quên vụ ghi đè font của RFP này luôn, cảm ơn bạn đã chia sẻ. Vậy mình sẽ sử dụng post này để làm một bài về chống fingerprint rồi cho lên #1 cho dễ tra cứu.
+Cái này tí mình quên tại ban đầu là viết cho add-on JShelter+Fluxfonts, chữa cháy tạm với RFP+Fluxfonts nên quên vụ ghi đè font của RFP này luôn, cảm ơn bạn đã chia sẻ. Vậy mình sẽ sử dụng post này để làm một bài về chống fingerprint rồi cho lên #1 cho dễ tra cứu.
 
 > **Lưu ý nhỏ:***- Riêng tư và bảo mật luôn đi kèm sự thay đổi hoặc bất tiện, cân nhắc kỹ trước khi làm theo.
 {: .prompt-warning }

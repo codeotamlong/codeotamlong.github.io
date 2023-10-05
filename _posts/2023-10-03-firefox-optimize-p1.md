@@ -4,9 +4,9 @@ date: 2023-10-03 20:00:00 +0700
 categories: [awesome, firefox, optimize]
 tags: [awesome, firefox, optimize]     ## TAG names should always be lowercase
 ---
-> Có **02*- cách chính để thay đổi các tham số của Firefox:
+> Có **02** cách chính để thay đổi các tham số của Firefox:
 > 1. Vào `about:config`, tìm và sửa tham số theo nhu cầu
-> 2. Sửa file `user.js` (**khuyến khích*- để có thể theo dõi thay đổi và backup):
+> 2. Sửa file `user.js` (**khuyến khích** để có thể theo dõi thay đổi và backup):
 >       + Mở `about:support` => Open Profile Folder
 >       + Đóng Firefox (tắt hẳn - _chú ý với MacOS: Close khác với Quit_)
 >       + Tạo mới nếu chưa có
@@ -241,7 +241,7 @@ P/s: Sắp tới bài viết về tối ưu Firefox của mình sẽ phải có 
 
 Ngày xưa hồi mà các bài báo Việt Nam đăng ồ ạt về tối ưu Firefox ấy, thì cái `nglayout.initialpaint.delay` là một trong những tối ưu sai rất sai khi họ khuyên người dùng hạ xuống thấp hơn 250, thực ra để giá trị này cải thiện hiệu năng thì nên tăng lên vì Firefox giờ rất thông minh rồi, tăng lên 1000000000000 thì khi trang tải xong Firefox cũng render một chạm cả trang luôn, cơ mà mình toàn để 2000 (nghĩa là nhắc Firefox cứ làm sao thì làm, sau 2s phải hiển thị trang web dựa trên những gì đã tải được) vì nhỡ sao trang web nó bị chậm có vài file css, js tải mãi không xong thì đợi dài cổ :D
 
-Tăng giá trị `nglayout.initialpaint.delay` sẽ cực kỳ hiệu quả khi dùng addon như Dark Reader, [chi tiết](../firefox-addon-p7/#nguy%C3%AAn-nh%C3%A2n).
+Tăng giá trị `nglayout.initialpaint.delay` sẽ cực kỳ hiệu quả khi dùng add-on như Dark Reader, [chi tiết](../firefox-addon-p7/#nguy%C3%AAn-nh%C3%A2n).
 
 **Cách thức:**
 - Mở `about:config`, tìm và sửa lại:
@@ -299,8 +299,28 @@ user_pref("browser.cache.memory.max_entry_size", 512000);
 ```
 {: file="user.js"}
 
+### Tắt RCWN để Firefox chung thủy với RAM cache [^fn-nth-2]
+
+Kể từ phiên bản 59, Firefox có một tính năng gọi là Race Cache With Network (_RCWN_). Nếu phát hiện ổ đĩa chậm(như _HDD đời Tống_ - Firefox 59 release năm 2018), Firefox có thể quyết định bắt đầu yêu cầu mạng ngay lập tức mà không cần chờ bộ đệm. 
+
+Đó là một sự đánh đổi: 
+: Nếu các yêu cầu mạng nhan hơn, độ trễ sẽ được cải thiện; 
+: Nếu cache nhanh hơn thì băng thông mạng đã bị lãng phí.
+
+Để vô hiệu hóa: Vào `about:config` chỉnh:
+
+| network.http.rcwn.enabled | false |
+
+```javascript
+// Force RAM cache - Disable RCWN
+user_pref("network.http.rcwn.enabled", false);
+```
+{: file="user.js"}
+
+Vậy là từ nay Firefox sẽ chỉ chung thủy sắt son với RAM thôi chứ không có ý định ngoại tình với mạng.
 
 ## Nguồn:
 [^fn-nth-1]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/page-280#post-27527209>
 [^fn-nth-3]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/page-38#post-23570551>
 [^fn-nth-4]: <https://voz.vn/t/cach-ep-firefox-luu-cache-tren-ram-ma-khong-can-ramdisk.664955/>
+[^fn-nth-2]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/page-262#post-27409530>

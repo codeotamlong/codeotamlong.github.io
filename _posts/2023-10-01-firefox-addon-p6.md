@@ -44,7 +44,7 @@ Kiểm tra lại xem có ok không, nếu đã ok rồi thì cứ mạnh dạn x
 
 Nếu thích cứ tạo Shortcut mà mở từ Desktop là giống y chang thằng Zalo PC, mà không bị ba cái vụ ba xàm kia. Áp dụng tương tự cho nhiều trang web khác nhé, ví dụ Photopea (biến thành offline luôn), Discord...
 
-Đã cho lên #1, addon ngon và tương lai sẽ có thêm tính năng Minimize to Tray như tác giả hứa.
+Đã cho lên #1, add-on ngon và tương lai sẽ có thêm tính năng Minimize to Tray như tác giả hứa.
 
 ### Cách Pin PWA vào Taskbar[^fn-nth-3][^fn-nth-4]
 

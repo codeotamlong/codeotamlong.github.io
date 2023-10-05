@@ -11,7 +11,7 @@ tags: [awesome, firefox, add-on, file centipede, multithreaded download manager,
 - Tải tại đây: <https://github.com/filecxx/FileCentipede/releases>
 - Hướng dẫn cách để con vịt hết pede đi bởi @Fioren: <https://voz.vn/t/tong-hop-software-can-thiet-cho-may-tinh.2974/post-21105427>
 
-Nếu các bạn xài Firefox Portable hay Floorp thì vào trang addon cài **<https://addons.mozilla.org/vi/firefox/addon/filecxx/>** hoặc tải file `firefox.xpi` [**tại đây**](https://github.com/filecxx/FileCentipede/releases) rồi kéo thả nó vào để cài đặt là xong nếu nó không tự cài đặt, thường thì khi xài Firefox cài đặt là nó tự cài.
+Nếu các bạn xài Firefox Portable hay Floorp thì vào trang add-on cài **<https://addons.mozilla.org/vi/firefox/addon/filecxx/>** hoặc tải file `firefox.xpi` [**tại đây**](https://github.com/filecxx/FileCentipede/releases) rồi kéo thả nó vào để cài đặt là xong nếu nó không tự cài đặt, thường thì khi xài Firefox cài đặt là nó tự cài.
 
 Tính năng thì:
 : Y như IDM (đa luồng, thời gian biểu (schedule), bắt link video, hàng loạt...)
@@ -91,7 +91,7 @@ Có tính năng Queue để giới hạn số lượng tải về trong cùng m�
 > Kết hợp với yt-dlp như hướng dẫn này của mình thì IDM gọi bằng cụ nhé :D <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-23288076>
 {: .prompt-tip }
 
-Ngoài ra đã kiểm tra code, an toàn nhé và ông dev Tung Của này uy tín và có nghề phết, toàn code addon độc và lạ. :D
+Ngoài ra đã kiểm tra code, an toàn nhé và ông dev Tung Của này uy tín và có nghề phết, toàn code add-on độc và lạ. :D
 
 **Để Multithreaded Download Manager bắt link Drive thì xem post sau: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-24525109>**
 

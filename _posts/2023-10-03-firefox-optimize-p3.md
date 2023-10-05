@@ -6,7 +6,7 @@ tags: [awesome, firefox, optimize]     ## TAG names should always be lowercase
 ---
 > Có **02*- cách chính để thay đổi các tham số của Firefox:
 > 1. Vào `about:config`, tìm và sửa tham số theo nhu cầu
-> 2. Sửa file `user.js` (**khuyến khích*- để có thể theo dõi thay đổi và backup):
+> 2. Sửa file `user.js` (**khuyến khích** để có thể theo dõi thay đổi và backup):
 >       + Mở `about:support` => Open Profile Folder
 >       + Đóng Firefox (tắt hẳn - _chú ý với MacOS: Close khác với Quit_)
 >       + Tạo mới nếu chưa có
@@ -165,7 +165,7 @@ Một tay (`profile`) chặn quảng cáo (dùng càng ít list càng tốt sẽ
 : List ABPVN
 : List mobile để xử lý quảng cáo trong ứng dụng Android/iOS
 
-> Sử dụng profile _không chặn quảng cáo_ trong trình duyệt web: giống bài này vì thứ tư ưu tiên trình duyệt web luôn dùng DNS mình đặt trong trình duyệt và dùng kèm addon chặn quảng cáo như uBlock/Adguard
+> Sử dụng profile _không chặn quảng cáo_ trong trình duyệt web: giống bài này vì thứ tư ưu tiên trình duyệt web luôn dùng DNS mình đặt trong trình duyệt và dùng kèm add-on chặn quảng cáo như uBlock/Adguard
 {: .prompt-info }
 
 Như vậy trải nghiệm sẽ là tốt nhất, vì trình duyệt web sợ anti-adblock, cơ mà dùng kiểu này anti-adblock bị uBlock chém rồi nên NextDNS chỉ phải lo đảm bảo an toàn không gian mạng cho mình.

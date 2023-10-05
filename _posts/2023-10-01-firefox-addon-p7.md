@@ -6,7 +6,7 @@ tags: [awesome, firefox, add-on, quick cookie manager, dark reader, bitwarden, f
 ---
 ## Quick Cookie Manager - Thêm, sửa, xóa, ghim, backup, chia sẻ Cookies[^footnote]
 )[**Quick Cookie Manager**](https://addons.mozilla.org/en-US/firefox/addon/cookie-quick-manager/: Tính năng chính là cho phép thêm, sửa, xóa cookie mà hiện tại nhiều người vẫn dùng nó để chơi trò share account premium đấy.
-Firefox thì có rất nhiều addon quản lý cookie, tuy nhiên addon quản lý cookie này mình đánh giá rất cao tại vì:
+Firefox thì có rất nhiều add-on quản lý cookie, tuy nhiên add-on quản lý cookie này mình đánh giá rất cao tại vì:
 
 - Hỗ trợ quản lý cookie trong cả Container
 - Hỗ trợ export ra file cookies.txt có thể chia sẻ cho nhau tài khoản Premium hay dùng cho yt-dlp mà trước [Chrome từng có thằng Save cookies.txt mà cả một subreddit cài vào là malware đó](https://i.reddit.com/r/youtubedl/comments/11i5vyq/psa_the_get_cookiestxt_extension_is_now_actively/)
@@ -15,9 +15,9 @@ Firefox thì có rất nhiều addon quản lý cookie, tuy nhiên addon quản 
 
 ## Dark Reader - Ép "Chế độ ban đêm" cho trang web (kèm hướng dẫn tối ưu)[^footnote][^fn-nth-2]
 
-Thấy nhu cầu của nhiều người dùng cần Chế độ ban đêm (Dark Reader), mà ở thời điểm hiện tại Firefox không có giải pháp tốt nhất cho chế độ này nghĩa là [**native (dùng chính engine WebRender để tạo màu đen cho web, hiệu năng cao nhất)**](https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-25194758) nên mình sẽ viết một bài chi tiết cách sử dụng addon này sao cho hiệu năng cao nhất.
+Thấy nhu cầu của nhiều người dùng cần Chế độ ban đêm (Dark Reader), mà ở thời điểm hiện tại Firefox không có giải pháp tốt nhất cho chế độ này nghĩa là [**native (dùng chính engine WebRender để tạo màu đen cho web, hiệu năng cao nhất)**](https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-25194758) nên mình sẽ viết một bài chi tiết cách sử dụng add-on này sao cho hiệu năng cao nhất.
 
-[**Dark Reader**](https://addons.mozilla.org/en-US/firefox/addon/darkreader/) thì là addon quá nổi tiếng rồi, trong các addon ép Chế độ ban đêm cho trang web thì thằng này là số một, đa năng nhất, lâu đời nhất, hiệu quả nhất, hiệu năng cũng nhất tuy nhiên vẫn chậm một chút, để nó hoạt động hiệu quả các bạn nên làm phần hướng dẫn bên dưới chỉnh giá trị [**nglayout.initialpaint.delay**](https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-23570551)[^fn-nth-3] để tăng hiệu năng của nó lên hết cỡ.
+[**Dark Reader**](https://addons.mozilla.org/en-US/firefox/addon/darkreader/) thì là add-on quá nổi tiếng rồi, trong các add-on ép Chế độ ban đêm cho trang web thì thằng này là số một, đa năng nhất, lâu đời nhất, hiệu quả nhất, hiệu năng cũng nhất tuy nhiên vẫn chậm một chút, để nó hoạt động hiệu quả các bạn nên làm phần hướng dẫn bên dưới chỉnh giá trị [**nglayout.initialpaint.delay**](https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-23570551)[^fn-nth-3] để tăng hiệu năng của nó lên hết cỡ.
 
 **Cài đặt: <https://addons.mozilla.org/en-US/firefox/addon/darkreader/>**
 
@@ -35,7 +35,7 @@ Chỉ vậy thôi là Dark Reader sẽ hoạt động trơn tru hơn. Nếu tran
 
 Ngày xưa hồi mà các bài báo Việt Nam đăng ồ ạt về tối ưu Firefox ấy, thì cái `nglayout.initialpaint.delay` là một trong những tối ưu sai rất sai khi họ khuyên người dùng hạ xuống thấp hơn 250, thực ra để giá trị này cải thiện hiệu năng thì nên tăng lên vì Firefox giờ rất thông minh rồi, tăng lên 1000000000000 thì khi trang tải xong Firefox cũng render một chạm cả trang luôn, cơ mà mình toàn để 2000 (nghĩa là nhắc Firefox cứ làm sao thì làm, sau 2s phải hiển thị trang web dựa trên những gì đã tải được) vì nhỡ sao trang web nó bị chậm có vài file css, js tải mãi không xong thì đợi dài cổ :D
 
-Tăng giá trị `nglayout.initialpaint.delay` sẽ cực kỳ hiệu quả khi dùng addon như Dark Reader, [**chi tiết**] (https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-22949373).
+Tăng giá trị `nglayout.initialpaint.delay` sẽ cực kỳ hiệu quả khi dùng add-on như Dark Reader, [**chi tiết**] (https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-22949373).
 
 #### Cách thức:
 - Mở `about:config`, tìm và sửa lại:
@@ -101,7 +101,7 @@ Cũng bài viết trên này và áp dụng với người dùng của Dark Read
 
 
 
-Addon Dark Reader rất tiện, tuy nhiên addon này sử dụng rất nhiều CSS và JS để thay đổi màu sắc từng vùng trên trang web (thực sự là addon này phức tạp hơn rất nhiều người nghĩ là cứ cài vào nó biến trang web thành màu đen, nó còn phân tích màu sắc của font, các thẻ HTML lân cận để đưa ra quyết định có thay đổi màu sang đen hay không) khiến trang web phải render liên tục, tăng giá trị `nglayout.initialpaint.delay` sẽ giảm bớt số lần render của Firefox đi, khiến hạ bớt CPU đi khi tải trang. Tham khảo bài viết trên Reddit ở bên trên để rõ hơn:
+Addon Dark Reader rất tiện, tuy nhiên add-on này sử dụng rất nhiều CSS và JS để thay đổi màu sắc từng vùng trên trang web (thực sự là add-on này phức tạp hơn rất nhiều người nghĩ là cứ cài vào nó biến trang web thành màu đen, nó còn phân tích màu sắc của font, các thẻ HTML lân cận để đưa ra quyết định có thay đổi màu sang đen hay không) khiến trang web phải render liên tục, tăng giá trị `nglayout.initialpaint.delay` sẽ giảm bớt số lần render của Firefox đi, khiến hạ bớt CPU đi khi tải trang. Tham khảo bài viết trên Reddit ở bên trên để rõ hơn:
 
 > I rather like the popular Dark Reader extension — an extension which forces "dark" versions of webpages via looking at the colors used. This is useful to reduce power usage on OLED displays and for more comfortable viewing in dark environments — but it causes significant rendering slowdown on my Android phone and causes the phone to heat up.
 > Instructing Firefox to delay incremental redraw appears to have done a great deal to resolve the pain of this for me.

@@ -26,10 +26,8 @@ UA: `Mozilla/5.0 (Android 12; Mobile; rv:109.0) Gecko/113.0 Firefox/113.0`
 
 Còn nếu muốn ép Bing Chat chạy trên Firefox thì tương tự như trên tạo cái rule mới cho `bing.com` và `www.bing.com` với UA:
 
-
 - **<span style="color:rgb(65, 168, 95)">Nếu là Firefox PC:</span>** `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/112.0.1722.48`
 - **<span style="color:rgb(41, 105, 176)">Nếu là Firefox Mobile:</span>** `Mozilla/5.0 (Linux; Android 8.1.0; Pixel Build/OPM4.171019.021.D1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36 EdgA/42.0.0.2057`
-
 
 Vào `about:config` chỉnh `layout.css.overflow-overlay.enabled` thành true.
 

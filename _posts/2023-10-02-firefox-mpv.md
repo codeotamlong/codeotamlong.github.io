@@ -10,7 +10,7 @@ Mục đích đầu tiên là để xem Youtube mà không cần phụ thuộc v
 
 Cơ chế cơ bản vẫn sẽ là các 
 
-## Cách sử dụng Handlers của Firefox để xổ MPV không cần addon+native-client[^fn-nth-1]
+## Cách sử dụng Handlers của Firefox để xổ MPV không cần add-on+native-client[^fn-nth-1]
 
 Cập nhập Handlers dành cho MPV, hỗ trợ thêm rất nhiều tính năng khi so sánh với [**phiên bản trước đó**](https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/page-247#post-27172396), cách sử dụng cũng nhẹ nhàng hơn :D
 
@@ -45,7 +45,7 @@ _Chọn nhiều video bằng cách giữ chuột phải 0.4s sau đó mở hàng
 * V1.6: Hỗ trợ `mpv://`, sửa lại code cho đúng quy chuẩn
 
 ### Cài đặt
-1. Cài đặt tại [**Greasyfork.org**](https://greasyfork.org/en/scripts/475574-handlers-helper) hoặc Từ addon quản lý Userscript như Violent/Fire/Tamplermonkey, tạo script mới rồi paste chỗ này vào, Save.
+1. Cài đặt tại [**Greasyfork.org**](https://greasyfork.org/en/scripts/475574-handlers-helper) hoặc Từ add-on quản lý Userscript như Violent/Fire/Tamplermonkey, tạo script mới rồi paste chỗ này vào, Save.
 
 ```javascript
 // ==UserScript==

@@ -10,7 +10,7 @@ tags: [awesome, firefox, add-on, violentmonkey, greasymonkey, tampermonkey, ling
 
 ### So sánh:
 - Violentmonkey có tính tương thích cao, mã nguồn mở
-- Tampermonkey có tính tương thích rất cao, tuy nhiên là **<span style="color:=rgb(226, 80, 65)">mã nguồn đóng</span>**: [URL]https://github.com/Tampermonkey/tampermonkey/issues/1515]
+- Tampermonkey có tính tương thích rất cao, tuy nhiên là **<span style="color:=rgb(226, 80, 65)">mã nguồn đóng</span>**: <https://github.com/Tampermonkey/tampermonkey/issues/1515]
 - Firemonkey là trẻ trâu mới vào làng, rất nhanh và nhẹ nhưng tính tương thích kiểu lúc được lúc không, nên tạm thời cho xuống Thùng Rác
 - Greasemonkey là thủy tổ của tất cả, tính tương thích tàm tạm, tính năng đã lỗi thời
 
