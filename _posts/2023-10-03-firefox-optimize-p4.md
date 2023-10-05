@@ -69,7 +69,7 @@ user_pref("fission.autostart", false );
 : Nội dung trong nhiều tab nhưng đến từ cùng 1 root domain được dùng không quá 4 tiến trình (giá trị mặc định của *dom.ipc.processCount.webIsolated*).
 
 2. Giới hạn bởi số root domain: `dom.ipc.processcount.webisolated = 1`
-: Nội dung trong nhiều tab nhưng đến từ cùng 1 root domain được dùng 1 tiến trình. VD: mở 7 tab [www.google.com](http://www.google.com), mail.google.com, docs.google.com, drive.google.com[COLOR=rgb(44, 130, 201)], cloud.google.com[COLOR=rgb(44, 130, 201)], translate.google.com[COLOR=rgb(44, 130, 201)], bard.google.com[/COLOR] [/COLOR][/COLOR] chỉ tốn 1 "Isolated web content process".
+: Nội dung trong nhiều tab nhưng đến từ cùng 1 root domain được dùng 1 tiến trình. VD: mở 7 tab [www.google.com](https://www.google.com), mail.google.com, docs.google.com, drive.google.com[COLOR=rgb(44, 130, 201)], cloud.google.com[COLOR=rgb(44, 130, 201)], translate.google.com[COLOR=rgb(44, 130, 201)], bard.google.com[/COLOR] [/COLOR][/COLOR] chỉ tốn 1 "Isolated web content process".
 
 3. Giới hạn bởi content value: `fission.webContentIsolationStrategy = 2`
 : Chỉ những *high value content* mới chạy trong tiến trình riêng (không rõ Mozilla coi những trang nào là high value, chắc là các trang payment, email...), các Nội dung còn lại sẽ được xử lý bởi các "Shared web content process", số process này chính là giá trị của *dom.ipc.processCount*.
