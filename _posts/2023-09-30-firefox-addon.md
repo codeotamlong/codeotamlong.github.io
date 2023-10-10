@@ -18,21 +18,25 @@ Ngoài ra việc chặn quảng cáo sẽ giúp các bạn tránh khỏi những
 
 Cũng như tăng cường sự riêng tư vì các tracker bị chặn luôn, khiến các trang web không theo dõi được bạn.
 
-### Các bộ lọc đáng dùng không lỗi cho uBlock[^ff-ubo-2]
+### Các bộ lọc đáng dùng không lỗi cho uBlock[^ff-ubo-2][^ff-ubo-8]
 
-Tiếp tục chủ đề về uBlock, add-on #1 ở thread nên phải tiếp tục mở rộng công năng của nó, sau đây là những filter (bộ lọc) hay cho uBlock mà không gây lỗi web, bởi nó là bộ lọc tính năng hoặc chỉ dành cho một đối tượng nhất định nào đó:
-
-- Chặn quảng cáo với Facebook (đối tượng): <https://raw.githubusercontent.com/ethan-xd/ethan-xd.github.io/master/fb.txt>
-- Xem các trang đòi trả tiền không tốn xu nào với Bypass Paywall Clean (tính năng): <https://gitlab.com/magnolia1234/bypass-paywalls-clean-filters/-/raw/main/bpc-paywall-filter.txt>
-- Nhảy link rút gọn, link theo dõi người dùng với LegitimateURLShortener (tính năng): <https://gitlab.com/DandelionSprout/adfilt/-/raw/master/LegitimateURLShortener.txt>
-- Loại bỏ các trang web trùng lặp khỏi kết quả tìm kiếm Google, Duck, Bing... (đối tượng): <https://raw.githubusercontent.com/quenhus/uBlock-Origin-dev-filter/main/dist/all_search_engines/global.txt>
-
-Và không quên lưu ý, luật bất thành văn khi thêm bộ lọc vào uBlock là **luôn thêm bộ lọc `đối tượng` và `tính năng,` tránh xa bộ lọc `chặn`**.
+| Tính năng | Phân loại | Link |
+|:-|-|-|
+| Chặn quảng cáo Facebook | đối tượng | <https://raw.githubusercontent.com/ethan-xd/ethan-xd.github.io/master/fb.txt> |
+| Bypass Paywall Clean | tính năng | <https://gitlab.com/magnolia1234/bypass-paywalls-clean-filters/-/raw/main/bpc-paywall-filter.txt> |
+| LegitimateURLShortener | tính năng | <https://gitlab.com/DandelionSprout/adfilt/-/raw/master/LegitimateURLShortener.txt> |
+| Bỏ kết quả trùng lặp<br>trên Google, Duck, Bing... | đối tượng | <https://raw.githubusercontent.com/quenhus/uBlock-Origin-dev-filter/main/dist/all_search_engines/global.txt> |
+| PrivacyEnhanced<br>_(@Fioren giới thiệu)_ | chặn | <https://github.com/stephenhawk8054/PrivacyExtended> |
+| Ẩn hộp thoại bắt đăng nhập | tính năng | <https://github.com/DandelionSprout/adfilt/blob/master/BrowseWebsitesWithoutLoggingIn.txt> |
+| Anti-Paywall Cleaner | tính năng | <https://github.com/liamengland1/miscfilters/blob/master/antipaywall.txt> |
+| Ẩn elements khó chịu/thừa<br>_(của tác giả Betterfox)_ | tính năng | <https://github.com/yokoffing/filterlists/blob/main/annoyance_list.txt> |
 
 > Bổ sung:
->- [ABPVN](https://abpvn.com/get): <https://abpvn.com/filter/abpvn-PeImlF.txt?ublock>
->- [FMSF2](https://nmtrung.com/fmsf-2/): <https://raw.githubusercontent.com/nmtrung/FMSF-2.0/master/fmsf_2.0.txt>
+> : [ABPVN](https://abpvn.com/get): <https://abpvn.com/filter/abpvn-PeImlF.txt?ublock>
+> : [FMSF2](https://nmtrung.com/fmsf-2/): <https://raw.githubusercontent.com/nmtrung/FMSF-2.0/master/fmsf_2.0.txt>
 {: .prompt-info }
+
+
 
 ### Cách chặn các tên miền mới tạo (thường là lừa bịp, virus) bằng uBlock[^ff-ubo-3]
 
@@ -1150,6 +1154,7 @@ Addon Dark Reader rất tiện, tuy nhiên add-on này sử dụng rất nhiều
 [^ff-ubo-5]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-25261196>
 [^ff-ubo-6]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-25582594>
 [^ff-ubo-7]: <https://www.reddit.com/r/HobbyDrama/comments/jo9wxn/open_source_development_the_fall_of_nano_defender/>
+[^ff-ubo-8]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/page-376#post-28159390>
 [^ff-tabunloader]: <https://firefox-source-docs.mozilla.org/browser/tabunloader/>
 [^ff-auto-tab-discard]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-24609843>
 [^fn-proxy-switchy-1]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-25233313>
