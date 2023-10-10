@@ -336,7 +336,7 @@ P/s: Sắp tới bài viết về tối ưu Firefox của mình sẽ phải có 
 
 Ngày xưa hồi mà các bài báo Việt Nam đăng ồ ạt về tối ưu Firefox ấy, thì cái `nglayout.initialpaint.delay` là một trong những tối ưu sai rất sai khi họ khuyên người dùng hạ xuống thấp hơn 250, thực ra để giá trị này cải thiện hiệu năng thì nên tăng lên vì Firefox giờ rất thông minh rồi, tăng lên 1000000000000 thì khi trang tải xong Firefox cũng render một chạm cả trang luôn, cơ mà mình toàn để 2000 (nghĩa là nhắc Firefox cứ làm sao thì làm, sau 2s phải hiển thị trang web dựa trên những gì đã tải được) vì nhỡ sao trang web nó bị chậm có vài file css, js tải mãi không xong thì đợi dài cổ :D
 
-Tăng giá trị `nglayout.initialpaint.delay` sẽ cực kỳ hiệu quả khi dùng add-on như Dark Reader, [chi tiết](../firefox-addon-p7/#nguy%C3%AAn-nh%C3%A2n).
+Tăng giá trị `nglayout.initialpaint.delay` sẽ cực kỳ hiệu quả khi dùng add-on như Dark Reader, [chi tiết](../firefox-addon/#nguy%C3%AAn-nh%C3%A2n).
 
 **Cách thức:**
 - Mở `about:config`, tìm và sửa lại:
@@ -353,8 +353,8 @@ user_pref("nglayout.initialpaint.delay_in_oopif", 2000);
 
 _Xem thêm_
 
-: [Một cái nhìn khái quát hơn về cách Firefox render trang web cũng như tối ưu xa hơn giữa `nglayout.initialpaint.delay` và `content.notify.interval`.](../firefox-addon-p7/#m%E1%BB%99t-c%C3%A1i-nh%C3%ACn-kh%C3%A1i-qu%C3%A1t-h%C6%A1n-v%E1%BB%81-c%C3%A1ch-firefox-render-trang-web-c%C5%A9ng-nh%C6%B0-t%E1%BB%91i-%C6%B0u-xa-h%C6%A1n-gi%E1%BB%AFa-nglayoutinitialpaintdelay-v%C3%A0-contentnotifyinterval)
-: [Nguyên nhân](../firefox-addon-p7/#nguy%C3%AAn-nh%C3%A2n)
+: [Một cái nhìn khái quát hơn về cách Firefox render trang web cũng như tối ưu xa hơn giữa `nglayout.initialpaint.delay` và `content.notify.interval`.](../firefox-addon/#m%E1%BB%99t-c%C3%A1i-nh%C3%ACn-kh%C3%A1i-qu%C3%A1t-h%C6%A1n-v%E1%BB%81-c%C3%A1ch-firefox-render-trang-web-c%C5%A9ng-nh%C6%B0-t%E1%BB%91i-%C6%B0u-xa-h%C6%A1n-gi%E1%BB%AFa-nglayoutinitialpaintdelay-v%C3%A0-contentnotifyinterval)
+: [Nguyên nhân](../firefox-addon/#nguy%C3%AAn-nh%C3%A2n)
 
 ## Ép Firefox lưu cache trên RAM mà không cần RAMDisk [^ff-ram-cache]
 

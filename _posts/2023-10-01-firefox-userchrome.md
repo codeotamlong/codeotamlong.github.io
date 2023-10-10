@@ -1,5 +1,5 @@
 ---
-title: "[Firefox Awesome] Các userChromeJS/CSS hay ho: Extension Option Panel"
+title: "[Firefox Awesome] Các userChromeJS/CSS hay ho"
 date: 2023-10-01 10:30:00 +0700
 categories: [awesome, firefox, add-on, userchromejs, extension option panel]
 tags: [awesome, firefox, add-on, userchromejs, extension option panel]     ## TAG names should always be lowercase
@@ -160,7 +160,7 @@ Cấu trúc thư mục `PROFILE_DIR\chrome\` mới
 > Trong `about:config` có tham số `ui.prefersReducedMotion` để bắt trang web nó không dùng animation, tuy nhiên hỏi là một chuyện người ta đồng ý hay không lại là một chuyện khác vì nó đòi hỏi trang web phải sử dụng CSS `@media (prefers-reduced-motion) {/* styles to apply if a user's device settings are set to reduced motion */}`
 {: .prompt-tip }
 
-> Ngoài ra nếu sử dụng thêm [Header Editor](../firefox-addon-p3) để gửi thêm header [`Sec-CH-Prefers-Reduced-Motion: "reduce"`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-CH-Prefers-Reduced-Motion) thì sẽ hiệu quả hơn vì sẽ khiến trang web hiểu điều này để trả về trang web không dùng animation.
+> Ngoài ra nếu sử dụng thêm [Header Editor](../firefox-addon/#header-editor---%C4%91%E1%BB%95i-user-agentlanguage-t%C3%B9y-%C3%BD-thay-%C4%91%E1%BB%95i-n%E1%BB%99i-dung-trang-web) để gửi thêm header [`Sec-CH-Prefers-Reduced-Motion: "reduce"`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-CH-Prefers-Reduced-Motion) thì sẽ hiệu quả hơn vì sẽ khiến trang web hiểu điều này để trả về trang web không dùng animation.
 {: .prompt-tip }
 
 Mở folder `PROFILE_DIR/chrome`:
