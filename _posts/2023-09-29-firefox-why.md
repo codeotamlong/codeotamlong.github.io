@@ -6,7 +6,8 @@ tags: [firefox, awesome]
 ---
 > Linh vật của công ty là một khủng long (`Mozilla`), biểu tượng thì là một con cáo (`fire fox`), nhưng thực chất lại là gấu trúc (`red panda`), và sử dụng engine là một con tác kè (`gecko`)
 {: .prompt-info }
-## Chrome không tốt như thế: "Do be evil!" [^footnote]
+
+## Chrome **KHÔNG** nhanh hơn Firefox [^ff-why-1]
 
 Tốc độ của Chrome _có vẻ_ nhanh hơn Firefox, thực chất là do thuật toán học máy để đoán trước trang web, ví dụ: Bạn vừa gõ `goo`, nó đã biết là `google` rồi và tải sẵn luôn trang web vào bộ nhớ. Tính năng này *đánh lừa* người dùng là Chrome nhanh hơn Firefox: nếu cùng load một nội dung thì cả 02 trình duyệt đều giống nhau, nhưng Chrome giống như bắt đầu chạy từ giữa đường trong khi đối thủ đang đứng từ vạch xuất phát. 
 
@@ -19,7 +20,7 @@ Với Chrome:
 : Ví dụ, trình duyệt Chrome có khả năng dự đoán những gì người dùng đang gõ và gửi yêu cầu trước cả khi người dùng đã gõ xong và nhấn Enter. Khi họ nhấn Enter, **trang web đã sẵn sàng để tải từ bộ nhớ cache**. Điều này được thực hiện thông qua một lượng lớn thuật toán học máy.
 
 
-Với Firefox (ý nói là Firefox không tải trước trang như Chrome) [^fn-nth-2] [^fn-nth-3]
+Với Firefox (ý nói là Firefox không tải trước trang như Chrome) [^ff-why-2] [^ff-why-3]
 : - Firefox will prefetch certain links if any of the websites you are viewing uses the special prefetch-link tag.
 : - In order to reduce latency, Firefox will proactively perform domain name resolution on links that the user may choose to follow as well as URLs for items referenced by elements in a web page. 
 : - To improve the loading speed, Firefox will open predictive connections to sites when the user hovers their mouse over thumbnails on the New Tab page or the user starts to search in the Search Bar, or in the search field on the Home or the New Tab page. In case the user follows through with the action, the page can begin loading faster since some of the work was already started in advance.
@@ -39,10 +40,10 @@ Tóm lại học được gì qua những gì mình nói:
 > Firefox mặc định chỉ tải trước DNS, không hề có HTML nên đó là lý do tại sao Firefox cảm giảc chậm hơn
 {: .prompt-info }
 
-## uBlock Origin làm việc tốt nhất trên Firefox (uBO works best on Firefox) [^fn-nth-4] _Tạm dịch - Đọc bản gốc để hiểu rõ hơn_
+## uBlock Origin làm việc tốt nhất trên Firefox (uBO works best on Firefox) [^ff-why-4] _Tạm dịch - Đọc bản gốc để hiểu rõ hơn_
 Truy nguyên CNAME
 : ![Desktop View](https://user-images.githubusercontent.com/585534/103416937-b623c400-4b56-11eb-8e94-b4851a2248b7.png)
-: _Nguồn: "Characterizing CNAME Cloaking-Based Tracking on the Web"[^fn-nth-5], Asia Pacific Network Information Centre[^fn-nth-6], August 2020._ (Cao hơn là tốt hơn)
+: _Nguồn: "Characterizing CNAME Cloaking-Based Tracking on the Web"[^ff-why-5], Asia Pacific Network Information Centre[^ff-why-6], August 2020._ (Cao hơn là tốt hơn)
 
 Lọc HTML (HTML filtering)
 : HTML filtering là khả năng lọc nội dung phản hồi của HTML trả về trước khi trình duyệt xử lý, cho phép xóa các thẻ cụ thể trong HTML. Tính năng này yêu cầu API `webRequest.filterResponseData()`, hiện chỉ có trên `Firefox`.
@@ -64,7 +65,7 @@ Nén lưu trữ
 > Chrome gần đây thì thể hiện thế độc quyền thấy rõ, mà mục tiêu chính là họ muốn biến trình duyệt web thành môi trường cho quảng cáo:
 {: .prompt-info }
 
-## Manifest V3 triệt hạ khả năng chặn quảng cáo của trình duyệt. Tham khảo: Sự khác biệt của uBlock Firefox vs Chrome vs Manifest V3 vs Adguard[^fn-nth-7]
+## Manifest V3 triệt hạ khả năng chặn quảng cáo của trình duyệt. Tham khảo: Sự khác biệt của uBlock Firefox vs Chrome vs Manifest V3 vs Adguard[^ff-why-7]
 
 Tiện nhắc tới uBlock mình viết một bài phân tích sự khác biệt giữa:
 - uBlock của Firefox và uBlock của Chrome
@@ -101,10 +102,10 @@ Tham khảo:
 
 AdBlock Manifest V3 
 : - **Không thể tự động cập nhập bộ lọc**, trong khi thế giới web các trang web thay đổi cứ vài giây một lần, thêm sửa quảng cáo, không tự động cập nhập được nghĩa là thành phế
-: - **Không thể có nhiều hơn 30.000 rule** (dòng chặn, chi tiết: [MV3: overcoming the 30000 rules limit](https://old.reddit.com/r/uBlockOrigin/comments/xlw1wi/mv3_overcoming_the_30000_rules_limit/)), trong khi số lượng trang web tăng không ngừng mỗi ngày, ngoài ra adblock còn được dùng để chặn các trang có nội dung malware nữa nên thậm chí để an toàn thì một người dùng cần dùng tới hàng triệu rule, ví dụ như chỉ để chặn các tên miền mới tạo ra trong vòng 31 ngày đã ngốn nguyên 3 triệu rule: Cách chặn các tên miền mới tạo (thường là lừa bịp, virus) bằng uBlock[^fn-nth-3]
+: - **Không thể có nhiều hơn 30.000 rule** (dòng chặn, chi tiết: [MV3: overcoming the 30000 rules limit](https://old.reddit.com/r/uBlockOrigin/comments/xlw1wi/mv3_overcoming_the_30000_rules_limit/)), trong khi số lượng trang web tăng không ngừng mỗi ngày, ngoài ra adblock còn được dùng để chặn các trang có nội dung malware nữa nên thậm chí để an toàn thì một người dùng cần dùng tới hàng triệu rule, ví dụ như chỉ để chặn các tên miền mới tạo ra trong vòng 31 ngày đã ngốn nguyên 3 triệu rule: Cách chặn các tên miền mới tạo (thường là lừa bịp, virus) bằng uBlock[^ff-why-3]
 : - **Dừng hoạt động sau khi trang tải xong một thời gian** ([5 phút](https://old.reddit.com/r/learnjavascript/comments/10jmkc4/how_to_prevent_service_worker_from_going_inactive/)), nghĩa là sẽ vô dụng với các trang web động sử dụng AJAX như Youtube/Facebook vì một lúc sau khi tải xong sẽ không còn chặn quảng cáo nữa, khiến quảng cáo hiện ra
 
-Còn đây là thông tin do chính `gorhill` cung cấp.[^fn-nth-7]: 
+Còn đây là thông tin do chính `gorhill` cung cấp.[^ff-why-7]: 
 
 > uBO Lite:
 >
@@ -147,9 +148,9 @@ Vậy chốt lại là uBlock trên Firefox hơn Adguard ở những điểm:
 
 > Ngoài ra mã nguồn Scriptlets của uBlock nuột hơn Adguard do Adguard dùng Webpack, là kiểu đóng gói code Javascript nhưng hiệu năng luôn kém hơn uBlock là native Javascript, và mặc định cả Adguard và uBlock đều sử dụng Scriptlets để trị quảng cáo khó nhằn như Youtube, Twitch...
 {: .prompt-tip }
-## Privacy Sandbox quảng cáo bằng cách địa lịch sử duyệt web của người dùng.[^fn-nth-8][^fn-nth-11]
+## Privacy Sandbox quảng cáo bằng cách địa lịch sử duyệt web của người dùng.[^ff-why-8][^ff-why-11]
 
-[Google Chrome vừa chính thức bật tính năng `Privacy Sandbox` lên tất cả phiên bản Chrome mới](https://arstechnica.com/gadgets/2023/09/googles-widely-opposed-ad-platform-the-privacy-sandbox-launches-in-chrome/), tính năng này chính là FLoC[^fn-nth-12](Federated Learning of Cohorts, chạy trong trình duyệt Chrome của Google và theo dõi hành vi trực tuyến, cho phép dịch vụ quảng cáo xác định tệp khách hàng dựa trên hành vi mà không cần cookie) cải biên do trước định thực hiện nhưng người dùng chửi cho nát mặt nên giờ lươn lẹo đổi tên thành `Privacy Sandbox`, nghe tên rất chi là riêng tư cơ mà nó ngược lại hoàn toàn,cho phép trình duyệt web lấy lịch sử duyệt web của người dùng, tóm tắt lại rồi gửi cho trang web để họ tạo quảng cáo, ví dụ:
+[Google Chrome vừa chính thức bật tính năng `Privacy Sandbox` lên tất cả phiên bản Chrome mới](https://arstechnica.com/gadgets/2023/09/googles-widely-opposed-ad-platform-the-privacy-sandbox-launches-in-chrome/), tính năng này chính là FLoC[^ff-why-12](Federated Learning of Cohorts, chạy trong trình duyệt Chrome của Google và theo dõi hành vi trực tuyến, cho phép dịch vụ quảng cáo xác định tệp khách hàng dựa trên hành vi mà không cần cookie) cải biên do trước định thực hiện nhưng người dùng chửi cho nát mặt nên giờ lươn lẹo đổi tên thành `Privacy Sandbox`, nghe tên rất chi là riêng tư cơ mà nó ngược lại hoàn toàn,cho phép trình duyệt web lấy lịch sử duyệt web của người dùng, tóm tắt lại rồi gửi cho trang web để họ tạo quảng cáo, ví dụ:
 
 - Một ông hay vào web pỏn, hay xem bóng đá, hay vào sọp bee
 - Google Chrome gửi cho trang web lịch sử duyệt web cho trang web sử dụng Privacy Sandbox
@@ -178,7 +179,7 @@ Chromium là mã nguồn mở mà không hề mở, nghĩa là những người 
 
 Mã nguồn chứng tỏ trình duyệt dựa trên Chromium phải xóa tay: <https://github.com/ungoogled-software/ungoogled-chromium/blob/master/patches/core/ungoogled-chromium/disable-privacy-sandbox.patch>
 
-## Widevine triệt hạ trình duyệt web mới nối bên thứ ba [^fn-nth-9]
+## Widevine triệt hạ trình duyệt web mới nối bên thứ ba [^ff-why-9]
 
 > Nghĩa là để xem được các trang Netflix, Spotify... thì tác giả trình duyệt mới phải quỳ lạy, van xin Google cấp cho, mà thường thì 1-2 năm không có phản hồi, dù rằng các trình duyệt web này đều tốt hơn Chrome gốc (Cromite, Ungoogled, Floorp...). 
 {: .prompt-warning}
@@ -187,7 +188,7 @@ Nghe nói thằng này mới cải thiện hiệu năng, nhìn chung đã chơi 
 
 Cái khó là bị vụ WebDRM (Widevine) nghĩa là mấy bản fork sẽ không xem được Netflix hay Spotify, dù nó ngon như Cromite/Ungoogled. Quy trình cấp phép Widevine của Google cũng nhiêu khê lắm, phải chìa tay ra xin Google và đợi họ ban ơn. :D
  
-## Environment Intergrity[^fn-nth-10]
+## Environment Intergrity[^ff-why-10]
 
 > WebDRM nghĩa là trang web sẽ được phép cho phép một số trình duyệt vào ngoại lệ, còn không chặn hết, nghĩa là nếu lập trình viên web thấy Chrome phổ biến nhất sẽ chặn tất cả những cái khác và chỉ cho người dùng Chrome vào web của họ.
 {: .prompt-warning }
@@ -211,16 +212,299 @@ Trích comment của `u/LukaD-S` trên r/browsers <https://www.reddit.com/r/brow
 > Thread này không chỉ về Firefox mà còn chứa lượng kiến thức không nhỏ về thế giới web, ít nhất cũng hiểu được tại sao lại thế lọ thế chai. :D
 {: .prompt-info }
 
+# Các bản Firefox mod hay ho
+
+## Lợi ích gì khi sử dụng các bản mod của Firefox? [^ff-mod-1]
+
+Tốc độ
+: Firefox zin mặc định không được biên dịch (compile) bằng các tập lệnh tối ưu, mà thực tế ra được biên dịch bằng các tập lệnh tối ưu khiến Firefox mượt lên rất nhiều mà tier list là SSE > SSE2 > SSE3 > AVX2, nhược điểm là càng lên cao độ tương thích phần cứng càng giảm, yêu cầu các hệ máy mới hơn.
+
+Tính năng mới
+: Tùy theo từng bản mod mà được tích hợp các tính năng hữu ích như Portable, ẩn địa chỉ IP, chống theo dõi...
+
+## Các bản mod hay ho, uy tín của Firefox
+
+| Thuật ngữ | Giải thích |
+|:--------:|:----------|
+| Privacy  | Riêng tư |
+| Portable | Không cần cài đặt, không để lại rác, cho vào USB/mang sang máy khác giữ 100% dữ liệu|
+| Adblock  | Chặn quảng cáo dạng native |
+| SSE2/AVX/LTO<br>_các từ khóa đầu tiên_ | Tập lệnh tăng tốc biên dịch|
+
+### Firefox Tete009 - SSE2/AVX2+Portable
+
+Nếu như nói tới bản mod uy tín và lâu đời nhất (từ Firefox 2 nghĩa là 2006 tới nay), không thể không nói tới tete009, bản mod này được biên dịch tối ưu bằng tập lệnh SSE2 nên tương thích với đa phần hệ máy thời nay, giúp tăng tốc độ xử lý so với Firefox thường, ngoài ra tác giả áp dụng rất nhiều lệnh tối ưu PGO trong suốt mấy chục  năm trời nên nhìn chung về độ uy tín và an toàn là không có gì bản. Bản này không khác gì Firefox thường, tuy nhiên có thể biến thành Portable 100% không cần Launcher như Portableapps.
+
+Hiện tại (14/9/23) Tete đã chính thức lên kệ AVX2.
+
+Ngoài ra một điểm mạnh nữa của tete là bản này là bản stable nhưng lại là Nightly, nên nó có thể cài được Fastforward, Multi-Threaded Download Manager và iMacros.
+
+> Download: <http://www1.plala.or.jp/tete009/en-US/software.html#FFDL>
+{: .prompt-info }
+
+> Folder chứa các bản cũ (có cả 32bit): <https://drive.google.com/drive/folders/0BwJVYWis62cRalRwX2tsZklqUkk>
+{: .promtp-info }
+
+#### Cách đặt Tete thành Firefox Portable xịn Pin được, đặt Default Browser được: [^ff-tete-1]
+
+Tạo một file tên `tmemutil.ini` cùng folder với `firefox.exe`:
+
+```
+[General]
+Portable=1
+PortableDataPath=PortableData
+CreateCrashDump=0
+CrashDumpType=0
+GdiBatchLimit=0
+ProcessAffinityMask=0
+
+[Env]
+MOZ_LEGACY_PROFILES=1
+```
+{: file="tmemutil.ini"}
+
+#### Cách đặt Tete Portable thành Default Browser:[^ff-tete-2]
+
+Tạo file `firefox.vbs` cùng folder với `firefox.exe` rồi chạy:
+
+```
+'Registers Firefox Portable with Default Programs or Default Apps in Windows
+'firefoxportable.vbs - created by Ramesh Srinivasan for Winhelponline.com
+'v1.0 17-July-2022 - Initial release. Tested on Mozilla Firefox 102.0.1.0.
+'v1.1 23-July-2022 - Minor bug fixes.
+'v1.2 27-July-2022 - Minor revision. Cleaned up the code.
+'Suitable for all Windows versions, including Windows 10/11.
+'Tutorial: https://www.winhelponline.com/blog/register-firefox-portable-with-default-apps/
+
+Option Explicit
+Dim sAction, sAppPath, sExecPath, sIconPath, objFile, sbaseKey, sbaseKey2, sAppDesc
+Dim sClsKey, ArrKeys, regkey
+Dim WshShell : Set WshShell = CreateObject("WScript.Shell")
+Dim oFSO : Set oFSO = CreateObject("Scripting.FileSystemObject")
+
+Set objFile = oFSO.GetFile(WScript.ScriptFullName)
+sAppPath = oFSO.GetParentFolderName(objFile)
+sExecPath = sAppPath & "\firefox.exe"
+sIconPath = sAppPath & "\firefox.exe"
+sAppDesc = "Firefox delivers safe, easy web browsing. " & _
+"A familiar user interface, enhanced security features including " & _
+"protection from online identity theft, and integrated search let " & _
+"you get the most out of the web."
+
+'Quit if FirefoxPortable.exe is missing in the current folder!
+If Not oFSO.FileExists (sExecPath) Then
+   MsgBox "Please run this script from Firefox Portable folder. The script will now quit.", _
+   vbOKOnly + vbInformation, "Register Firefox Portable with Default Apps"
+   WScript.Quit
+End If
+
+If InStr(sExecPath, " ") > 0 Then
+   sExecPath = """" & sExecPath & """"
+   sIconPath = """" & sIconPath & """"
+End If
+
+sbaseKey = "HKCU\Software\"
+sbaseKey2 = sbaseKey & "Clients\StartmenuInternet\Firefox Portable\"
+sClsKey = sbaseKey & "Classes\"
+
+If WScript.Arguments.Count > 0 Then
+   If UCase(Trim(WScript.Arguments(0))) = "-REG" Then Call RegisterFirefoxPortable
+   If UCase(Trim(WScript.Arguments(0))) = "-UNREG" Then Call UnRegisterFirefoxPortable
+Else
+   sAction = InputBox ("Type REGISTER to add Firefox Portable to Default Apps. " & _
+   "Type UNREGISTER To remove.", "Firefox Portable Registration", "REGISTER")
+   If UCase(Trim(sAction)) = "REGISTER" Then Call RegisterFirefoxPortable
+   If UCase(Trim(sAction)) = "UNREGISTER" Then Call UnRegisterFirefoxPortable
+End If
+
+Sub RegisterFirefoxPortable 
+   WshShell.RegWrite sbaseKey & "RegisteredApplications\Firefox Portable", _
+   "Software\Clients\StartMenuInternet\Firefox Portable\Capabilities", "REG_SZ"
+ 
+   'FirefoxHTML registration
+   WshShell.RegWrite sClsKey & "FirefoxHTML2\", "Firefox HTML Document", "REG_SZ"
+   WshShell.RegWrite sClsKey & "FirefoxHTML2\EditFlags", 2, "REG_DWORD"
+   WshShell.RegWrite sClsKey & "FirefoxHTML2\FriendlyTypeName", "Firefox HTML Document", "REG_SZ"
+   WshShell.RegWrite sClsKey & "FirefoxHTML2\DefaultIcon\", sIconPath & ",1", "REG_SZ"
+   WshShell.RegWrite sClsKey & "FirefoxHTML2\shell\", "open", "REG_SZ"
+   WshShell.RegWrite sClsKey & "FirefoxHTML2\shell\open\command\", sExecPath & _
+   " -url " & """" & "%1" & """", "REG_SZ"
+   WshShell.RegWrite sClsKey & "FirefoxHTML2\shell\open\ddeexec\", "", "REG_SZ"
+ 
+   'FirefoxPDF registration
+   WshShell.RegWrite sClsKey & "FirefoxPDF2\", "Firefox PDF Document", "REG_SZ"
+   WshShell.RegWrite sClsKey & "FirefoxPDF2\EditFlags", 2, "REG_DWORD"
+   WshShell.RegWrite sClsKey & "FirefoxPDF2\FriendlyTypeName", "Firefox PDF Document", "REG_SZ"
+   WshShell.RegWrite sClsKey & "FirefoxPDF2\DefaultIcon\", sIconPath & ",5", "REG_SZ"
+   WshShell.RegWrite sClsKey & "FirefoxPDF2\shell\open\", "open", "REG_SZ"
+   WshShell.RegWrite sClsKey & "FirefoxPDF2\shell\open\command\", sExecPath & _
+   " -url " & """" & "%1" & """", "REG_SZ"
+ 
+   'FirefoxURL registration
+   WshShell.RegWrite sClsKey & "FirefoxURL2\", "Firefox URL", "REG_SZ"
+   WshShell.RegWrite sClsKey & "FirefoxURL2\EditFlags", 2, "REG_DWORD"
+   WshShell.RegWrite sClsKey & "FirefoxURL2\FriendlyTypeName", "Firefox URL", "REG_SZ"
+   WshShell.RegWrite sClsKey & "FirefoxURL2\URL Protocol", "", "REG_SZ"
+   WshShell.RegWrite sClsKey & "FirefoxURL2\DefaultIcon\", sIconPath & ",1", "REG_SZ"
+   WshShell.RegWrite sClsKey & "FirefoxURL2\shell\open\", "open", "REG_SZ"
+   WshShell.RegWrite sClsKey & "FirefoxURL2\shell\open\command\", sExecPath & _
+   " -url " & """" & "%1" & """", "REG_SZ"
+   WshShell.RegWrite sClsKey & "FirefoxURL2\shell\open\ddeexec\", "", "REG_SZ" 
+ 
+   'Default Apps Registration/Capabilities
+   WshShell.RegWrite sbaseKey2, "Firefox Portable", "REG_SZ"
+   WshShell.RegWrite sbaseKey2 & "Capabilities\ApplicationDescription", sAppDesc, "REG_SZ"
+   WshShell.RegWrite sbaseKey2 & "Capabilities\ApplicationIcon", sIconPath & ",0", "REG_SZ"
+   WshShell.RegWrite sbaseKey2 & "Capabilities\ApplicationName", "Firefox Portable", "REG_SZ"
+   WshShell.RegWrite sbaseKey2 & "Capabilities\FileAssociations\.pdf", "FirefoxPDF2", "REG_SZ"
+   WshShell.RegWrite sbaseKey2 & "Capabilities\StartMenu", "Firefox Portable", "REG_SZ"
+   WshShell.RegWrite sbaseKey2 & "DefaultIcon\", sIconPath & ",0", "REG_SZ"
+   WshShell.RegWrite sbaseKey2 & "shell\open\command\", sExecPath, "REG_SZ"
+   WshShell.RegWrite sbaseKey2 & "shell\properties\", "Firefox &Options", "REG_SZ"
+   WshShell.RegWrite sbaseKey2 & "shell\properties\command\", sExecPath & " -preferences", "REG_SZ"
+   WshShell.RegWrite sbaseKey2 & "shell\safemode\", "Firefox &Safe Mode", "REG_SZ" 
+   WshShell.RegWrite sbaseKey2 & "shell\safemode\command\", sExecPath & " -safe-mode", "REG_SZ"
+ 
+   ArrKeys = Array ( _
+   "FileAssociations\.avif", _
+   "FileAssociations\.htm", _
+   "FileAssociations\.html", _
+   "FileAssociations\.shtml", _
+   "FileAssociations\.svg", _
+   "FileAssociations\.webp", _
+   "FileAssociations\.xht", _
+   "FileAssociations\.xhtml", _
+   "URLAssociations\http", _
+   "URLAssociations\https", _
+   "URLAssociations\mailto" _
+   )
+ 
+   For Each regkey In ArrKeys
+      WshShell.RegWrite sbaseKey2 & "Capabilities\" & regkey, "FirefoxHTML2", "REG_SZ"
+   Next    
+ 
+   'Override the default app name by which the program appears in Default Apps  (*Optional*)
+   '(i.e., -- "Mozilla Firefox, Portable Edition" Vs. "Firefox Portable")
+   'The official Mozilla Firefox setup doesn't add this registry key.
+   WshShell.RegWrite sClsKey & "FirefoxHTML2\Application\ApplicationIcon", sIconPath & ",0", "REG_SZ"
+   WshShell.RegWrite sClsKey & "FirefoxHTML2\Application\ApplicationName", "Firefox Portable", "REG_SZ"
+ 
+   'Launch Default Programs or Default Apps after registering Firefox Portable 
+   WshShell.Run "control /name Microsoft.DefaultPrograms /page pageDefaultProgram"
+End Sub
+
+
+Sub UnRegisterFirefoxPortable
+   sbaseKey = "HKCU\Software\"
+   sbaseKey2 = "HKCU\Software\Clients\StartmenuInternet\Firefox Portable" 
+ 
+   On Error Resume Next
+   WshShell.RegDelete sbaseKey & "RegisteredApplications\Firefox Portable"
+   On Error GoTo 0
+ 
+   WshShell.Run "reg.exe delete " & sClsKey & "FirefoxHTML2" & " /f", 0
+   WshShell.Run "reg.exe delete " & sClsKey & "FirefoxPDF2" & " /f", 0
+   WshShell.Run "reg.exe delete " & sClsKey & "FirefoxURL2" & " /f", 0
+   WshShell.Run "reg.exe delete " & chr(34) & sbaseKey2 & chr(34) & " /f", 0
+ 
+   'Launch Default Apps after unregistering Firefox Portable 
+   WshShell.Run "control /name Microsoft.DefaultPrograms /page pageDefaultProgram" 
+End Sub
+
+```
+{: file="firefox.vbs"}
+
+### Floorp - LTO+Portable+Sidebar+VerticalTab+Workspace+UnloadTab+...
+
+Bản Firefox mod của tác giả người Nhật mới nổi thời gian gần đây trên các trang Reddit như /r/browsers, /r/firefox bởi nó cũng khá là đặc sắc khi so với Firefox gốc, mà cái đặc sắc nằm ở:
+: Sidebar bên tay phải để mở nhanh các tính năng như bookmark, history, add-ons... (native)
+: Hỗ trợ giao diện đẹp như Lepton, Chrome, Edge (cứ vào Settings là thấy)
+: Ngủ đông tab giống Auto Tab Discard cơ mà tốt hơn vì nó unload nhiều hơn, và là native
+: Hỗ trợ tab dọc (native)
+: Hỗ trợ đổi phím tắt tùy ý (native)
+: Workspace giống Vivaldi để quản lý tab theo từng vùng một cho gọn, ví dụ chia ra cho: Công việc, Cá nhân, Ăn chơi... (native)
+: Tối ưu bằng tập lệnh PGO+LTO nên nhanh hơn cả tete (SSE2+PGO) và thậm chí Mercury (AVX) mà vẫn giữ nguyên tính tương thích với hệ máy cũ chứ không như AVX kén hệ máy mới
+: Và nhiều tùy chỉnh nhỏ khác nữa rất khó liệt kê hết vì nói chung nó nằm trong Settings ấy...
+
+> Download: <https://github.com/Floorp-Projects/Floorp/releases>
+{: .prompt-info }
+
+## Cách nhảy các bản mod Firefox không lo mất dữ liệu [^ff-backup-restore]
+1. Đầu tiên ở Firefox đang dùng, gõ `about:support` rồi xem phần `Application Binary`, mở thư mục chứa `firefox.exe` lên
+2. Tải bản mod dạng nén như 7z, zip, rar... về rồi giải nén thẳng vào thư mục chứa `firefox.exe`
+3. Nếu mở lên báo lỗi không tương thích thì vào folder `profile` xóa file `compatibility.ini` đi là xong
+
+## Làm sao tạo mới profile mà vẫn giữ được 90% dữ liệu ?
+
+Đây là một bài viết mà sau khi đọc xong bạn có một cái nhìn toàn tổng về profile của Firefox, giúp bạn xoay sở trong những tình huống khó nhất.
+
+### Mục tiêu
+- Giữ được bookmark, history
+- Giữ được mật khẩu
+- Giữ được đăng nhập
+- Giữ được about:config
+- Giữ được add-on đã cài (tuy nhiên mất hết tùy chỉnh của add-on)
+
+### Sau lưu (Backup)
+
+`about:support`
+: => _Open Profile Folder_
+
+Copy những file sau:
+: Nén vào 1 file .zip cho nó không bị sót
+
+|----------------------------------|-------------------|
+| File/Folder                      | Tác dụng          |
+|:---------------------------------|:------------------|
+| places.sqlite                    | Bookmark; History |
+| cookies.sqlite                   | Cookies           |
+| - cert9.db<br> - key4.db<br> - logins.json | Mật khẩu|
+| - extension-preferences.json<br> - extensions.json<br> - extension-settings.json<br> - Thư mục `extensions` | Add-ons |
+| prefs.js                         | about:config      |
+| Thư mục `storage`                | Tùy chỉnh add-on <br>*không đảm bảo 100%*|
+| Thư mục `chrome`                 | Giao diện         |
+| handlers.json                    | Protocol (_để sau mở Youtube bằng mpv_) |
+| - prefsCleaner.bat<br> (- prefsCleaner.sh) | Reset `about:config` mặc đinh<br>(_tùy hệ điều hành_) |
+
+### Khôi phục (Restore)
+
+`about:support`
+: => _Open Profile Folder_
+
+**Tắt hẳn** Firefox
+: Copy **toàn bộ** các thứ đã lưu bên trên
+
+Chạy `prefsCleaner.bat` (hoặc `prefsCleaner.sh` - tùy hệ điều hành)
+: Reset lại `cài đặt`
+
+#### Nếu muốn tạo profile mới
+
+`about:profiles`
+: Create a new profile -> Chọn thư mục -> Launch profile
+
+`about:support`
+: Open Profile Folder -> Tắt Firefox -> Paste vào.
+
+> Đừng quên `Set as Default Profile` cho cái profile mới tạo để từ nay nó là profile chính.
+{: .prompt-info }
+
+> Chú ý trên MacOS phân biệt Quit (Tắt) và Close (Đóng), nên là cần chắc chắn là đã QUIT hẳn Firefox
+{: .prompt-tip }
+
 # Nguồn:
-[^footnote]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-22179155>
-[^fn-nth-2]: <https://old.reddit.com/r/firefox/comments/gjuqwz/does_firefox_preload_websites_on_search/>
-[^fn-nth-3]: <https://support.mozilla.org/en-US/kb/how-stop-firefox-making-automatic-connections#w_prefetching>
-[^fn-nth-4]: <https://github.com/gorhill/uBlock/wiki/uBlock-Origin-works-best-on-Firefox>
-[^fn-nth-5]: <https://blog.apnic.net/2020/08/04/characterizing-cname-cloaking-based-tracking/>
-[^fn-nth-6]: <https://www.apnic.net/about-apnic/>
-[^fn-nth-7]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-25474057>
-[^fn-nth-8]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-27638662>
-[^fn-nth-9]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-27693869>
-[^fn-nth-10]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-27482337>
-[^fn-nth-11]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-27693391>
-[^fn-nth-12]: <https://www.howtogeek.com/724441/what-is-googles-floc-and-how-will-it-track-you-online/>
+[^ff-why-1]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-22179155>
+[^ff-why-2]: <https://old.reddit.com/r/firefox/comments/gjuqwz/does_firefox_preload_websites_on_search/>
+[^ff-why-3]: <https://support.mozilla.org/en-US/kb/how-stop-firefox-making-automatic-connections#w_prefetching>
+[^ff-why-4]: <https://github.com/gorhill/uBlock/wiki/uBlock-Origin-works-best-on-Firefox>
+[^ff-why-5]: <https://blog.apnic.net/2020/08/04/characterizing-cname-cloaking-based-tracking/>
+[^ff-why-6]: <https://www.apnic.net/about-apnic/>
+[^ff-why-7]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-25474057>
+[^ff-why-8]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-27638662>
+[^ff-why-9]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-27693869>
+[^ff-why-10]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-27482337>
+[^ff-why-11]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-27693391>
+[^ff-why-12]: <https://www.howtogeek.com/724441/what-is-googles-floc-and-how-will-it-track-you-online/>
+[^ff-mod-1]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/page-302#post-27777028>
+[^ff-backup-restore]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/page-302#post-27777028>
+[^ff-tete-1]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-23354773>
+[^ff-tete-2]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-24612099>

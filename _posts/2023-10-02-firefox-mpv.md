@@ -8,44 +8,85 @@ tags: [awesome, firefox, mpv]     ## TAG names should always be lowercase
 
 Mục đích đầu tiên là để xem Youtube mà không cần phụ thuộc vào Google (vì ghét Google -  thằng bán quảng cáo khó chịu), chưa kể các ưu điểm của MPV như trẻ, khỏe, đẹp,...
 
-Cơ chế cơ bản vẫn sẽ là các 
-
 ## Cách sử dụng Handlers của Firefox để xổ MPV không cần add-on+native-client[^fn-nth-1]
 
-Cập nhập Handlers dành cho MPV, hỗ trợ thêm rất nhiều tính năng khi so sánh với [**phiên bản trước đó**](https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/page-247#post-27172396), cách sử dụng cũng nhẹ nhàng hơn :D
+Tính năng:
+: Kéo thả link qua bên tay phải để mở qua MPV, kéo qua tay trái để mở qua streamlink, kéo xuống dưới để tải với yt-dlp
+: Hỗ trợ thêm streamlink và yt-dlp
+: Nhẹ và đơn giản hơn so với code cũ gấp tỉ lần, rất dễ cho việc phát triển thêm từ phía các bạn chứ không chỉ mình
+: Có thể tùy ý thêm tính năng nếu các bạn muốn, bởi script này hỗ trợ 8 hướng
 
-**Nếu các bạn thấy lỗi báo cho mình bởi mình chưa có test kỹ.**
-
-### Tính năng:
-
-* Kéo thả link qua bên tay phải để mở qua MPV, kéo qua tay trái để mở qua streamlink, kéo xuống dưới để tải với yt-dlp
-* Hỗ trợ thêm streamlink và yt-dlp
-* Nhẹ và đơn giản hơn so với code cũ gấp tỉ lần, rất dễ cho việc phát triển thêm từ phía các bạn chứ không chỉ mình
-* Có thể tùy ý thêm tính năng nếu các bạn muốn, bởi script này hỗ trợ 8 hướng
-
-
-Video demo: <https://streamable.com/o3sxe1>
-
-### Cập nhập thay đổi
-
-* V1.0: Bản thử nghiệm đầu tiên
-* V1.1: Sửa lỗi M3U8 không cho script kéo link
-* V1.2: Không cập nhập gì nhiều, thêm sẵn `Hướng` cho chéo lên phải, chéo lên trái, chéo xuống phải, chéo xuống trái và [**hướng dẫn cách phát triển thêm tính năng cho script**](https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/page-304#post-27797344xs)
-* V1.3: Sửa lỗi kèm với làm theo một số khuyến nghị từ Firemonkey (`@include` thay cho `@match` sai chuẩn)
-* V1.4: Chuyển code sang chuẩn switch case cho đẹp bởi [USER=1862337]@pTalent[/USER]
-* V1.5: Hỗ trợ tính năng mới (chú ý để có tính năng mới các bạn cập nhập cả `protocol_hook.lua` mới đính kèm):
-
-![](../../assets/img/firefox-mpv/ezgif-5-76a8e47ef4.webp)
-_Chọn nhiều video bằng cách giữ chuột phải 0.4s sau đó mở hàng loạt qua MPV/Streamlink, tải hàng loạt qua YTDL_
-
-* Hỗ trợ Linux, MacOS (sửa lỗi URL bị hỏng của Mac)
-* Không còn phải nhập tay thư mục MPV nữa
-* [Kéo lên để xem playlist dạng stream](https://streamable.com/se2yn7)
-
-* V1.6: Hỗ trợ `mpv://`, sửa lại code cho đúng quy chuẩn
+Cập nhập thay đổi
+: V1.0: Bản thử nghiệm đầu tiên
+: V1.1: Sửa lỗi M3U8 không cho script kéo link
+: V1.2: Không cập nhập gì nhiều, thêm sẵn `Hướng` cho chéo lên phải, chéo lên trái, chéo xuống phải, chéo xuống trái và [**hướng dẫn cách phát triển thêm tính năng cho script**](https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/page-304#post-27797344xs)
+: V1.3: Sửa lỗi kèm với làm theo một số khuyến nghị từ Firemonkey (`@include` thay cho `@match` sai chuẩn)
+: V1.4: Chuyển code sang chuẩn switch case cho đẹp bởi [USER=1862337]@pTalent[/USER]
+: V1.5: Hỗ trợ tính năng mới (chú ý để có tính năng mới các bạn cập nhập cả `protocol_hook.lua` mới đính kèm):
+: ![](../../assets/img/firefox-mpv/ezgif-5-76a8e47ef4.webp) _Chọn nhiều video bằng cách giữ chuột phải 0.4s sau đó mở hàng loạt qua MPV/Streamlink, tải hàng loạt qua YTDL_
+: Hỗ trợ Linux, MacOS (sửa lỗi URL bị hỏng của Mac)
+: Không còn phải nhập tay thư mục MPV nữa
+: [Kéo lên để xem playlist dạng stream](https://streamable.com/se2yn7)
+: V1.6: Hỗ trợ `mpv://`, sửa lại code cho đúng quy chuẩn
 
 ### Cài đặt
-1. Cài đặt tại [**Greasyfork.org**](https://greasyfork.org/en/scripts/475574-handlers-helper) hoặc Từ add-on quản lý Userscript như Violent/Fire/Tamplermonkey, tạo script mới rồi paste chỗ này vào, Save.
+#### Thêm script vào `mpv`
+
+> Link: <https://voz.vn/attachments/protocol_hook-zip.2095442/>
+{: .prompt-info }
+
+Download <https://voz.vn/attachments/protocol_hook-zip.2095442/>
+: Giải nén, copy file `protocol-hook.lua` vào `mpv/portable_config/scripts`
+
+#### Thiết lập `handlers.json` cho Firefox
+
+Từ Firefox mở `about:support`
+: Click button `Open Profile Folder`
+: Tắt hẳn Firefox
+
+> _Lưu ý_: MacOS phân biệt giữa Close (Đóng) và Quit (Tắt) **Chắc chắn là phải TẮT**
+{: .prompt-tip }
+
+
+Mở file `handlers.json`
+: Sẽ thấy đoạn kiểu `"schemes":{ {...}, {...}, {...} }`
+
+```json
+"schemes":{ {...}, {...}, {...} }
+```
+{: file='handlers.json'}
+
+Thêm scheme của `mpv`
+: Thêm `"mpv":{"action":2,"handlers":[{"name":"MPV","path":"D:\\mpv\\mpv.exe"}]}` vào cuối cùng của cái đoạn đó
+
+```json
+"schemes":{"mpv":{"action":2,"handlers":[{"name":"MPV","path":"D:\\mpv\\mpv.exe"}]}}
+```
+{: file='handlers.json'}
+
+> File `handlers.json` đã bị minify để tiếp kiệm dung lượng. Có thể sử dụng <https://codebeautify.org/jsonviewer> cho dễ đọc dễ sửa
+> ``` json
+>   "schemes": {
+>     "mpv": {
+>       "action": 2,
+>       "handlers": [
+>         {
+>           "name": "MPV",
+>           "path": "D:\\mpv\\mpv.exe"
+>         }
+>       ]
+>     }
+>   }
+> ```
+{: .prompt-tip }
+
+Save lại
+: Ctrl+S và mở lại Firefox
+#### Thêm usercript vào `Firefox`
+
+Có 2 cách
+: 1. Cài đặt tại [**Greasyfork.org**](https://greasyfork.org/en/scripts/475574-handlers-helper) 
+: 2. Từ add-on quản lý Userscript như Violent/Fire/Tamplermonkey, tạo script mới rồi paste chỗ này vào, Save.
 
 ```javascript
 // ==UserScript==
@@ -280,32 +321,6 @@ document.addEventListener('mouseover', function(e) {
 });
 ```
 
-2. Tài file `protocol_hook.zip` bên dưới vào thẳng folder `scripts` của MPV, giải nén `Extract Here`.
-~~ 3. Mở file `protocol_hook.lua` bằng Notepad rồi tìm dòng `local cwd = 'D:/mpv'`, nếu thư mục chứa MPV của các bạn khác cái này thì tự sửa lại, nhớ dùng `/` phân cách các phần đường dẫn để đảm bảo tính tương thích nhiều hệ điều hành, giống của mình bên trên ấy.~~ **(bản mới tự nhận ra đường dẫn, không nhận mới cần tự làm)
-
-3. Phần `handlers.json` Firefox:**
-
-- Từ Firefox gõ `about:support`
-- Open Profile Folder
-- Mở file `handlers.json` lên, sẽ thấy đoạn kiểu `"schemes":{ {...}, {...}, {...} }`, thêm `, "mpv":{"action":2,"handlers":[{"name":"MPV","path":"D:\\mpv\\mpv.exe"}]` vào cuối cùng của cái đoạn đó, mà sẽ thành như này: `"schemes":{ {...}, {...}, {...}, "mpv":{"action":2,"handlers":[{"name":"MPV","path":"D:\\mpv\\mpv.exe"}]}`
-
-```json
-"schemes":{ {...}, {...}, {...}, "mpv":{"action":2,"handlers":[{"name":"MPV","path":"D:\\mpv\\mpv.exe"}]}
-```
-{: file='handlers.json'}
-
-- Ví dụ file của mình (nếu muốn có thể lấy file này luôn): `{"defaultHandlersVersion":{},"mimeTypes":{},"schemes":{"tg":{"action":4}, "mpv":{"action":2,"handlers":[{"name":"MPV","path":"D:\\mpv\\mpv.exe"}]}},"isDownloadsImprovementsAlreadyMigrated":true,"isSVGXMLAlreadyMigrated":true}`
-
-> File `handlers.json` đã bị minify để tiếp kiệm dung lượng. Có thể sử dụng <https://codebeautify.org/jsonviewer> cho dễ đọc dễ sửa
-{: .prompt-tip }
-
-- Tắt Firefox
-- Save lại rồi khởi động lại Firefox
-
-**Chú ý: Nếu vị trí của MPV ở chỗ khác thì tự chỉnh nhé.**
-
-Thưởng thức thôi.
-
 ## UserScript sửa thumbnail thành protocol của MPV, không cần kéo thả
 
 Em vừa debug lại thì đại khái là `MutationObserver` sẽ theo dõi thay đổi của cấu trúc trang: đồng chí Ivan tác giả clip gốc dùng  để xem khi nào `Youtube` nó render thêm nội dung mới (tính cả lần load/render đầu tiên) thì gán `href` của protocol `mpv://play/` cho `object` mới. Nhưng mà trên trang Youtube Mobile thì HOME với SEARCH nó tái sử dụng 1 phần chứ không load lại cả page lại từ đầu (mở F12 lên mà Sẻac là nó không clear console cũ), nên là object nào dùng lại là nó sẽ không cập nhật lại cái `href` mới :extreme_sexy_girl:
@@ -403,7 +418,7 @@ document.addEventListener('mousedown', function(e) {
   }
 });
 ```
-[/SPOILER]
+
 
 ## Cách dùng Userscript lấy link video để xem trong MPV[^fn-nth-2]
 
