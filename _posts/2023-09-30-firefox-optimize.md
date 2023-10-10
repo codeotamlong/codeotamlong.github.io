@@ -17,10 +17,10 @@ tags: [awesome, firefox, optimize]     ## TAG names should always be lowercase
 > `user.js` là file javascript nên có thể sử dụng `//` và `/**/` để viết ghi chú
 {: .prompt-tip }
 
-## Tổng hợp tất cả tối ưu tốt nhất của thread trong một file `user.js`, cách sử dụng:[^ff-optimize-aio]
+## Tổng hợp `user.js`, cách sử dụng:[^ff-optimize-aio]
 
-> Chú ý: Phần ép cache chạy trên RAM mình không bật mặc định, các bạn muốn bật thì bỏ `//` ở phần dưới của `// Force RAM cache, uncomment // to enable` để bật nhé.
-{: .prompt-info }
+> Download: <https://github.com/codeotamlong/awesome/blob/main/firefox/user.js>
+{: .prompt-tip }
        
 ```javascript    
 /*
@@ -302,10 +302,9 @@ user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 Không hề bình thường, vì antivirus thường có thói quen scan linh tinh, virus thì chả thấy đâu nhưng tài nguyên hệ thống thì tốn thấy rõ nên mình bỏ dùng antivirus 10 năm nay rồi, chưa từng nhiễm virus một lần kể từ đó lại còn không bao giờ gặp phải lỗi không tương thích do antivirus tụi nó tì đè vào ứng dụng đang hoạt động nữa. (một vài ví dụ rõ nhất là vụ antivirus chặn giao thức QUIC, khiến nhiều người không dùng được DNS over QUIC)
 
 Giải pháp:
-
-- Cho Firefox (cả folder chứa firefox.exe và folder profile) vào ngoại lệ của WD để nó không bao giờ động chạm vào Firefox nữa
-- Tắt tính năng thời gian thực của WD
-- Tắt hoàn toàn WD
+: Cho Firefox (cả folder chứa firefox.exe và folder profile) vào ngoại lệ của WD để nó không bao giờ động chạm vào Firefox nữa
+: Tắt tính năng thời gian thực của WD
+: Tắt hoàn toàn WD
 
 
 Nguồn đây: <https://bugzilla.mozilla.org/show_bug.cgi?id=1441918> (có cái bình luận này <https://bugzilla.mozilla.org/show_bug.cgi?id=1441918#c61> đáng chú ý, tắt cache trên ổ đĩa đi thì CPU hạ hẳn, cũng dễ hiểu vì WD chắc chắn scan cache của Firefox, làm theo bài này mình chỉ cách tắt cache đĩa và dùng cache RAM <https://voz.vn/t/cach-ep-firefox-luu-cache-tren-ram-ma-khong-can-ramdisk.664955/>)
@@ -399,7 +398,7 @@ user_pref("browser.cache.memory.max_entry_size", 512000);
 Kể từ phiên bản 59, Firefox có một tính năng gọi là Race Cache With Network (_RCWN_). Nếu phát hiện ổ đĩa chậm(như _HDD đời Tống_ - Firefox 59 release năm 2018), Firefox có thể quyết định bắt đầu yêu cầu mạng ngay lập tức mà không cần chờ bộ đệm. 
 
 Đó là một sự đánh đổi: 
-: Nếu các yêu cầu mạng nhan hơn, độ trễ sẽ được cải thiện; 
+: Nếu các yêu cầu mạng nhanh hơn, độ trễ sẽ được cải thiện; 
 : Nếu cache nhanh hơn thì băng thông mạng đã bị lãng phí.
 
 Để vô hiệu hóa: Vào `about:config` chỉnh:
