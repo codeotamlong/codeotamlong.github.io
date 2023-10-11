@@ -1,8 +1,8 @@
 ---
 title: "[Firefox Awesome] Tại sao lại là Firefox?"
 date: 2023-08-28 11:33:00 +0700
-categories: [firefox, awesome]
-tags: [firefox, awesome]
+categories: [firefox, awesome, tete009, floorp]
+tags: [firefox, awesome, debunk, mod, mv3, manifest v3, tete009, floorp]
 ---
 > Linh vật của công ty là một khủng long (`Mozilla`), biểu tượng thì là một con cáo (`fire fox`), nhưng thực chất lại là gấu trúc (`red panda`), và sử dụng engine là một con tác kè (`gecko`)
 {: .prompt-info }
@@ -60,12 +60,12 @@ WebAssembly
 : Thông tin thêm: <https://github.com/WebAssembly/content-security-policy/issues/7#issuecomment-441259729>
 
 Nén lưu trữ
-: Firefox uBO mặc định  sử dụng `nén LZ4` theo để lưu trữ. LZ4 yêu cầu sử dụng `IndexedDB`, điều này không hiệu quả với trình duyệt nền Chromium (xem [#399](https://github.com/uBlockOrigin/uBlock-issues/issues/399) ). `IndexedDB` là bắt buộc vì nó hỗ trợ lưu trữ Blob, `browser.storage.localAPI` không hỗ trợ.
+: Firefox uBO mặc định sử dụng `nén LZ4` theo để lưu trữ. LZ4 yêu cầu sử dụng `IndexedDB`, điều này không hiệu quả với trình duyệt nền Chromium (xem [#399](https://github.com/uBlockOrigin/uBlock-issues/issues/399) ). `IndexedDB` là bắt buộc vì nó hỗ trợ lưu trữ Blob, `browser.storage.localAPI` không hỗ trợ.
 
 > Chrome gần đây thì thể hiện thế độc quyền thấy rõ, mà mục tiêu chính là họ muốn biến trình duyệt web thành môi trường cho quảng cáo:
 {: .prompt-info }
 
-## Manifest V3 triệt hạ khả năng chặn quảng cáo của trình duyệt. Tham khảo: Sự khác biệt của uBlock Firefox vs Chrome vs Manifest V3 vs Adguard[^ff-why-7]
+## Manifest V3 triệt hạ khả năng chặn quảng cáo của trình duyệt: Sự khác biệt của uBlock Firefox vs Chrome vs Manifest V3 vs Adguard[^ff-why-7]
 
 Tiện nhắc tới uBlock mình viết một bài phân tích sự khác biệt giữa:
 - uBlock của Firefox và uBlock của Chrome
@@ -75,8 +75,8 @@ Tiện nhắc tới uBlock mình viết một bài phân tích sự khác biệt
 ### uBlock của Firefox và uBlock của Chrome
 
 Hiệu năng:
-: - Biến code thành mã máy: uBlock của Firefox nhanh hơn rất nhiều lần uBlock của Chrome (cũng như Adguard), vì uBlock của Firefox hỗ trợ WebAssembly, nghĩa là khi lọc trang web, uBlock biến code từ Javascript thành mã máy, khiến tăng tốc quá trình lọc lên rất rất nhiều lần. Để nói về hiệu năng của Web Assembly so với Javascript thì nếu bạn học lập trình bạn sẽ thấy nó có ngôn ngữ thông dịch (interpreted language) và ngôn ngữ biên dịch (compiled language), sự khác biệt về hiệu năng giữa Web Assembly và Javascript như so sánh trời với đất, nó gấp rất rất nhiều lần, cũng y như so trình xem HTML của Firefox/Chrome (viết bằng HTML5=HTML+Javascript) với MPV (viết bằng C nguyên chất) vậy.
-: - Sử dụng IndexedDB thay vì localStorage: IndexedDB có hiệu năng tốt hơn nhiều localStorage nên khi mở Firefox lên, uBlock hoạt động ngay lập tức sau 0.5s (đối với con máy cùi bép của mình), nhưng với Chrome thì nếu bạn mở ngay trang web, khả năng lớn là quảng cáo sẽ lọt vì Chrome dùng localStorage chứa các bộ lọc của uBlock, nhiều người từng trải nghiệm uBlock trên Chrome tốn 15 phút để load xong các bộ lọc.
+: _Biến code thành mã máy:_ uBlock của Firefox nhanh hơn rất nhiều lần uBlock của Chrome (cũng như Adguard), vì uBlock của Firefox hỗ trợ WebAssembly, nghĩa là khi lọc trang web, uBlock biến code từ Javascript thành mã máy, khiến tăng tốc quá trình lọc lên rất rất nhiều lần. Để nói về hiệu năng của Web Assembly so với Javascript thì nếu bạn học lập trình bạn sẽ thấy nó có ngôn ngữ thông dịch (interpreted language) và ngôn ngữ biên dịch (compiled language), sự khác biệt về hiệu năng giữa Web Assembly và Javascript như so sánh trời với đất, nó gấp rất rất nhiều lần, cũng y như so trình xem HTML của Firefox/Chrome (viết bằng HTML5=HTML+Javascript) với MPV (viết bằng C nguyên chất) vậy.
+: _Sử dụng IndexedDB thay vì localStorage:_ IndexedDB có hiệu năng tốt hơn nhiều localStorage nên khi mở Firefox lên, uBlock hoạt động ngay lập tức sau 0.5s (đối với con máy cùi bép của mình), nhưng với Chrome thì nếu bạn mở ngay trang web, khả năng lớn là quảng cáo sẽ lọt vì Chrome dùng localStorage chứa các bộ lọc của uBlock, nhiều người từng trải nghiệm uBlock trên Chrome tốn 15 phút để load xong các bộ lọc.
 
 > Tham khảo: 
 >
@@ -212,9 +212,10 @@ Trích comment của `u/LukaD-S` trên r/browsers <https://www.reddit.com/r/brow
 > Thread này không chỉ về Firefox mà còn chứa lượng kiến thức không nhỏ về thế giới web, ít nhất cũng hiểu được tại sao lại thế lọ thế chai. :D
 {: .prompt-info }
 
-# Các bản Firefox mod hay ho
 
-## Lợi ích gì khi sử dụng các bản mod của Firefox? [^ff-mod-1]
+## Các bản mod hay ho, uy tín của Firefox
+
+### Lợi ích gì khi sử dụng các bản mod của Firefox? [^ff-mod-1]
 
 Tốc độ
 : Firefox zin mặc định không được biên dịch (compile) bằng các tập lệnh tối ưu, mà thực tế ra được biên dịch bằng các tập lệnh tối ưu khiến Firefox mượt lên rất nhiều mà tier list là SSE > SSE2 > SSE3 > AVX2, nhược điểm là càng lên cao độ tương thích phần cứng càng giảm, yêu cầu các hệ máy mới hơn.
@@ -222,12 +223,10 @@ Tốc độ
 Tính năng mới
 : Tùy theo từng bản mod mà được tích hợp các tính năng hữu ích như Portable, ẩn địa chỉ IP, chống theo dõi...
 
-## Các bản mod hay ho, uy tín của Firefox
-
 | Thuật ngữ | Giải thích |
 |:--------:|:----------|
 | Privacy  | Riêng tư |
-| Portable | Không cần cài đặt, không để lại rác, cho vào USB/mang sang máy khác giữ 100% dữ liệu|
+| Portable | Không cần cài đặt, không để lại rác,<br>cho vào USB/mang sang máy khác giữ 100% dữ liệu |
 | Adblock  | Chặn quảng cáo dạng native |
 | SSE2/AVX/LTO<br>_các từ khóa đầu tiên_ | Tập lệnh tăng tốc biên dịch|
 
@@ -240,10 +239,9 @@ Hiện tại (14/9/23) Tete đã chính thức lên kệ AVX2.
 Ngoài ra một điểm mạnh nữa của tete là bản này là bản stable nhưng lại là Nightly, nên nó có thể cài được Fastforward, Multi-Threaded Download Manager và iMacros.
 
 > Download: <http://www1.plala.or.jp/tete009/en-US/software.html#FFDL>
-{: .prompt-info }
-
+>
 > Folder chứa các bản cũ (có cả 32bit): <https://drive.google.com/drive/folders/0BwJVYWis62cRalRwX2tsZklqUkk>
-{: .promtp-info }
+{: .prompt-info }
 
 #### Cách đặt Tete thành Firefox Portable xịn Pin được, đặt Default Browser được: [^ff-tete-1]
 
@@ -430,9 +428,15 @@ Bản Firefox mod của tác giả người Nhật mới nổi thời gian gần
 {: .prompt-info }
 
 ## Cách nhảy các bản mod Firefox không lo mất dữ liệu [^ff-backup-restore]
-1. Đầu tiên ở Firefox đang dùng, gõ `about:support` rồi xem phần `Application Binary`, mở thư mục chứa `firefox.exe` lên
-2. Tải bản mod dạng nén như 7z, zip, rar... về rồi giải nén thẳng vào thư mục chứa `firefox.exe`
-3. Nếu mở lên báo lỗi không tương thích thì vào folder `profile` xóa file `compatibility.ini` đi là xong
+
+Đầu tiên ở Firefox đang dùng
+: Gõ `about:support` rồi xem phần `Application Binary`, mở thư mục chứa `firefox.exe` lên
+
+Tải bản mod dạng nén như 7z, zip, rar...
+: Giải nén thẳng vào thư mục chứa `firefox.exe`
+
+Nếu mở lên báo lỗi không tương thích
+: Vào folder `profile` xóa file `compatibility.ini` đi là xong
 
 ## Làm sao tạo mới profile mà vẫn giữ được 90% dữ liệu ?
 
@@ -477,7 +481,7 @@ Copy những file sau:
 Chạy `prefsCleaner.bat` (hoặc `prefsCleaner.sh` - tùy hệ điều hành)
 : Reset lại `cài đặt`
 
-#### Nếu muốn tạo profile mới
+### Nếu muốn tạo profile mới
 
 `about:profiles`
 : Create a new profile -> Chọn thư mục -> Launch profile

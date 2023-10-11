@@ -1,8 +1,8 @@
 ---
 title: "[Firefox Awesome] Các add-on hay ho"
 date: 2023-09-30 11:33:00 +0700
-categories: [firefox, awesome]
-tags: [firefox, awesome]
+categories: [firefox, awesome, add-on]
+tags: [firefox, awesome, add-on, ublock, ubo, nano defender, drama, unload tab, auto tab discard, proxy switchy, head editor, mdm, download manager, file centipede, multi-threaded download manager, linguist, twp, search by image, pwa, progressive web application, cookie manager, dark reader, bitwarden, fastforward, new tab override]
 ---
 > Linh vật của công ty là một khủng long (`Mozilla`), biểu tượng thì là một con cáo (`fire fox`), nhưng thực chất lại là gấu trúc (`red panda`), và sử dụng engine là một con tác kè (`gecko`)
 {: .prompt-info }
