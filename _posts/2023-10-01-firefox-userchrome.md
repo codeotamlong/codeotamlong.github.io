@@ -155,7 +155,7 @@ Cấu trúc thư mục `PROFILE_DIR\chrome\` mới
 > `user.js` là file javascript nên có thể sử dụng `//` và `/**/` để viết ghi chú
 {: .prompt-tip }
 
-### Tắt CSS3 Animation [^fn-nth-4]
+### Tắt CSS3 Animation [^ff-css-remove-animation]
 
 > Trong `about:config` có tham số `ui.prefersReducedMotion` để bắt trang web nó không dùng animation, tuy nhiên hỏi là một chuyện người ta đồng ý hay không lại là một chuyện khác vì nó đòi hỏi trang web phải sử dụng CSS `@media (prefers-reduced-motion) {/* styles to apply if a user's device settings are set to reduced motion */}`
 {: .prompt-tip }
@@ -260,8 +260,22 @@ Kết quả
 > : ![](https://github.com/datguypiko/Firefox-Mod-Blur/blob/master/EXTRA%20MODS/Compact%20extensions%20menu/Style%202/No%20separator%20line/preivew.jpg?raw=true)
 {: .prompt-tip }
 
+### Đổi màu Tab đang phát âm thanh
+
+> Link: <https://github.com/datguypiko/Firefox-Mod-Blur/tree/master/EXTRA%20MODS/Tabs%20Bar%20Mods/Colored%20sound%20playing%20tab>
+{: .prompt-info }
+
+Tắt hẳn Firefox
+: Mở thư mục `PROFILE_DIR/chrome/CSS/`:
+: Tải thẳng file `colored_soundplaying_tab.css` đã tải ở Link trên vào đây
+: Đổi tên `colored_soundplaying_tab**.uc**.css`
+: Lưu lại, khởi động lại Firefox
+
+Kết quả
+: ![](https://github.com/datguypiko/Firefox-Mod-Blur/blob/master/EXTRA%20MODS/Tabs%20Bar%20Mods/Colored%20sound%20playing%20tab/preview.png?raw=true)
+
 ## Nguồn:
 [^ff-userchrome]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/page-172#post-25670849>
 [^ff-js-1]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-27662606>
 [^ff-css-1]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/page-160#post-25566309>
-[^fn-nth-4]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/page-160#post-25566309>
+[^ff-css-remove-animation]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/page-160#post-25566309>
