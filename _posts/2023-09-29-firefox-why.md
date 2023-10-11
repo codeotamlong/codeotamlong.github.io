@@ -464,7 +464,7 @@ Copy những file sau:
 | Thư mục `storage`                | Tùy chỉnh add-on <br>*không đảm bảo 100%*|
 | Thư mục `chrome`                 | Giao diện         |
 | handlers.json                    | Protocol (_để sau mở Youtube bằng mpv_) |
-| - prefsCleaner.bat<br> (- prefsCleaner.sh) | Reset `about:config` mặc đinh<br>(_tùy hệ điều hành_) |
+| - prefsCleaner.bat<br> (- prefsCleaner.sh) | Reset `about:config` mặc đinh<br>(_tùy hệ điều hành_ - Đồ của @arkenfox) |
 
 ### Khôi phục (Restore)
 
@@ -491,7 +491,91 @@ Chạy `prefsCleaner.bat` (hoặc `prefsCleaner.sh` - tùy hệ điều hành)
 > Chú ý trên MacOS phân biệt Quit (Tắt) và Close (Đóng), nên là cần chắc chắn là đã QUIT hẳn Firefox
 {: .prompt-tip }
 
-# Nguồn:
+## Góc drama -  Giải "ảo" Adguard tốt hơn uBlock? [^ff-why-13] _Tạm dịch_ (Bài viết của @gorhill - Tác giả uBO)
+
+Cụ thể hơn, việc vạch trần [@christianbute](https://twitter.com/christianbute) phát ngôn <https://twitter.com/christianbute/status/893462816270815232>. Hai tweet được trích dẫn nguyên văn:
+
+> Theo thử nghiệm của tôi, trình chặn quảng cáo và phần mềm độc hại tốt nhất cho @MicrosoftEdge là AdGuard. Bất cứ điều gì khác chỉ làm cho hiệu suất tồi tệ hơn.
+>
+> Có, ngay cả uBlock Origin cũng làm chậm trải nghiệm duyệt web của tôi. Trên cài đặt chứng khoán hoặc danh sách tùy chỉnh, không thành vấn đề. Không muốn nhắc tới người khác
+
+Rất tiếc, tôi không thể điều tra khiếu nại này trên Microsoft Edge vì tôi không có Windows. Tuy nhiên, cả hai extension đều sử dụng cùng một mã trên Microsoft Edge giống như trên Chrome, do đó ít nhất tôi có thể điểm chuẩn với Chrome.
+
+Các phép đo khách quan của tôi, benchmark trên Chrome 59 trên Linux 64-bit:
+
+uBO 1.13.8
+: cài đặt/danh sách mặc định
+: tất cả các danh sách được cập nhật
+
+Adguard 2.6.7
+: Bộ lọc tiếng Anh + phần mềm gián điệp
+: tắt "Cho phép tự quảng cáo của quảng cáo tìm kiếm và trang web"
+: tất cả các danh sách được cập nhật
+
+### Các bước thực hiện
+
+- Khởi chạy Chrome chỉ khi bật một trong các trình adblocker
+   + với tab Extension được ghim + chỉ một tab mới
+   + không có phần mở rộng nào khác
+- Mở Task manager của riêng Chromium, đợi dọn rác extension
+- Mở trang nền của extension, chọn khung "Performance"
+- Nhấp vào nút "Record" trong khung Performance
+- Chọn "New Tab" đã mở trong trình duyệt
+- Nhấp chuột phải vào thư mục bookmark 20 tab (xem bên dưới) và chọn "Open all bookmarks"
+- Đợi tất cả các tab được tải
+- Kích hoạt lần lượt từng tab mới mở
+- Nhấp vào nút "Stop" trong khung Hiệu suất
+- Kết quả ảnh chụp màn hình trong ngăn "Performance"
+
+Đối với điểm chuẩn "memory usage": tất cả các bước tương tự ngoại trừ các công cụ extension dành cho nhà phát triển không được mở và chỉ tính đến Task manager. Đợi ít nhất 2 phút sau bước 8. trước khi chụp ảnh màn hình Task manager.
+
+20-tab thư mục dấu trang trong thanh dấu trang (được đọc từ các bài đăng hàng đầu trên Tin tức Hacker trong năm qua, do đó "sử dụng thực tế"):
+
+```
+http://www.hntoplinks.com/year/2
+https://www.susanjfowler.com/blog/2017/2/19/reflecting-on-one-very-strange-year-at-uber
+http://www.nature.com/news/these-seven-alien-worlds-could-help-explain-how-planets-form-1.21512?WT.mc_id=TWT_NatureNews
+https://medium.com/@amyvertino/my-name-is-not-amy-i-am-an-uber-survivor-c6d6541e632f
+https://www.nytimes.com/2017/06/21/technology/uber-ceo-travis-kalanick.html?_r=0
+https://www.malwaretech.com/2017/05/how-to-accidentally-stop-a-global-cyber-Attacks.html
+https://qz.com/937038/github-now-lets-its-workers-keep-the-ip-when-they-use-company-resources-for-personal-projects/?s=1
+https://techcrunch.com/2017/01/09/atlassian-acquires-trello/
+https://www.washingtonpost.com/news/the-fix/wp/2016/11/08/donald-trumps-path-to-victory-is-suddenly-Looking-much-much-wider/?hpid=hp_hp -bignews3_fix-electalmap-210am%3Ahomepage%2Fstory
+https://news.mit.edu/2017/tim-berners-lee-wins-turing-award-0404
+https://code.facebook.com/posts/1840075619545360
+https://www.blog.google/topics/public-policy/net-neutrality-day-action-help-preserve-open-internet/
+https://daringfireball.net/2017/06/fuck_facebook
+https://josephg.com/blog/electron-is-flash-for-the-desktop/
+https://privacylog.blogspot.ca/2017/04/what-happens-when-you-send-zero-day-to.html
+http://www.groundup.org.za/article/why-were-dropping-google-ads/
+http://www.sciencedirect.com/science/article/pii/S1525001617301107
+https://twitter.com/GambleLee/status/862307447276544000
+https://answers.microsoft.com/en-us/msoffice/forum/msoffice_onedrivefb-mso_o365brs/onedrive-for-business-open-is-very-slow-on-linux/3d33dc1b-3cc3-4c24-9998-9ab96bad31fc
+https://www.theatlantic.com/magazine/archive/2017/06/lolas-story/524490/?single_page=true
+https://www.theguardian.com/technology/2017/jan/13/whatsapp-design-feature-encrypted-messages
+```
+
+#### Kết quả:
+
+Mức sử dụng CPU (xem ảnh):
+: uBlock Origin (trên): 4.662,3 ms (3.403,6 ms + 1.258,7 ms)
+: Adguard (dưới): 14.424 ms (11.638,8 ms + 2.785,2 ms)
+
+![](https://user-images.githubusercontent.com/585534/28976229-1a45cc20-790b-11e7-83df-31372efd5e93.png)
+
+Mức sử dụng bộ nhớ sau khi tải tất cả các tab (xem ảnh, trên cùng là sau khi khởi chạy trình duyệt + thu gom rác và trước khi mở tất cả các tab):
+: uBlock Origin (trái): 1.254 MB
+: Adguard (phải): 1.535 MB
+
+![](https://user-images.githubusercontent.com/585534/28976324-6910e2c2-790b-11e7-9388-3591daaed7b6.png
+)
+#### Kết luận:
+
+Về cơ bản, cả hai extension đều sử dụng cùng một mã trên Microsoft Edge giống như trên Chrome, vì vậy dự kiến ​​chúng sẽ có kết quả hiệu suất tương đối giống nhau. Kết quả chỉ ra rằng **uBlock Origin tiêu tốn 1/3 chu kỳ CPU để thực sự đạt được nhiều hơn Adguard** (mặc định của uBO bao gồm danh sách phần mềm độc hại và của Peter Lowe), việc tuyên bố rằng kết quả hoàn toàn bị đảo ngược trên Microsoft Edge là một tuyên bố khá đặc biệt và do đó cần phải được được chứng minh bằng nhiều điều hơn là chỉ đánh giá hoàn toàn chủ quan và không có dữ liệu, chẳng hạn như "phương pháp luận là cách sử dụng thực tế".
+
+Rõ ràng, việc công bố kết quả được hỗ trợ bởi dữ liệu + phương pháp để vạch trần một tuyên bố vô căn cứ lại bị coi là ["công kích"](https://twitter.com/christianbute/status/893523529437765632). Tính chủ quan, Thiên kiến, hiệu ứng giả dược là thực tế, và cách để chống lại những điều này là bám vào dữ liệu khách quan, và đó là điều tôi đã làm ở trên.
+
+## Nguồn:
 [^ff-why-1]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-22179155>
 [^ff-why-2]: <https://old.reddit.com/r/firefox/comments/gjuqwz/does_firefox_preload_websites_on_search/>
 [^ff-why-3]: <https://support.mozilla.org/en-US/kb/how-stop-firefox-making-automatic-connections#w_prefetching>
@@ -504,6 +588,7 @@ Chạy `prefsCleaner.bat` (hoặc `prefsCleaner.sh` - tùy hệ điều hành)
 [^ff-why-10]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-27482337>
 [^ff-why-11]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-27693391>
 [^ff-why-12]: <https://www.howtogeek.com/724441/what-is-googles-floc-and-how-will-it-track-you-online/>
+[^ff-why-13]: <https://github.com/gorhill/uBlock/wiki/Debunking-%22uBlock-Origin-is-less-efficient-than-Adguard%22-claims>
 [^ff-mod-1]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/page-302#post-27777028>
 [^ff-backup-restore]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/page-302#post-27777028>
 [^ff-tete-1]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-23354773>

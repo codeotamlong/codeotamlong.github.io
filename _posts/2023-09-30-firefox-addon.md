@@ -14,11 +14,22 @@ tags: [firefox, awesome]
 > Với người dùng Việt Nam thì tất nhiên sau khi cài xong uBlock các bạn vào Dashboard rồi kéo xuống dưới tìm ABPVN rồi bật lên để chặn quảng cáo Việt Nam hiệu quả.
 {: .prompt-tip }
 
-Ngoài ra việc chặn quảng cáo sẽ giúp các bạn tránh khỏi những trường hợp dính virus (như đồng chí NFT_God dính virus mất sạch coin do search Google rồi ấn nhầm vào quảng cáo Google).
-
-Cũng như tăng cường sự riêng tư vì các tracker bị chặn luôn, khiến các trang web không theo dõi được bạn.
-
 ### Các bộ lọc đáng dùng không lỗi cho uBlock[^ff-ubo-2][^ff-ubo-8]
+
+```
+https://raw.githubusercontent.com/ethan-xd/ethan-xd.github.io/master/fb.txt
+https://gitlab.com/magnolia1234/bypass-paywalls-clean-filters/-/raw/main/bpc-paywall-filter.txt
+https://gitlab.com/DandelionSprout/adfilt/-/raw/master/LegitimateURLShortener.txt
+https://raw.githubusercontent.com/quenhus/uBlock-Origin-dev-filter/main/dist/all_search_engines/global.txt
+https://github.com/stephenhawk8054/PrivacyExtended
+https://github.com/DandelionSprout/adfilt/blob/master/BrowseWebsitesWithoutLoggingIn.txt
+https://github.com/liamengland1/miscfilters/blob/master/antipaywall.txt
+https://github.com/yokoffing/filterlists/blob/main/annoyance_list.txt
+https://raw.githubusercontent.com/nmtrung/FMSF-2.0/master/fmsf_2.0.txt
+```
+{: file="uBO/Filter Lists/Import"}
+
+Thông tin chi tiết
 
 | Tính năng | Phân loại | Link |
 |:-|-|-|
@@ -30,70 +41,84 @@ Cũng như tăng cường sự riêng tư vì các tracker bị chặn luôn, kh
 | Ẩn hộp thoại bắt đăng nhập | tính năng | <https://github.com/DandelionSprout/adfilt/blob/master/BrowseWebsitesWithoutLoggingIn.txt> |
 | Anti-Paywall Cleaner | tính năng | <https://github.com/liamengland1/miscfilters/blob/master/antipaywall.txt> |
 | Ẩn elements khó chịu/thừa<br>_(của tác giả Betterfox)_ | tính năng | <https://github.com/yokoffing/filterlists/blob/main/annoyance_list.txt> |
-
-> Bổ sung:
-> : [ABPVN](https://abpvn.com/get): <https://abpvn.com/filter/abpvn-PeImlF.txt?ublock>
-> : [FMSF2](https://nmtrung.com/fmsf-2/): <https://raw.githubusercontent.com/nmtrung/FMSF-2.0/master/fmsf_2.0.txt>
-{: .prompt-info }
-
+| FMSF2 |  | <https://raw.githubusercontent.com/nmtrung/FMSF-2.0/master/fmsf_2.0.txt>
 
 
 ### Cách chặn các tên miền mới tạo (thường là lừa bịp, virus) bằng uBlock[^ff-ubo-3]
 
-NextDNS có cái tính năng chặn tên miền mới (NRD) rất hay, tuy nhiên NextDNS thì cũng có giới hạn nếu xài miễn phí, vậy nên mình tìm hiểu xem có giải pháp thay thế nào không và kết quả là hóa ra uBlock cũng làm được tương tự.
+> Link: https://virtualfabric.com/services/free-online-security/free-online-security-downloads/
+{: .prompt-info }
 
-Đây là một list chặn NRD rất hay vì đa phần các tên miền mới đều là lừa đảo, virus... Vậy nên chặn tụi nó đi giúp tránh được rất nhiều tai họa. Và list này là một list dạng tính năng, không khiến trang dùng anti-adblock để phát hiện và quấy rối người dùng như việc thêm một lô một lốc các list phục vụ mục đích chặn quảng cáo.
+NextDNS có cái tính năng chặn tên miền mới (NRD) rất hay, đa phần các tên miền mới đều là lừa đảo, virus, chặn tụi nó đi giúp tránh được rất nhiều tai họa. Nhưng mà NextDNS thì miễn phí cũng chỉ có giới hạn.
 
-Vào `Settings` của `uBlock`, chọn `Custom` rồi copy thẳng vào nhé:
+Có mấy cái list tên miền mới tạo trong 32 ngày và 7 ngày khá hay, có thể add vào uBO. Và list này là một list dạng tính năng, không khiến trang dùng anti-adblock để phát hiện và quấy rối người dùng như việc thêm một lô một lốc các list phục vụ mục đích chặn quảng cáo.
 
-Chặn các tên miền mới tạo dưới 32 ngày: <https://nocdn.nrd-list.com/1/nrd-list-32-days.txt>
-Chặn các tên miền mới tạo dưới 7 ngày: <https://nocdn.nrd-list.com/1/nrd-list-7-days.txt>
+```
+https://nocdn.nrd-list.com/1/nrd-list-32-days.txt
+https://nocdn.nrd-list.com/1/nrd-list-7-days.txt
+```
+{: file="uBO/Filter Lists/Import"}
 
 ![](https://voz.vn/attachments/1682834413912-png.1807635/){: width="972" height="589" }
 _Giao diện uBO_
 
-Nguồn: <https://nrd-list.com/downloads/>
+> Cái list 7 ngày nặng 13.6MB dài **700k** dòng, cái list 32 ngày nặng 49.5MB dài **3 triệu** dòng: Nên là chỉ dùng 1 trong 2, mà đã tốn công dùng thì dùng luôn list 32 ngày. Mặc định uBlock cứ 7 tiếng cập nhập filter một lần[^ff-ubo-4], thêm vào là xong chả cần làm gì thêm nữa.
+{: .prompt-info }
 
-> List trên hỗ trợ cả `DNSCrypt` và `YogaDNS`, nếu các bạn dùng được DNSCrypt thật ra (chuẩn bài, hiệu năng) thì nên thêm vào DNSCrypt, còn YogaDNS thì mình không rõ vì nó phải trả phí mới cho chạy làm dịch vụ Windows
-{: .prompt-info}
+> Bọn này có có mấy cái list cho đủ các thể loại pihole, adguard, dnscrypt, yogadns, adaway,dnsmasq, unbound...) và ti tỉ cái khác để thử
+{: .prompt-tip }
 
-Cơ mà DNSCrypt thì các bạn hỏi @Bin_kutakoto_99 cho chính xác. Làm sao cho DNSCrypt nó tự động cập nhập list trên mới khó, vậy nên uBlock cũng ngon chán, mình cài vào thấy hiệu năng y xì như trước khi cài dù rằng list này chứa đến 3 triệu filter (tham khảo bài viết [Bóc phốt Adguard tốt hơn uBlock sẽ thấy uBlock hiệu năng tốt gấp 3x Adguard](https://github.com/gorhill/uBlock/wiki/Debunking-%22uBlock-Origin-is-less-efficient-than-Adguard%22-claims) {uBlock Origin (top): 4,662.3 ms (3,403.6 ms + 1,258.7 ms), Adguard (bottom): 14,424 ms (11,638.8 ms + 2,785.2 ms)}, mình sẽ có một bài chi tiết về vụ này sau tại vào thread ABPVN thấy mấy đồng chí bốc phét Adguard này Adguard nọ :D).
+### Cơ bản cách sử dụng Dynamic Filtering (thay thế [NoScript Security Suite](https://addons.mozilla.org/en-US/firefox/addon/noscript/)) [^ff-ubo-5][^ff-ubo-6]
 
-Chọn cái nào là tùy ý cơ mà chỉ nên chọn 1 trong 2, nói chung cứ 32 ngày mà táng, tên miền tầm 1 năm mới đáng tin, còn nếu nó chặn nhầm mấy trang hay đổi tên miền thì ngoại lệ tay lấy.
+![](../../assets/img/firefox-addon/ubo-advance-user.png)
+_Mở uBO > Settings > đánh dấu `I am an advance user`_
 
-Mặc định uBlock cứ 7 tiếng cập nhập filter một lần[^ff-ubo-4], thêm vào là xong chả cần làm gì thêm nữa.
+![](../../assets/img/firefox-addon/ubo-dynamic-filtering.png)
+_Mở ra bảng bên trái bằng cách bấm `More` liên tục_
 
-### Sử dụng uBlock thay thế NoScript/RequestPolicy để chặn script/ảnh/iframe bằng 2 cái nháy chuột[^ff-ubo-5] và Cơ bản cách sử dụng Dynamic Filtering[^ff-ubo-6]
+Giao diện chính sẽ có 3 cột
+: Cột 1: Đối tượng lọc (bao gồm kiểu resource, hostname...)
+: Cột 2: `Global rule`: áp dụng cho tất cả các trang web khác
+: Cột 3: `Local rule`: áp dụng cho các trang web hiện tại
 
-Bạn có thể tiết kiệm một add-on Noscript bằng cách dùng uBlock, bật Advanced features lên:
-![](https://voz.vn/attachments/1684062491489-png.1834001/)
+Ở cột 1 ở bên lề trái sẽ có vạch màu chỉ báo:
+: Màu <span style="color:red">đỏ</span>: Tất cả các request đều bị CHẶN 
+: Màu <span style="color:green">xanh</span>: Tất cả các request đều được CHO PHÉP
+: Màu <span style="color:yellow">vàng</span>: một số bị chặn, 1 số không
 
-Ấn vào biểu tượng uBlock sau đó nháy vào More liên tọi, cứ thấy More là nháy nó sẽ hiện ra bảng điều khiển nội dung web, ấn vào một trong ba phần trên để chặn:
+Ở cột 2 và 3 sẽ có 3 nút bấm:
+: Màu <span style="color:green">xanh</span>: Allow (_cho phép_) - Xem thêm bên dưới
+: Màu <span style="color:grey">xám</span>: Noop (_không làm gì_) - không áp dụng Dynamic Filtering ở đây
+: Màu <span style="color:red">đỏ</span>: Block (_chặn_)
 
-- Script dạng chữ
-- Script từ chính trang web
-- Script từ bên thứ 3
+Ở cột 2 và 3 sẽ có các kí hiệu khái quát số lượng request chị chặn/cho phép :
+: `-` hoặc `+`: có từ 1-9 request bị block/allow
+: `--` hoặc `++`: có từ 10-99 request bị block/allow
+: `---` hoặc `+++`: có trên 100 request bị block/allow
+: `không-có-gì`: không có request bị block/allow
 
-Ngoài ra còn hỗ trợ chặn iframe, ảnh (chặn những trang thấy ảnh tải chậm, ví dụ những trang tiểu thuyết thì chặn ảnh, script, iframe đi cho nó max tốc độ tải trang)...
+![](../../assets/img/firefox-addon/ubo-dynamic-filtering-global-rule.png)
+_Áp dụng `Block rules` lên đối tượng trên tất cả các website (`global rule`)_
 
-Rất dễ dùng một khi đã ép nó phải lòi cái bảng điều khiển ra, 2 chạm là xong.
+![](../../assets/img/firefox-addon/ubo-dynamic-filtering-local-rule.png)
+_Áp dụng `Noop rules` lên đối tượng trên website hiện tại (`local rule`)_
 
-![](https://voz.vn/attachments/1684061807548-png.1833979/)
+> `Noop rule` chỉ có ý nghĩa _không áp dụng Dynamic Filtering_, các bộ lọc khác vẫn tiếp tục hoạt động.
+>
+> Đối với Dynamic Filtering: `local` sẽ ghi đè lên `global`, hay nói cách khác: rule nào chi tiết hơn sẽ ghi đè lên rule ít chi tiết. Ví dụ: rule cho `youtube.com` chi tiết hơn và ghi đè lên rule cho `3rd-party frames`
+{: .prompt-tip }
 
-Tiện đây mình làm một bài hướng dẫn chi tiết cách sử dụng tính năng gọi là `Dynamic Filtering` có thể dịch nôm na là `Lọc cơ động`:
+![](../../assets/img/firefox-addon/ubo-dynamic-filtering-allow-rule.png)
+_Áp dụng `Allow rules` lên đối tượng trên website hiện tại (`local rule`)_
 
-![](https://voz.vn/attachments/1685289976728-png.1862304/){: width="972" height="589" }
-
-Nó chia ra hai cột chủ đạo:
-
-- Cột bên tay trái: Tắt bật trên toàn bộ trang web (thường là không bao giờ dùng đến trừ khi bạn muốn bật chế độ khổ dâm)
-- Cột bên tay phải: Tắt bật chỉ trên trang đang mở (cái này là cái cần quan tâm)
-
-Ngoài ra khi ấn Ctrl 2 lần khi mở giao diện Lọc cơ động này thì nó sẽ chia ra 3 cột con bên trong:
-
-- <span style="color:LIGHTGREEN">**Cột XANH LÁ**</span>: Cho phép, khiến các kết nối mà bình thường bị chặn sẽ được du di ngoại lệ
-- <span style="color:GREY">**Cột GHI**</span> Không làm gì cả
-- <span style="color:RED">**Cột ĐỎ:**</span> Chặn, kể cả kết nối đã được ngoại lệ trong bộ lọc rồi
+> Để kích hoạt nút `Allow rule`, làm theo 1 trong 2 cách sau
+>
+> 1. Ấn 2 lần phím Ctrl khi mở bảng điều kiển uBO
+> : Không dùng được cách này trên Firefox có đặt tham số `privacy.resistFingerprinting`=`true`
+>
+> 2. Đặt `filterAuthorMode`=`true` trong Advance Settings của uBO
+> : Biểu tượng bánh răng cưa cạnh dòng option `I'm an advance user`
+{: .prompt-tip }
 
 Mục đích sử dụng:
 : Nhanh chóng xử lý quảng cáo mà không muốn phải đợi bộ lọc cập nhập
@@ -229,7 +254,7 @@ Hóa ra Nano không phải là phần mềm độc hại mạo đa ad-blocker du
 
 Vì vậy, như tôi đã nói, hãy kiểm tra extensions của bạn. 
 
-## [Auto Tab Discard](https://addons.mozilla.org/en-US/firefox/addon/auto-tab-discard/): Tự động unload tab không hoạt động[^footnote] 
+## [Auto Tab Discard](https://addons.mozilla.org/en-US/firefox/addon/auto-tab-discard/): Tự động unload tab không hoạt động
 ### Unload tab có sẵn (native) trên Firefox[^ff-tabunloader]
 
 _Tạm dịch_
