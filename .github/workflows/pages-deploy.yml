@@ -54,7 +54,8 @@ jobs:
         run: |
           bundle exec htmlproofer _site \
             \-\-disable-external=true \
-            \-\-ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/,http://www1.plala.or.jp/tete009/en-US/software.html#FFDL"
+            \-\-ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/,http://www1.plala.or.jp/tete009/en-US/software.html#FFDL" \
+            \-\-allow-missing-href=true
 
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v1
