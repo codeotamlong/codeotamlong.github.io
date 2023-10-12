@@ -20,7 +20,6 @@ Với Chrome:
 : _Tạm dịch_
 : Ví dụ, trình duyệt Chrome có khả năng dự đoán những gì người dùng đang gõ và gửi yêu cầu trước cả khi người dùng đã gõ xong và nhấn Enter. Khi họ nhấn Enter, **trang web đã sẵn sàng để tải từ bộ nhớ cache**. Điều này được thực hiện thông qua một lượng lớn thuật toán học máy.
 
-
 Với Firefox (ý nói là Firefox không tải trước trang như Chrome) [^ff-why-2] [^ff-why-3]
 : - Firefox will prefetch certain links if any of the websites you are viewing uses the special prefetch-link tag.
 : - In order to reduce latency, Firefox will proactively perform domain name resolution on links that the user may choose to follow as well as URLs for items referenced by elements in a web page. 
@@ -232,7 +231,10 @@ Tính năng mới
 | Adblock  | Chặn quảng cáo dạng native |
 | SSE2/AVX/LTO<br>_các từ khóa đầu tiên_ | Tập lệnh tăng tốc biên dịch|
 
-### Firefox Tete009 - SSE2/AVX2+Portable
+### Firefox Tete009
+
+> SSE2/AVX2+Portable
+{: .prompt-info }
 
 Nếu như nói tới bản mod uy tín và lâu đời nhất (từ Firefox 2 nghĩa là 2006 tới nay), không thể không nói tới tete009, bản mod này được biên dịch tối ưu bằng tập lệnh SSE2 nên tương thích với đa phần hệ máy thời nay, giúp tăng tốc độ xử lý so với Firefox thường, ngoài ra tác giả áp dụng rất nhiều lệnh tối ưu PGO trong suốt mấy chục  năm trời nên nhìn chung về độ uy tín và an toàn là không có gì bản. Bản này không khác gì Firefox thường, tuy nhiên có thể biến thành Portable 100% không cần Launcher như Portableapps.
 
@@ -414,7 +416,10 @@ End Sub
 ```
 {: file="firefox.vbs"}
 
-### Floorp - LTO+Portable+Sidebar+VerticalTab+Workspace+UnloadTab+...
+### Floorp
+
+>LTO+Portable+Sidebar+VerticalTab+Workspace+UnloadTab+...
+{: .prompt-info }
 
 Bản Firefox mod của tác giả người Nhật mới nổi thời gian gần đây trên các trang Reddit như /r/browsers, /r/firefox bởi nó cũng khá là đặc sắc khi so với Firefox gốc, mà cái đặc sắc nằm ở:
 : Sidebar bên tay phải để mở nhanh các tính năng như bookmark, history, add-ons... (native)
@@ -440,16 +445,16 @@ Tải bản mod dạng nén như 7z, zip, rar...
 Nếu mở lên báo lỗi không tương thích
 : Vào folder `profile` xóa file `compatibility.ini` đi là xong
 
-## Làm sao tạo mới profile mà vẫn giữ được 90% dữ liệu ?
+## Backup/Restore profile cấu hình Firefox
 
 Đây là một bài viết mà sau khi đọc xong bạn có một cái nhìn toàn tổng về profile của Firefox, giúp bạn xoay sở trong những tình huống khó nhất.
 
-### Mục tiêu
-- Giữ được bookmark, history
-- Giữ được mật khẩu
-- Giữ được đăng nhập
-- Giữ được about:config
-- Giữ được add-on đã cài (tuy nhiên mất hết tùy chỉnh của add-on)
+Mục tiêu
+: Giữ được bookmark, history
+: Giữ được mật khẩu
+: Giữ được đăng nhập
+: Giữ được about:config
+: Giữ được add-on đã cài (tuy nhiên mất hết tùy chỉnh của add-on)
 
 ### Sau lưu (Backup)
 
@@ -459,16 +464,17 @@ Nếu mở lên báo lỗi không tương thích
 Copy những file sau:
 : Nén vào 1 file .zip cho nó không bị sót
 
-|----------------------------------|-------------------|
-| File/Folder                      | Tác dụng          |
-|:---------------------------------|:------------------|
-| places.sqlite                    | Bookmark; History |
-| cookies.sqlite                   | Cookies           |
-| - cert9.db<br> - key4.db<br> - logins.json | Mật khẩu|
+|----------------------------------|---------------------|
+| File/Folder                      | Tác dụng            |
+|:---------------------------------|:--------------------|
+| places.sqlite                    | Bookmark; History   |
+| cookies.sqlite                   | Cookies             |
+| - cert9.db<br> - key4.db<br> - logins.json | Mật khẩu  |
 | - extension-preferences.json<br> - extensions.json<br> - extension-settings.json<br> - Thư mục `extensions` | Add-ons |
-| prefs.js                         | about:config      |
+| prefs.js                         | about:config        |
+| search.json.mozlz4               | Bộ công cụ tìm kiếm |
 | Thư mục `storage`                | Tùy chỉnh add-on <br>*không đảm bảo 100%*|
-| Thư mục `chrome`                 | Giao diện         |
+| Thư mục `chrome`                 | Giao diện           |
 | handlers.json                    | Protocol (_để sau mở Youtube bằng mpv_) |
 | - prefsCleaner.bat<br> (- prefsCleaner.sh) | Reset `about:config` mặc đinh<br>(_tùy hệ điều hành_ - Đồ của @arkenfox) |
 
