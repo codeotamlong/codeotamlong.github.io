@@ -7,6 +7,7 @@ tags: [firefox, awesome, debunk, mod, mv3, manifest v3, tete009, floorp]
 > Linh vật của công ty là một khủng long (`Mozilla`), biểu tượng thì là một con cáo (`fire fox`), nhưng thực chất lại là gấu trúc (`red panda`), và sử dụng engine là một con tác kè (`gecko`)
 {: .prompt-info }
 
+{% comment %}
 ## Chrome **KHÔNG** nhanh hơn Firefox [^ff-why-1]
 
 Tốc độ của Chrome _có vẻ_ nhanh hơn Firefox, thực chất là do thuật toán học máy để đoán trước trang web, ví dụ: Bạn vừa gõ `goo`, nó đã biết là `google` rồi và tải sẵn luôn trang web vào bộ nhớ. Tính năng này *đánh lừa* người dùng là Chrome nhanh hơn Firefox: nếu cùng load một nội dung thì cả 02 trình duyệt đều giống nhau, nhưng Chrome giống như bắt đầu chạy từ giữa đường trong khi đối thủ đang đứng từ vạch xuất phát. 
@@ -40,6 +41,7 @@ Tóm lại học được gì qua những gì mình nói:
 > Firefox mặc định chỉ tải trước DNS, không hề có HTML nên đó là lý do tại sao Firefox cảm giảc chậm hơn
 {: .prompt-info }
 
+{% endcomment %}
 ## uBlock Origin làm việc tốt nhất trên Firefox (uBO works best on Firefox) [^ff-why-4] _Tạm dịch - Đọc bản gốc để hiểu rõ hơn_
 Truy nguyên CNAME
 : ![Desktop View](https://user-images.githubusercontent.com/585534/103416937-b623c400-4b56-11eb-8e94-b4851a2248b7.png)
