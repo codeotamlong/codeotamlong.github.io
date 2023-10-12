@@ -487,6 +487,119 @@ _Config trên HE_
 > Đó là sức mạnh của Header Editor (HE), khi mà đẩy giới hạn của nó lên mức cao nhất.
 {: .prompt-info }
 
+### Thay đổi nội dung website
+
+Tính năng Element Picker của Adblock (uBlock, Adguard, ABP...) cho phép **ẨN** nội dung web đi, thế nhưng ẩn khác xa với chặn: ẩn thì những bức ảnh, rác rưởi vẫn sẽ tải ngầm và vẫn lãng phí tài nguyên. Còn HE thì có khả năng **XÓA** nội dung web đi: đã xóa là đứt con nòng nọc không để lại hậu quả về sau.
+
+Ưu điểm:
+: Xóa triệt giống nòi, không để hoạt động, kết nối ngầm
+: Hiệu năng cao nhất (do hoạt động ở tầng mã nguồn, nghĩa là xóa trước khi trang web hiển thị)
+: Xóa được những quảng cáo khó nhất ([**đọc bài về cách mình dùng HE chặn Anti-Ablock mà cả uBlock cũng gần như chịu thua (chỉ uBlock của Firefox mới qua được nhưng khó vô cùng)**](https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-25364481))
+
+Nhược điểm
+: Yêu cầu khá cao từ phía người dùng.
+
+> Sử dụng các trang `regex101` hoặc `regexr` để viết regex cho chắc
+> : regex101: <https://regex101.com/>
+> : regexr: <https://regexr.com/>
+{: .prompt-tip }
+
+> Các tùy biến trong phần này yêu cầu bật `Modify response body (only supports Firefox)`, cụ thể:
+> : Click vào biểu tượng Header Editor ở Toolbar -> Manage -> Options
+> : ![](https://voz.vn/attachments/1684423016563-png.1842843/) _Đánh dấu `Modify response body (only supports Firefox)`_
+{: .prompt-warning }
+
+#### Xóa khung comment trên `blogtruyen.com`[^ff-he-blogtruyen-comment-bottom-pane]
+
+Vấn đề
+: Khi tải trang <https://blogtruyenmoi.com/c402446/bat-nat-chap-1>, trình duyệt tải cả phần comment với ảnh động, tốn bandwidth và tài nguyên CPU/GPU để render.
+
+![](https://voz.vn/attachments/1695310955464-png.2085463)
+
+![](https://voz.vn/attachments/1695310955464-png.2085463)
+
+Giải pháp
+: Xóa tiệt nó đi
+
+> Bật `Modify response body (only supports Firefox)` nếu chưa từng bật
+{: .prompt-info }
+
+- Click vào dấu `+` (New)
+- Rule type: `Modify response body`
+- Match type: `Regular expression`
+- Match Rules: `^(.*?)blogtruyenmoi(.*)`
+
+```
+^(.*?)blogtruyenmoi(.*)
+```
+{: file="Match Rules"}
+
+- Execute type: `Custom function`
+- Custom function: `return val.replace(/<section style="background: white;margin: 10px auto; width: 1200px;height: 1200px; z-index: 999; position: relative;">[\s\S]*?<section class="bg-white comments"[\s\S]*?<div class="clear-fix"><\/div>[\s\S]*?<\/section>/, '<!-- CLEANED -->');`
+
+```js
+return val.replace(
+   /<section style="background: white;margin: 10px auto; width: 1200px;height: 1200px; z-index: 999; position: relative;">[\s\S]*?<section class="bg-white comments"[\s\S]*?<div class="clear-fix"><\/div>[\s\S]*?<\/section>/,
+   '<!-- CLEANED -->'
+);
+```
+{: file="Custom function"}
+
+Cơ chế hoạt động
+: Ở phần trên mình sẽ giải thích kỹ hơn, các bạn chuột phải vào trang ví dụ rồi `View Source`, các bạn sẽ xóa là xóa nội dung HTML trong các mã nguồn đó, thì phần comment nó ở đoạn này:
+: ![](https://voz.vn/attachments/1695312779230-png.2085496)
+: Mục đích ở đây là các bạn viết code RegEx sao cho nó nhặt toàn bộ đoạn này và xóa đi. Khi bạn F5 ở phần View Source sẽ thấy nó bị xóa hoàn toàn:
+: ![](https://voz.vn/attachments/1695312955378-png.2085499)
+
+
+Nói chung là như hình sau:
+: ![](https://voz.vn/attachments/1695312295853-png.2085486)
+
+Save và F5, Kết quả:
+: Cái khung comment bị triệt hết cả giống nòi, trang load siêu nhanh bởi không còn phí thời gian tải Facebook, rác rưởi, cặn bã...:
+: ![](https://voz.vn/attachments/1695312232944-png.2085485)
+
+
+#### Xóa khung right pane trên `voz` [^ff-he-voz-remove-right-pane]
+
+Ví dụ đời thực là trang chủ Đen Vâu, ở đây là mình ẩn bằng uBlock, nghĩa là kể cả ẩn đi rồi Tiktok vẫn load ầm ầm, vẫn track người dùng, vẫn tốn bandwidth và tất nhiên áp dụng cho cả Youtube, nếu sử dụng HE xóa triệt sẽ lại là một câu chuyện khác:
+
+![](https://voz.vn/attachments/1695314107674-png.2085528)
+
+> Bật `Modify response body (only supports Firefox)` nếu chưa từng bật
+{: .prompt-info }
+
+- Click vào dấu `+` (New)
+- Rule type: `Modify response body`
+- Match type: `Regular expression`
+- Match Rules: `^.*?voz.vn/$`
+
+```
+^.*?voz.vn/$
+```
+{: file="Match"}
+
+- Execute type: `Custom function`
+- Custom function: `return val.replace(/<div class="block" data-widget-id="8" data-widget-key="forum_overview_new_profile_posts" data-widget-definition="new_profile_posts" data-xf-init="lightbox">[\s\S]*?<div class="block" data-widget-id="9" data-widget-key="forum_overview_forum_statistics" data-widget-definition="forum_statistics">/, '<!-- CLEANED --><div class="block" data-widget-id="9" data-widget-key="forum_overview_forum_statistics" data-widget-definition="forum_statistics">');`
+
+```js
+return val.replace(
+   /<div class="block" data-widget-id="8" data-widget-key="forum_overview_new_profile_posts" data-widget-definition="new_profile_posts" data-xf-init="lightbox">[\s\S]*?<div class="block" data-widget-id="9" data-widget-key="forum_overview_forum_statistics" data-widget-definition="forum_statistics">/, 
+   '<!-- CLEANED --><div class="block" data-widget-id="9" data-widget-key="forum_overview_forum_statistics" data-widget-definition="forum_statistics">'
+);
+```
+{: file="Custom function:"}
+
+Cụ thể:
+![](https://voz.vn/attachments/1695314792685-png.2085539)
+
+F5 lại cái, và anh ấy đã trết, trang tải nhanh như tên lửa, đó là cả một thế giới mới đó. Benchmark hẳn luôn tốc độ tải trang, chưa tới 1s (<https://streamable.com/uigw5h>). :D
+![](https://voz.vn/attachments/1695314519849-png.2085533)
+![](https://voz.vn/attachments/1695314749241-png.2085538)
+
+> HE là một vũ khí khủng khiếp giúp bạn thâm nhập sâu vào mã nguồn trang web, nếu thành thạo các bạn có thể tăng tốc lướt web lên bằng cách xóa những thứ rác không cần thiết, cách này vượt trội so với ẩn đi bằng CSS `display:none` của uBlock/Adguard/ABP, và trị những quảng cáo cứng đầu nhất.
+{: .prompt-tip }
+
 ## FileCentipede - Tải đa luồng, bắt link như IDM
 
 > Download: <https://github.com/filecxx/FileCentipede/releases>
@@ -1182,6 +1295,8 @@ Addon Dark Reader rất tiện, tuy nhiên add-on này sử dụng rất nhiều
 [^ff-ubo-8]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/page-376#post-28159390>
 [^ff-tabunloader]: <https://firefox-source-docs.mozilla.org/browser/tabunloader/>
 [^ff-auto-tab-discard]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-24609843>
+[^ff-he-blogtruyen-comment-bottom-pane]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/page-315#post-27876504>
+[^ff-he-voz-remove-right-pane]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/page-315#post-27877026>
 [^fn-proxy-switchy-1]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-25233313>
 [^fn-proxy-switchy-2]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-24766263>
 [^fn-proxy-switchy-3]: <https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-27899373>
