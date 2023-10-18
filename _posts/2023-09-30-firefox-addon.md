@@ -1199,35 +1199,6 @@ Tăng giá trị `nglayout.initialpaint.delay` sẽ cực kỳ hiệu quả khi 
 
 [**Ngoài ra tham khảo thêm bài này để có một cái nhìn khái quát hơn về cách Firefox render trang web cũng như tối ưu xa hơn giữa `nglayout.initialpaint.delay` và `content.notify.interval`.**](https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-pc-mobile.682181/post-27064564)
 
-
-### Một cái nhìn khái quát hơn về cách Firefox render trang web cũng như tối ưu xa hơn giữa `nglayout.initialpaint.delay` và `content.notify.interval`.
-
-Hiện mình đang test thử với thông số này thấy khá ổn, phần `content.notify.interval` để vậy cho chắc chứ `content.notify.backoffcount=0` là đủ, còn `nglayout.initialpaint.delay` sẽ thử cho xuống `250` (chính là thông số của Firefox thời 3-4.0) xem có khác biệt không:
-
-| nglayout.initialpaint.delay | 2000 |
-| nglayout.initialpaint.delay_in_oopif | 2000 |
-| content.notify.backoffcount | 0 |
-| content.notify.interval | 2000000 |
-| content.notify.ontimer | true |
-
-Đây là thông số mới, sẽ cập nhập bài nglayout để hoàn thiện nó sau khi thấy cái nào hiệu quả nhất, mục đích của tối ưu này là khiến Firefox chơi tốt với Dark Reader (nếu cần) cũng như tải trang không bị hiện tượng nhấp nháy mà một số bạn bị.
-
-Thông số trải nghiệm 1 (chỉ reflow 2 lần tối đa) cứ mỗi 2s:
-
-| nglayout.initialpaint.delay | 250 |
-| nglayout.initialpaint.delay_in_oopif | 250 |
-| content.notify.backoffcount | 2 |
-| content.notify.interval | 2000000 |
-| content.notify.ontimer | true |
-
-Thông số trải nghiệm 2 (không reflow):
-
-| nglayout.initialpaint.delay | 250 |
-| nglayout.initialpaint.delay_in_oopif | 250 |
-| content.notify.backoffcount | 0 |
-| content.notify.interval | 2000000 |
-| content.notify.ontimer | true |
-
 ### Nguyên nhân[^ff-darkreader-3]
 
 Mặc định là tức thì đó và giá trị tính là mili giây, 1 giây là 1000 mili giây.
@@ -1252,8 +1223,6 @@ Cũng bài viết trên này và áp dụng với người dùng của Dark Read
 > - Go to "about:config" in the URL bar.
 > - Add an integer key "nglayout.initialpaint.delay". At least on my browser's installation, it did not exist and had to be added.
 > - Insert the number of milliseconds that you're willing to wait until the browser tries to render the page if it still doesn't have a full copy downloaded. I used 2000.
-
-
 
 Addon Dark Reader rất tiện, tuy nhiên add-on này sử dụng rất nhiều CSS và JS để thay đổi màu sắc từng vùng trên trang web (thực sự là add-on này phức tạp hơn rất nhiều người nghĩ là cứ cài vào nó biến trang web thành màu đen, nó còn phân tích màu sắc của font, các thẻ HTML lân cận để đưa ra quyết định có thay đổi màu sang đen hay không) khiến trang web phải render liên tục, tăng giá trị `nglayout.initialpaint.delay` sẽ giảm bớt số lần render của Firefox đi, khiến hạ bớt CPU đi khi tải trang. Tham khảo bài viết trên Reddit ở bên trên để rõ hơn:
 
