@@ -28,18 +28,17 @@ _Hậu quả của tự bảo vệ quá đà_
 Kể cả khi không làm gì trên máy tính thì bạn vẫn có khả năng bị định danh là `unique`(_tạm dịch:_ cá thể duy nhất) - chỉ riêng các số liệu về màn hình, cửa sổ và phông chữ có lẽ là đủ - thêm múi giờ, ngôn ngữ ưa thích và hàng chục số liệu khác và trò chơi kết thúc. Kết quả của một nghiên cứu được thực hiện vào năm 2016 cho thấy 99.24% tỷ lệ nhận diện chính xác[^rfp-tracking-rate-research] (và điều đó không bao gồm các địa chỉ IP - xem thêm hướng dẫn fake IP ở dưới[^rfp-vpn-guide]).
 
 > Hướng dẫn thực chiến về fake IP: <https://educatedguesswork.org/posts/traffic-relaying/>
->
-> Trích kết luận của hướng dẫn
-> : Địa chỉ IP là một vectơ theo dõi quan trọng và hiệu quả cao và nếu muốn duyệt web ở chế độ riêng tư, bạn cần phải làm gì đó để che giấu IP của mình và điều này chủ yếu có nghĩa là qua kênh trung gian: Bất kỳ hệ thống trung gian nào cũng sẽ che giấu danh tính của bạn khỏi máy chủ, **miễn là nhà cung cấp của bạn không thông đồng với máy chủ**. Bất kỳ hệ thống một bước nào nhất thiết có nghĩa là bạn _tin tưởng nhà cung cấp_ sẽ không theo dõi hành vi của bạn và không thông đồng với máy chủ. Cuối cùng, điều quan trọng cần biết là ngay cả hệ thống tốt nhất cũng chỉ cung cấp khả năng bảo vệ hạn chế. Kẻ tấn công có cái nhìn toàn cảnh về mạng thường có thể thực hiện đủ phân tích lưu lượng để xác định ai ở mỗi đầu lưu lượng. May mắn thay, hầu hết chúng ta không cần phải lo lắng về kẻ tấn công mạnh mẽ này.
+> 
+> _Địa chỉ IP là một vectơ theo dõi quan trọng và hiệu quả cao và nếu muốn duyệt web ở chế độ riêng tư, bạn cần phải làm gì đó để che giấu IP của mình và điều này chủ yếu có nghĩa là qua kênh trung gian: Bất kỳ hệ thống trung gian nào cũng sẽ che giấu danh tính của bạn khỏi máy chủ, **miễn là nhà cung cấp của bạn không thông đồng với máy chủ**. Bất kỳ hệ thống một bước nào nhất thiết có nghĩa là bạn _tin tưởng nhà cung cấp_ sẽ không theo dõi hành vi của bạn và không thông đồng với máy chủ. Cuối cùng, điều quan trọng cần biết là ngay cả hệ thống tốt nhất cũng chỉ cung cấp khả năng bảo vệ hạn chế. Kẻ tấn công có cái nhìn toàn cảnh về mạng thường có thể thực hiện đủ phân tích lưu lượng để xác định ai ở mỗi đầu lưu lượng. May mắn thay, hầu hết chúng ta không cần phải lo lắng về kẻ tấn công mạnh mẽ này._
 {: .prompt-info }
 
 > Thay đổi một vài `prefs` từ mặc định sẽ không khiến bạn "độc đáo hơn" - không có chuyện đó đâu. 
-> : Đừng bối rối với những nghịch lý thông tin đơn giản, ví dụ như là Blink (engine web của Google) thay vì Gecko (engine của Firefox). 
+> : Đừng bối rối với những nghịch lý thông tin đơn giản, ví dụ như là sử dụng Blink (engine web của Google) thay vì Gecko (engine của Firefox). 
 {: .prompt-danger }
 
-Chỉ Tor Browser mới có thể tự tin giải quyết các script theo dõi phức tạp (_nguyên văn:_ advance) với đầy đủ điều kiện cần thiết về `dữ liệu` và `nguồn lực`. Điều tốt nhất mà bất kỳ trình duyệt nào khác có thể tự tin làm là đánh lừa các script đơn giản (_nguyên văn:_ naive) bằng các giá trị ngẫu nhiên - nếu cảm thấy chưa đủ, hãy bổ sung các điểm dữ liệu lỏng lẻo từ IP/VPN của bạn. 
+Chỉ Tor Browser mới có thể tự tin giải quyết các script theo dõi phức tạp (_nguyên văn:_ advance) với đầy đủ điều kiện cần thiết về `số liệu` và `số lượng tác nhân trong hệ thống`. Điều tốt nhất mà bất kỳ trình duyệt nào khác có thể tự tin làm là đánh lừa các script đơn giản (_nguyên văn:_ naive) bằng các giá trị ngẫu nhiên - nếu cảm thấy chưa đủ, hãy bổ sung các điểm dữ liệu lỏng lẻo từ IP/VPN của bạn. 
 
-> Thực ra đoạn này rất khó hiểu, "naive script" không biết là để chỉ các script "ngây thơ", dễ lừa với các tham số giả hay là thuật toán Naive Bayes trong Khoa học dữ liệu để tính "xác suất xảy ra biến cố B khi có biến cố A". Hiểu thế nào cũng đc, thì thuật toán NaiveBayes cũng sẽ bị lừa nếu cho vào đấy 1 đống các giá trị ngẫu nhiên
+> Thực ra đoạn này rất khó hiểu, "naive script" không hiểu là các script "ngây thơ", dễ lừa với các tham số giả hay là thuật toán Naive Bayes trong Khoa học dữ liệu để tính "xác suất xảy ra biến cố B khi có biến cố A". Hiểu thế nào cũng đc, thì thuật toán NaiveBayes cũng sẽ bị lừa nếu cho vào đấy 1 đống các giá trị ngẫu nhiên
 {: .prompt-info }
 
 > Arkenfox **không và không bao giờ tuyên bố có thể đánh bại tính năng theo dõi phức tạp** và không quan tâm liệu hai hoặc ba tham số `prefs` có lợi ích thực tế có thay đổi bất kỳ số liệu ổn định nào hay không, bởi vì **bản thân mỗi cá thể đã là duy nhất**. 
@@ -60,17 +59,16 @@ Ví dụ: Sử dụng các footprint/fingerprint của trình duyệt để đ�
 > `Navigational tracking` đề cập đến việc sử dụng chung một hoặc nhiều điều hướng để xác định rằng người dùng trên một trang web là cùng một người với người dùng trên một trang web khác. Điều hướng truyền thông tin giữa các trang web theo một số cách khác nhau, bao gồm cả trong URL mục tiêu, có thể được trang trí và theo thời gian của yêu cầu.[^rfp-nav-tracking]
 {: .prompt-info }
 
-Ví dụ: Facebook thêm parameter `?fbcid=` link ngoài Facebook, ví dụ: _https://l.facebook.com/l.php?u=<span style="color:yellow">example.com</span>%2F%3F`fbclid`%3DIwAR00o17-6BL5g9TBd9F6k0hygx-wvY4PWQAAGEAxLC8EgIE8QHAinHqZ9AM&h=AT1A85IQOXJn9627-nYImCSwJt0MFetGcvuNFcP2LpHZOF0hleBEh24M62EnJf0_gXXMEIlr2hfEsmBRvJs-jJYf3AYzDIF1-8kEqoI-Q1WuVNionMkWGuO8k7OEjloxtdMR&__tn__=-UK-R&c[0]=AT0lohZkHEyEqJWkXcZYI8NMTs0wznpqergspOap68rJWPPUqNORq7t4vZMV4oYy5vUmkdRFHZpMVDX_zDGaKNAe_8dRBxHZjTMtGykj2alODDKtWMBQ8wx-D_Cj6OsSX6slgVWaucNjxfJzX-YwBXIcLvAA1Nm3m1W3wORDMGvAca9proYhMEtyX0y5dh7hU-bw6A1cj-ypeK0zDqY_ Khi người dùng click vào link thì phía server sẽ biết được là người đang truy cập `example.com` là cùng một người. Từ phía người dùng sẽ không biết mình bị theo dõi bí mật, hay nói cách khác là người dùng không biết và không đồng thuận với hành vi này.
+Ví dụ: Facebook thêm parameter `?fbcid=` vào các đường dẫn ngoài Facebook, ví dụ: _https://l.facebook.com/l.php?u=<span style="color:yellow">example.com</span>%2F%3F`fbclid`%3DIwAR00o17-6BL5g9TBd9F6k0hygx-wvY4PWQAAGEAxLC8EgIE8QHAinHqZ9AM&h=AT1A85IQOXJn9627-nYImCSwJt0MFetGcvuNFcP2LpHZOF0hleBEh24M62EnJf0_gXXMEIlr2hfEsmBRvJs-jJYf3AYzDIF1-8kEqoI-Q1WuVNionMkWGuO8k7OEjloxtdMR&__tn__=-UK-R&c[0]=AT0lohZkHEyEqJWkXcZYI8NMTs0wznpqergspOap68rJWPPUqNORq7t4vZMV4oYy5vUmkdRFHZpMVDX_zDGaKNAe_8dRBxHZjTMtGykj2alODDKtWMBQ8wx-D_Cj6OsSX6slgVWaucNjxfJzX-YwBXIcLvAA1Nm3m1W3wORDMGvAca9proYhMEtyX0y5dh7hU-bw6A1cj-ypeK0zDqY_ Khi người dùng click vào link thì phía server sẽ biết được là người đang truy cập `example.com` là cùng một người. Từ phía người dùng sẽ không biết mình bị theo dõi bí mật, hay nói cách khác là người dùng không biết và không đồng thuận với hành vi này.
 
-Nhắc đến `động thuận` thì phải nhắc đến Term of Use (hay Term of SErvice - Điều khoản sử dụng). Phần lớn mọi người (**kể cả mình**) đều không bao giờ đọc cái này mà mặc định cứ đồng ý hết. Nhưng trong cái mớ dài dằng dặc đấy lại có cả cái phần cho phép tracking
+Nhắc đến `động thuận` thì phải nhắc đến Term of Use (hay Term of Service - Điều khoản sử dụng). Phần lớn mọi người (**kể cả mình**) đều không bao giờ đọc cái này mà mặc định cứ đồng ý hết. Nhưng trong cái mớ dài dằng dặc đấy lại có cả cái phần cho phép tracking
 
 Trích trong Chính sách quyền riêng tư của Whatsapp
 : _Thông tin liên lạc về dịch vụ của chúng tôi và các công ty Meta:_ Chúng tôi sử dụng thông tin chúng tôi có để liên lạc với bạn về Dịch vụ của chúng tôi và cho bạn biết về các điều khoản, chính sách của chúng tôi và các cập nhật quan trọng khác. Chúng tôi có thể cung cấp cho bạn hoạt động tiếp thị về Dịch vụ của chúng tôi và của các Công ty Meta. 
 : _Không có quảng cáo của bên thứ ba:_ Chúng tôi vẫn không cho phép quảng cáo biểu ngữ của bên thứ ba trên Dịch vụ của mình. Chúng tôi không có ý định giới thiệu chúng, nhưng nếu có, chúng tôi sẽ cập nhật Chính sách quyền riêng tư này.
 : > Tóm lại là ừ thì tao sẽ chưa bán cho các bên dịch vụ quảng cáo khác mà chỉ dùng cho quảng cáo của bọn tao. Nhưng bọn tao thì cũng là công ty quảng cáo. À mà thêm nữa là tương lai có thể tao sẽ bán, lúc đấy tao sẽ viết lại điều khoản này thôi! **Và mày đã Đọc và ấn Đồng Ý rồi thì đừng ý kiến**
 
-
-Điều đó nói lên rằng, `arkenfox` chống lại `stateless tracking`
+Quay lại chủ đề, như vậy, `arkenfox` chống lại `stateless tracking`
 : Vì vậy, nếu một tập lệnh lấy dấu vân tay chạy, nó sẽ cần phải phổ cập hoặc phổ biến (tức là nó sử dụng cùng một các thử nghiệm canvas, âm thanh và webgl trong số những thử nghiệm khác - hầu hết là không), được chia sẻ bởi một nhà môi giới dữ liệu (hầu hết là không), không vô tri (hầu hết là như vậy) và không chỉ là bên thứ nhất hoặc chỉ được sử dụng để phát hiện bot và ngăn chặn gian lận (hầu hết là như vậy).
 : Nhưng điều đó không có nghĩa là việc lấy dấu vân tay không phải là mối đe dọa và sẽ không trở nên phổ biến và tinh vi hơn.
 
@@ -542,6 +540,15 @@ button.task-action:last-child:hover {
 	color: #FFFFFF;
 }
 ```
+
+## Xem thêm
+
+Chế độ FingerPrint Protection (FPP) của Firefox đang được thử nghiệm từ từ, sẽ công bố trong tương lai, mọi chi tiết đề đang được bí mật chờ công bố 
+: Link: <https://github.com/arkenfox/user.js/issues/1661>
+
+Phòng chống nghệ thuật hắc ám của Restore Privacy
+: Về FingerPrinting: <https://restoreprivacy.com/browser-fingerprinting/>
+: Về WebRTC Leak: <https://restoreprivacy.com/webrtc-leaks/>
 
 ## Nguồn:
 [^rfp-1]: <https://github.com/arkenfox/user.js/wiki/3.3-Overrides-[To-RFP-or-Not]>
