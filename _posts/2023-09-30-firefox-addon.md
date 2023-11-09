@@ -4,7 +4,7 @@ date: 2023-09-30 11:33:00 +0700
 categories: [firefox, awesome, add-on]
 tags: [firefox, awesome, add-on, ublock, ubo, nano defender, drama, unload tab, auto tab discard, proxy switchy, head editor, mdm, download manager, file centipede, multi-threaded download manager, linguist, twp, search by image, pwa, progressive web application, cookie manager, dark reader, bitwarden, fastforward, new tab override]
 ---
-> Linh vật của công ty là một khủng long (`Mozilla`), biểu tượng thì là một con cáo (`fire fox`), nhưng thực chất lại là gấu trúc (`red panda`), và sử dụng engine là một con tác kè (`gecko`)
+> Linh vật của công ty là một khủng long (`Mozilla`), biểu tượng thì có vẻ là một con cáo (`fire fox`), nhưng thực chất lại là gấu trúc (`red panda`), và sử dụng engine là một con tắc kè (`gecko`)
 {: .prompt-info }
 
 ## [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin) (uBO) - Chặn quảng cáo, tăng cường bảo mật, riêng tư[^ff-addon-voz]
@@ -13,6 +13,34 @@ tags: [firefox, awesome, add-on, ublock, ubo, nano defender, drama, unload tab, 
 
 > Với người dùng Việt Nam thì tất nhiên sau khi cài xong uBlock các bạn vào Dashboard rồi kéo xuống dưới tìm ABPVN rồi bật lên để chặn quảng cáo Việt Nam hiệu quả.
 {: .prompt-tip }
+
+### AdNauseam - uBO nhưng biết click quảng cáo
+
+> Link: https://addons.mozilla.org/en-US/firefox/addon/adnauseam/
+{: .prompt-info }
+
+![](/assets/img/firefox-addon/adnauseum-settings.png)
+_Vẫn là uBO nhưng có màu xanh-đen_
+
+AdNauseum hỗ trợ tính năng bấm quảng cáo ẩn
+: Đánh lạc hướng các hệ thống quảng cáo theo dõi
+: Giúp ban phát tiền bạc cho các nhà phát triển web có ích, làm ăn đàng hoàng mà vẫn chặn quảng cáo để không bị làm phiền.
+
+AdNauseum gửi 1 HTTP request đến đường dẫn quảng cáo, "giống như" 1 lần click
+: Và AdNauseum bị Google xóa khỏi Chrome Web Store vào 01/01/2017 với lý do rất củ chuối là "“Tiện ích mở rộng phải có mục đích duy nhất rõ ràng đối với người dùng…”
+: ```
+“An extension should have a single purpose that is clear to users…”
+``` 
+{: file="Nguyên văn"}
+
+> Xem thêm ở đây: <https://adnauseam.io/free-adnauseam.html>
+{: .prompt-info }
+
+"Mục tiêu cuối cùng" của AdNauseam là gì? 
+: Dữ liệu gây nhầm lẫn khiến nhà quảng cáo trở nên vô dụng và buộc họ phải phản ứng? Đúng vậy, một mục tiêu của AdNauseam là bảo vệ người dùng khỏi các hành vi vi phạm quyền riêng tư và các tác hại khác có thể xảy ra trực tiếp hoặc gián tiếp từ việc theo dõi mà họ không đồng ý. Một mục tiêu khác là cung cấp phương tiện để người dùng cho phép các nhà quảng cáo biết rằng họ cho rằng hệ thống như vậy không phù hợp. Vì vậy, có, chúng tôi mong muốn các nhà quảng cáo phản hồi bằng các lựa chọn thay thế mang tính xây dựng tôn trọng giá trị và sở thích của người dùng, nhưng chúng tôi không nín thở -- có thể cần phải phát triển những cách rất khác nhau để hỗ trợ nội dung trực tuyến. Nhưng mục tiêu cuối cùng thực sự của AdNauseam là làm cho phần mềm như AdNauseam trở nên không cần thiết.
+
+> "But the real end goal of AdNauseam is to make software like AdNauseam unnecessary."
+{: .prompt-info }
 
 ### Các bộ lọc đáng dùng không lỗi cho uBlock[^ff-ubo-2][^ff-ubo-8]
 
@@ -37,12 +65,11 @@ Thông tin chi tiết
 | Bypass Paywall Clean | tính năng | <https://gitlab.com/magnolia1234/bypass-paywalls-clean-filters/-/raw/main/bpc-paywall-filter.txt> |
 | LegitimateURLShortener | tính năng | <https://gitlab.com/DandelionSprout/adfilt/-/raw/master/LegitimateURLShortener.txt> |
 | Bỏ kết quả trùng lặp<br>trên Google, Duck, Bing... | đối tượng | <https://raw.githubusercontent.com/quenhus/uBlock-Origin-dev-filter/main/dist/all_search_engines/global.txt> |
-| PrivacyEnhanced<br>_(@Fioren giới thiệu)_ | chặn | <https://github.com/stephenhawk8054/PrivacyExtended> |
+| PrivacyEnhanced | chặn | <https://github.com/stephenhawk8054/PrivacyExtended> |
 | Ẩn hộp thoại bắt đăng nhập | tính năng | <https://github.com/DandelionSprout/adfilt/blob/master/BrowseWebsitesWithoutLoggingIn.txt> |
 | Anti-Paywall Cleaner | tính năng | <https://github.com/liamengland1/miscfilters/blob/master/antipaywall.txt> |
 | Ẩn elements khó chịu/thừa<br>_(của tác giả Betterfox)_ | tính năng | <https://github.com/yokoffing/filterlists/blob/main/annoyance_list.txt> |
 | FMSF2 |  | <https://raw.githubusercontent.com/nmtrung/FMSF-2.0/master/fmsf_2.0.txt>
-
 
 ### Cách chặn các tên miền mới tạo (thường là lừa bịp, virus) bằng uBlock[^ff-ubo-3]
 

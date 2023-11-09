@@ -5,7 +5,7 @@ categories: [firefox, daily, resist fingerprint, darktheme]
 tags: [firefox, daily, rfp, resist fingerprint, darktheme]
 ---
 
-Chuyện là Firefox có tham số `privacy.resistFingerprinting` để kích hoạt chế độ chống ghi dấu trình duyệt (`fingerprint`, _dịch ra bựa vãi_ - đại khái là nó sẽ đánh dấu trình duyệt để nhận dạng, định danh người sử dụng). Chuyên sâu hơn, thì `user.js` của `arkenfox` còn có riêng 1 section dành cho resist fingerprinting, mà nếu bật lên thì sẽ duyệt web "nhạt toẹt": **đóng hộp, trắng tinh, không màu sắc, không mùi vị**. Tác dụng (phụ?) của cái `privacy.resistFingerprinting` là **ép** website chỉ hiển thị light-theme, hay thậm chí là xóa sạch các loại hiệu ứng màu sắc của website. Vẫn biết càng bảo mật thì càng khó dùng, nhưng dark-theme đang là trend, thì liệu có giải pháp nào để tô đen cho website trong khi đang được bảo vệ?
+Chuyện là Firefox có tham số `privacy.resistFingerprinting` để kích hoạt chế độ chống ghi dấu trình duyệt (`finger printing`, _dịch ra bựa vãi_ - đại khái là nó sẽ đánh dấu trình duyệt để nhận dạng, định danh người sử dụng). Chuyên sâu hơn, thì `user.js` của `arkenfox` còn có riêng 1 section dành để chống fingerprinting, mà có thể sẽ làm cho trải nghiệm duyệt web "nhạt toẹt": **đóng hộp, trắng tinh, không màu sắc, không mùi vị**. Tác dụng (phụ?) của cái `privacy.resistFingerprinting` là **ép** website chỉ hiển thị light-theme, hay thậm chí là xóa sạch các loại hiệu ứng màu sắc của website. Vẫn biết càng bảo mật thì càng khó dùng, nhưng dark theme đang là trend, thì liệu có giải pháp nào để tô đen cho website trong khi đang được bảo vệ?
 
 ![](/assets/img/firefox-rfp-darktheme/ff-over-rfp.webp)
 _Hậu quả của tự bảo vệ quá đà_
@@ -17,7 +17,7 @@ _Hậu quả của tự bảo vệ quá đà_
 > Nguồn: <https://github.com/arkenfox/user.js/wiki/3.3-Overrides-[To-RFP-or-Not]>
 {: .prompt-info}
 
-> Điều tốt nhất mà bất kỳ trình duyệt nào cũng có thể tự tin làm được, _ngoại trừ Tor Browser và Mullvad Browser_, là đánh lừa các script "vô tri". Trong Firefox, công cụ tốt nhất cho việc đó là Resist FingerPrinting (RFP) - nó hoạt động hiệu quả, không rò rỉ các giá trị thực và có các biện pháp giảm thiểu thời gian chống lại các cuộc tấn công kênh bên (side-channel attacks). Lý tưởng nhất là có thể sống chung với các tác dụng phụ của RFP, nếu không, hãy cân nhắc sử dụng CanvasBlocker nếu phù hợp với mô hình mối đe dọa (threat model) của bạn
+Điều tốt nhất mà bất kỳ trình duyệt nào cũng có thể tự tin làm được, _ngoại trừ Tor Browser và Mullvad Browser_, là đánh lừa các script "vô tri". Trong Firefox, công cụ tốt nhất cho việc đó là Resist FingerPrinting (RFP) - nó hoạt động hiệu quả, không rò rỉ các giá trị thực và có các biện pháp giảm thiểu thời gian chống lại các cuộc tấn công kênh kề (side-channel attacks). Lý tưởng nhất là có thể sống chung với các tác dụng phụ của RFP, nếu không, hãy cân nhắc sử dụng CanvasBlocker nếu phù hợp với mô hình mối đe dọa (threat model) của bạn
 {: .prompt-tip }
 
 > Nếu threat model của bạn yêu cầu ẩn danh và bảo vệ dấu vân tay nâng cao thì **SỬ DỤNG TORBROWSER**. 
@@ -25,23 +25,23 @@ _Hậu quả của tự bảo vệ quá đà_
 > Link: <https://www.torproject.org/>
 {: .prompt-warning }
 
-Kể cả khi không làm gì trên máy tính thì bạn vẫn có khả năng bị định danh là `unique`(_tạm dịch:_ cá thể duy nhất) - chỉ riêng các số liệu về màn hình, cửa sổ và phông chữ có lẽ là đủ - thêm múi giờ, ngôn ngữ ưa thích và hàng chục số liệu khác và trò chơi kết thúc. Kết quả của một nghiên cứu được thực hiện vào năm 2016 cho thấy 99.24% tỷ lệ nhận diện chính xác[^rfp-tracking-rate-research] (và điều đó không bao gồm các địa chỉ IP - xem thêm hướng dẫn fake IP ở dưới[^rfp-vpn-guide]).
+Nếu không làm gì trên máy tính thì bạn đã bị định danh chính xác là `unique`(_tạm dịch:_ cá thể duy nhất) - chỉ riêng các số liệu về màn hình, cửa sổ và phông chữ có lẽ là đủ - thêm múi giờ, ngôn ngữ ưa thích và hàng chục số liệu khác và trò chơi kết thúc. Kết quả của một nghiên cứu được thực hiện vào năm 2016 cho thấy 99.24% tỷ lệ nhận diện chính xác[^rfp-tracking-rate-research] (và điều đó không bao gồm các địa chỉ IP - xem thêm hướng dẫn fake IP ở dưới[^rfp-vpn-guide]).
 
 > Hướng dẫn thực chiến về fake IP: <https://educatedguesswork.org/posts/traffic-relaying/>
 > 
 > _Địa chỉ IP là một vectơ theo dõi quan trọng và hiệu quả cao và nếu muốn duyệt web ở chế độ riêng tư, bạn cần phải làm gì đó để che giấu IP của mình và điều này chủ yếu có nghĩa là qua kênh trung gian: Bất kỳ hệ thống trung gian nào cũng sẽ che giấu danh tính của bạn khỏi máy chủ, **miễn là nhà cung cấp của bạn không thông đồng với máy chủ**. Bất kỳ hệ thống một bước nào nhất thiết có nghĩa là bạn _tin tưởng nhà cung cấp_ sẽ không theo dõi hành vi của bạn và không thông đồng với máy chủ. Cuối cùng, điều quan trọng cần biết là ngay cả hệ thống tốt nhất cũng chỉ cung cấp khả năng bảo vệ hạn chế. Kẻ tấn công có cái nhìn toàn cảnh về mạng thường có thể thực hiện đủ phân tích lưu lượng để xác định ai ở mỗi đầu lưu lượng. May mắn thay, hầu hết chúng ta không cần phải lo lắng về kẻ tấn công mạnh mẽ này._
 {: .prompt-info }
 
-> Thay đổi một vài `prefs` từ mặc định sẽ không khiến bạn "độc đáo hơn" - không có chuyện đó đâu. 
-> : Đừng bối rối với những nghịch lý thông tin đơn giản, ví dụ như là sử dụng Blink (engine web của Google) thay vì Gecko (engine của Firefox). 
+> Thay đổi một vài `prefs` từ mặc định sẽ không khiến bạn "độc đáo hơn" - không có chuyện đó đâu: Dù không làm gì thì cũng đã bị định danh xong rồi. 
+> : Đừng bối rối với những giải pháp đơn giản, mà hầu hết là vô dụng, ví dụ như là sử dụng Blink (engine web của Google) thay Gecko (engine của Firefox). 
 {: .prompt-danger }
 
-Chỉ Tor Browser mới có thể tự tin giải quyết các script theo dõi phức tạp (_nguyên văn:_ advance) với đầy đủ điều kiện cần thiết về `số liệu` và `số lượng tác nhân trong hệ thống`. Điều tốt nhất mà bất kỳ trình duyệt nào khác có thể tự tin làm là đánh lừa các script đơn giản (_nguyên văn:_ naive) bằng các giá trị ngẫu nhiên - nếu cảm thấy chưa đủ, hãy bổ sung các điểm dữ liệu lỏng lẻo từ IP/VPN của bạn. 
+Chỉ Tor Browser mới có thể tự tin giải quyết các script theo dõi "nâng cao" (_nguyên văn:_ advance) với đầy đủ điều kiện cần thiết về `số liệu` và `số lượng tác nhân trong mạng lưới`. Điều tốt nhất mà bất kỳ trình duyệt nào khác có thể tự tin làm là đánh lừa các script "vô tri" (_nguyên văn:_ naive) bằng các giá trị ngẫu nhiên - nếu cảm thấy chưa đủ, hãy bổ sung các điểm dữ liệu lỏng lẻo từ IP/VPN của bạn. 
 
-> Thực ra đoạn này rất khó hiểu, "naive script" không hiểu là các script "ngây thơ", dễ lừa với các tham số giả hay là thuật toán Naive Bayes trong Khoa học dữ liệu để tính "xác suất xảy ra biến cố B khi có biến cố A". Hiểu thế nào cũng đc, thì thuật toán NaiveBayes cũng sẽ bị lừa nếu cho vào đấy 1 đống các giá trị ngẫu nhiên
+> Thực ra đoạn này rất khó hiểu, "naive script" không hiểu là các script "vô tri", dễ lừa với các tham số giả hay là thuật toán Naive Bayes trong Khoa học dữ liệu để tính "xác suất xảy ra biến cố B khi có biến cố A". Hiểu thế nào cũng đc, thì thuật toán NaiveBayes cũng sẽ bị lừa nếu cho vào đấy 1 đống các giá trị ngẫu nhiên
 {: .prompt-info }
 
-> Arkenfox **không và không bao giờ tuyên bố có thể đánh bại tính năng theo dõi phức tạp** và không quan tâm liệu hai hoặc ba tham số `prefs` có lợi ích thực tế có thay đổi bất kỳ số liệu ổn định nào hay không, bởi vì **bản thân mỗi cá thể đã là duy nhất**. 
+> Arkenfox **không và không bao giờ tuyên bố có thể đánh bại tính năng theo dõi nâng caop** và không quan tâm liệu hai hoặc ba tham số `prefs` có lợi ích thực tế có thay đổi bất kỳ số liệu ổn định nào hay không, bởi vì **bản thân mỗi cá thể đã là duy nhất**. 
 {: .prompt-warning }
 
 Mục tiêu chính của Arkenfox luôn là bảo mật, quyền riêng tư và giảm thiểu các hình thức theo dõi thực tế và quan trọng như `state` (_tạm dịch:_ theo dõi nhận dạng) và `navigational` (_tạm dịch:_ theo dõi điều hướng), thay vì ưu tiên mối đe dọa tiềm ẩn của tập lệnh lấy dấu vân tay nâng cao phổ biến rộng rãi. 
@@ -197,7 +197,7 @@ user_pref("webgl.disabled", true);
 
 ### Dark mode nửa mùa pha ke
 
-Firefox có cái tính năng là set màu nền (`background`), màu chữ (`foreground`), màu link chưa vào (`anchor`) và đã vào (`visited`) ngay trong trình duyệt. Nên là chỉ cần set background màu tối, foreground màu sáng là đã được 1 cái dark theme cũng giống giống
+Firefox có cái tính năng là set màu nền (`background`), màu chữ (`foreground`), màu link chưa vào (`anchor`) và đã vào (`visited`) ngay trong trình duyệt. Nên là chỉ cần set background màu tối, foreground màu sáng là đã được 1 cái dark theme "same same but different"
 
 Ưu điểm
 : Nhanh, nhẹ - Vì tự Firefox làm hết, chỉ có Firefox mới biết chính xác nhất đâu là nền, đâu là chữ, đâu là link (ví dụ, `<a>` là link, nhưng có những lúc `<span>` cũng là link, `<ul>` cũng là link...)
@@ -214,7 +214,7 @@ Tắt `privacy.resistFingerprinting` theo 1 trong 2 cách sau
 
 ```javascript
 // Resist Fingerprint (RFP)
-user_pref("privacy.resistFingerprinting", true);
+user_pref("privacy.resistFingerprinting", false);
 ```
 {: file="user.js"}
 
@@ -268,7 +268,7 @@ Nhược điểm
 
 ### UserChromeCSS
 
-> Link: _để sau_
+> Link: <https://github.com/codeotamlong/awesome/blob/main/firefox/userchrome/wannabe-dark-reader.css>
 {: .prompt-info }
 
 Ưu điểm:
@@ -538,6 +538,26 @@ button.task-action:hover {
 button.task-action:last-child:hover {
 	background-color: #EA4949;
 	color: #FFFFFF;
+}
+```
+
+## Bonus - "Dark" Sidebery
+
+![](/assets/img/firefox-rfp-darktheme/dark-mdm-sidebery.png)
+
+Mở Options của Sidebery
+: Vào menu `Appearance` > `Color Scheme` > `Light`
+:![](/assets/img/firefox-rfp-darktheme/dark-sidebery.png)
+
+Mở Options của Sidebery
+: Vào menu `Styles Editor`, dán đoạn CSS bên dưới vào khung bên phải
+: _Chú ý để `background-color` giống với config trong Addon/CSS tương ứng đang dùng_
+
+
+```css
+#root.root {
+    --frame-bg: #FDF6E3;
+    --toolbar-bg: #FDF6E3;
 }
 ```
 
