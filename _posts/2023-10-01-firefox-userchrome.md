@@ -92,7 +92,7 @@ Copy **nội dung bên trong** thư mục `profile` (gồm cả thư mục `chro
 
 Tải cả repo kia về
 : Cách 1: `Code` => `Download ZIP`, giải nén, mở ra
-: ![](../../assets/img/firefox-userchrome/github-code-download.png)
+: ![](/assets/img/firefox-userchrome/github-code-download.png)
 : Cách 2: `git clone https://github.com/aminomancer/uc.css.js/`
 
 Cấu trúc thư mục `uc.css.js`

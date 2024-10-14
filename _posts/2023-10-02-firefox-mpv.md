@@ -23,7 +23,7 @@ Cập nhập thay đổi
 : V1.3: Sửa lỗi kèm với làm theo một số khuyến nghị từ Firemonkey (`@include` thay cho `@match` sai chuẩn)
 : V1.4: Chuyển code sang chuẩn switch case cho đẹp bởi [USER=1862337]@pTalent[/USER]
 : V1.5: Hỗ trợ tính năng mới (chú ý để có tính năng mới các bạn cập nhập cả `protocol_hook.lua` mới đính kèm):
-: ![](../../assets/img/firefox-mpv/ezgif-5-76a8e47ef4.webp) _Chọn nhiều video bằng cách giữ chuột phải 0.4s sau đó mở hàng loạt qua MPV/Streamlink, tải hàng loạt qua YTDL_
+: ![](/assets/img/firefox-mpv/ezgif-5-76a8e47ef4.webp) _Chọn nhiều video bằng cách giữ chuột phải 0.4s sau đó mở hàng loạt qua MPV/Streamlink, tải hàng loạt qua YTDL_
 : Hỗ trợ Linux, MacOS (sửa lỗi URL bị hỏng của Mac)
 : Không còn phải nhập tay thư mục MPV nữa
 : [Kéo lên để xem playlist dạng stream](https://streamable.com/se2yn7)

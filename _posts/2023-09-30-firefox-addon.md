@@ -97,10 +97,10 @@ _Giao diện uBO_
 
 ### Cơ bản cách sử dụng Dynamic Filtering (thay thế [NoScript Security Suite](https://addons.mozilla.org/en-US/firefox/addon/noscript/)) [^ff-ubo-5][^ff-ubo-6]
 
-![](../../assets/img/firefox-addon/ubo-advance-user.png)
+![](/assets/img/firefox-addon/ubo-advance-user.png)
 _Mở uBO > Settings > đánh dấu `I am an advance user`_
 
-![](../../assets/img/firefox-addon/ubo-dynamic-filtering.png)
+![](/assets/img/firefox-addon/ubo-dynamic-filtering.png)
 _Mở ra bảng bên trái bằng cách bấm `More` liên tục_
 
 Giao diện chính sẽ có 3 cột
@@ -124,10 +124,10 @@ Giao diện chính sẽ có 3 cột
 : `---` hoặc `+++`: có trên 100 request bị block/allow
 : `không-có-gì`: không có request bị block/allow
 
-![](../../assets/img/firefox-addon/ubo-dynamic-filtering-global-rule.png)
+![](/assets/img/firefox-addon/ubo-dynamic-filtering-global-rule.png)
 _Áp dụng `Block rules` lên đối tượng trên tất cả các website (`global rule`)_
 
-![](../../assets/img/firefox-addon/ubo-dynamic-filtering-local-rule.png)
+![](/assets/img/firefox-addon/ubo-dynamic-filtering-local-rule.png)
 _Áp dụng `Noop rules` lên đối tượng trên website hiện tại (`local rule`)_
 
 > `Noop rule` chỉ có ý nghĩa _không áp dụng Dynamic Filtering_, các bộ lọc khác vẫn tiếp tục hoạt động.
@@ -135,7 +135,7 @@ _Áp dụng `Noop rules` lên đối tượng trên website hiện tại (`local
 > Đối với Dynamic Filtering: `local` sẽ ghi đè lên `global`, hay nói cách khác: rule nào chi tiết hơn sẽ ghi đè lên rule ít chi tiết. Ví dụ: rule cho `youtube.com` chi tiết hơn và ghi đè lên rule cho `3rd-party frames`
 {: .prompt-tip }
 
-![](../../assets/img/firefox-addon/ubo-dynamic-filtering-allow-rule.png)
+![](/assets/img/firefox-addon/ubo-dynamic-filtering-allow-rule.png)
 _Áp dụng `Allow rules` lên đối tượng trên website hiện tại (`local rule`)_
 
 > Để kích hoạt nút `Allow rule`, làm theo 1 trong 2 cách sau
@@ -373,18 +373,18 @@ demergi --help
 {: .prompt-tip }
 
 Vào phần config của `ProxySwitchy Omega` tạo một `Proxy Profile` tên `Demergi`, điền vào là `127.0.0.1` port `8080` rồi `Apply`
-: ![](../../assets/img/firefox-addon-p2/proxyswitchy-demergi.png)
+: ![](/assets/img/firefox-addon-p2/proxyswitchy-demergi.png)
 : _Pofile Demergi_
 
 Tạo tiếp một `Switch Profile` tên `Auto` rồi `Add condition` rồi chọn Type là `Host regex`, Details là `^.*?(?:medium.com|pornhub.com|xvideos.com)` chọn Profile là `ChunkRust` rồi Apply
-: ![](../../assets/img/firefox-addon-p2/proxyswitchy-auto.png)
+: ![](/assets/img/firefox-addon-p2/proxyswitchy-auto.png)
 : _Profile Auto_
 
 > Chú ý: Muốn thêm trang nào thì tự thêm vào phần Details
 {: .prompt-info }
 
 Chọn proxy là `Auto` trên thanh toolbar của ProxySwitchy Omega, và thế là xong.
-: ![](../../assets/img/firefox-addon-p2/proxyswitchy-toolbar.png)
+: ![](/assets/img/firefox-addon-p2/proxyswitchy-toolbar.png)
 : _Chọn Auto trên toolbar_
 
 ### Truy cập  `.onion` với Tor Control Panel (chỉ có trên Windows) [^fn-proxy-switchy-3]
@@ -415,18 +415,18 @@ Muốn nhanh chọn các nước có ping thấp và gần Việt Nam
 Ấn vào biểu tượng Switchy rồi `Options` -> `New Profile`
 : Đặt tên là `Tor Control Panel`, phân loại `Proxy Profile`
 : Ở phần Protocol chọn `SOCKS5`, Server `127.0.0.1`, Port `9050` hoặc `9051`, tùy theo cái port mà TCP phân cho rồi Save.
-: ![](../../assets/img/firefox-addon-p2/proxyswitchy-tor-control-panel.png)
+: ![](/assets/img/firefox-addon-p2/proxyswitchy-tor-control-panel.png)
 : _Profile Tor Control Panel_
 
 Chọn Switch Profile đã có (hoặc tạo mới)
 : Chọn `Host regex` (bật `Advanced` settings nếu không thấy), điền vào là `^.*?\.onion`
 : Phần profile chỉnh thành `Tor`, Save
-: ![](../../assets/img/firefox-addon-p2/proxyswitchy-auto.png)
+: ![](/assets/img/firefox-addon-p2/proxyswitchy-auto.png)
 : _Profile Auto_
 
 
 Chọn proxy là `Auto` trên thanh toolbar của ProxySwitchy Omega, và thế là xong.
-: ![](../../assets/img/firefox-addon-p2/proxyswitchy-toolbar.png)
+: ![](/assets/img/firefox-addon-p2/proxyswitchy-toolbar.png)
 _Chọn Auto trên toolbar_
 
 > Sau đó vào các trang `.onion` rồi hưởng thụ thành quả, mấy trang này chứa rất nhiều hàng hiếm (có thể tham khảo bài bên trên có chia sẻ vài trang căn bản), thậm chí là chống lại nhân loại, nói chung là tiết chế để tránh bản thân trở nên sa sút
@@ -450,7 +450,7 @@ _Chọn Auto trên toolbar_
 - Header value: `Mozilla/5.0 (Android 12; Mobile; rv:109.0) Gecko/113.0 Firefox/113.0`
 - `Save`
 
-![](../../assets/img/firefox-addon-p3/yt-inject-ua.png)
+![](/assets/img/firefox-addon-p3/yt-inject-ua.png)
 _Config trên HE_
 
 #### Chuyển hướng từ Youtube PC sang Mobile
@@ -462,7 +462,7 @@ _Config trên HE_
 - Execute type: `normal`
 - Redirect to: `https://m.youtube.com/$1`
 
-![](../../assets/img/firefox-addon-p3/yt-pc-to-mobile.png)
+![](/assets/img/firefox-addon-p3/yt-pc-to-mobile.png)
 _Config trên HE_
 
 #### Tắt Hovering to Play (Playback Inline)
@@ -481,7 +481,7 @@ for (const a in val) {
 }
 ```
 
-![](../../assets/img/firefox-addon-p3/yt-disable-hover-to-play.png)
+![](/assets/img/firefox-addon-p3/yt-disable-hover-to-play.png)
 _Config trên HE_
 
 ### Tùy biến Facebook
@@ -496,7 +496,7 @@ _Config trên HE_
 - Header value: `Mozilla/5.0 (Android 12; Mobile; rv:109.0) Gecko/113.0 Firefox/113.0`
 - `Save`
 
-![](../../assets/img/firefox-addon-p3/fb-inject-ua.png)
+![](/assets/img/firefox-addon-p3/fb-inject-ua.png)
 _Config trên HE_
 
 #### Chuyển hướng từ Facebook PC sang Touch
@@ -508,7 +508,7 @@ _Config trên HE_
 - Execute type: `normal`
 - Redirect to: `https://touch.facebook.com/$1`
 
-![](../../assets/img/firefox-addon-p3/fb-pc-to-touch.png)
+![](/assets/img/firefox-addon-p3/fb-pc-to-touch.png)
 _Config trên HE_
 
 > Đó là sức mạnh của Header Editor (HE), khi mà đẩy giới hạn của nó lên mức cao nhất.
@@ -759,12 +759,12 @@ Cách học lỏm code của bất kỳ ai nhanh nhất là dùng Notepad++, cà
 
 Trong tab General
 : Bật `Enable prompt for links without multithreading support`: `Audio` và `Video`
-: ![](../../assets/img/firefox-addon-p4/mdm-general.png)
+: ![](/assets/img/firefox-addon-p4/mdm-general.png)
 
 Trong tab Network
 : Đặt `Minimum chunk` là `307200 KB` (_tương đương 300 MB_ - tránh MDM chia luồng tải dung lượng quá bé)
 : Đặt `Maximum retries` là `Umlimited` (_xóa số mặc định đi là thành Unlimited_)
-: ![](../../assets/img/firefox-addon-p4/mdm-network.png)
+: ![](/assets/img/firefox-addon-p4/mdm-network.png)
 
 # Violentmonkey/Greasymonkey/Tampermonkey[^ff-addon-voz]
 
