@@ -32,6 +32,13 @@ _Cắm mạng, cắm nguồn, tìm IP của Raspberry Pi trong trang config rout
 ![](assets/img/rpi-magicmirror-deskclock/ssh-raspberry-pi.png)
 _SSH vào_
 
+```bash
+sudo nmtui
+```
+
+![](assets/img/rpi-magicmirror-deskclock/ssh-nmtui.png)
+_Thiết lập kết nối wifi: `Active a connection`_
+
 ### Cài PiTFT[^pitft-easy-install]
 
 #### Cài `python` và `virtualenv`
