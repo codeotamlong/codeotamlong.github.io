@@ -39,41 +39,6 @@ _Cắm mạng, cắm nguồn, tìm IP của Raspberry Pi trong trang config rout
 ![](assets/img/rpi-magicmirror-deskclock/ssh-raspberry-pi.png)
 _SSH vào_
 
-### Build driver USB Wifi TPLink WR725N[^build-tplink-wr725n]
-
-> **KHÔNG** cắm WR725N vào Pi2
-{: .prompt-info }
-
-#### Cài các gói yêu cầu
-
-```bash
-sudo apt-get update && sudo apt-get install -f
-sudo apt-get dist-upgrade
-sudo apt-get install -y build-essential git
-sudo apt-get install -y linux-headers
-sudo apt-get install -y raspberrypi-kernel-headers
-sudo reboot
-```
-
-#### Build và cài driver
-
-```bash
-cd ~
-git clone https://github.com/lwfinger/rtl8188eu.git`
-cd rtl8188eu
-make
-```
-
-```bash
-sudo make install
-sudo reboot
-```
-
-#### Tắt đi để cắm TPLink wr725n
-
-```bash
-sudo shutdown -h now`
-```
 
 ### Cài PiTFT[^pitft-easy-install]
 
@@ -149,6 +114,89 @@ Các tham số khác:
 > - 270° = Option "TransformationMatrix" "0 1 0 -1 0 1 0 0 1"
 
 Khởi động lại
+
+
+### Build driver USB Wifi TPLink WR725N[^build-tplink-wr725n]
+
+> **KHÔNG** cắm WR725N vào Pi2
+{: .prompt-info }
+
+#### Cài các gói yêu cầu
+
+```bash
+sudo apt-get update && sudo apt-get install -f
+sudo apt-get dist-upgrade
+sudo apt-get install -y build-essential git
+sudo apt-get install -y linux-headers
+sudo apt-get install -y raspberrypi-kernel-headers
+sudo reboot
+```
+
+#### Build và cài driver
+
+```bash
+cd ~
+git clone https://github.com/lwfinger/rtl8188eu.git`
+cd rtl8188eu
+make
+```
+
+```bash
+sudo make install
+sudo reboot
+```
+
+#### Tắt đi để cắm TPLink wr725n
+
+```bash
+sudo shutdown -h now`
+```
+
+#### Kiểm tra kết quả
+
+```bash
+lsusb
+```
+
+This should show something like `BUS 00X .... REALTEK... RTL8188EUS... Wireless Network Adapter`
+Great your wifi dongle is now recognised. If not, you probably don't have this dongle or you need to repeat the above steps.
+
+```bash
+lsmod
+```
+
+Search for something like `8188eu ... 0`
+
+```bash
+ifconfig -a
+```
+
+There should be quite some output next to and under `wlan0`, if there's an IP address already visible, skip all next steps it's working.
+
+#### Setup wifi settings
+
+```bash
+sudo nano /etc/network/interfaces
+```
+
+Search for `auto wlan0` at the start, if it's not there, add it and keep the file open
+
+Make sure it knows where to find the wpa config
+Add these lines to the bottom of the same file:
+
+```bash
+allow-hotplug wlan0
+iface wlan0 inet dhcp
+wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+iface default inet dhcp
+```
+{: file='/etc/network/interfaces'}
+
+```bash
+sudo reboot now
+```
+
+Khởi động lại, dùng Desktop Environment để vào wifi
 
 ### Cài `MagicMirror²`
 
