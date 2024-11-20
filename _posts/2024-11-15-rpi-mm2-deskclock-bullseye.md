@@ -1,6 +1,6 @@
 ---
 title: "[Raspberry Pi] Đồng hồ để bàn Bulleyes!"
-date: 2024-11-20 16:16:00 +0700
+date: 2024-11-20 8:00:00 +0700
 categories: [raspberry, pi, rpi]
 tags: [raspberry, pi, rpi]
 ---
