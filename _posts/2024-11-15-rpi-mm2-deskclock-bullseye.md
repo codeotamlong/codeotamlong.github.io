@@ -42,18 +42,6 @@ _SSH vào_
 
 ### Cài PiTFT[^pitft-easy-install]
 
-#### Cài `python` và `virtualenv`
-
-```bash
-cd ~
-sudo apt install python3-venv
-python -m venv env --system-site-packages
-source env/bin/activate
-```
-
-> Từ `Debian 12 Bookworm`, mọi thứ python đều phải chạy trong `virtualenv`_
-{: .prompt-info }
-
 #### Tải script cài PiTFT
 
 ```bash
@@ -80,46 +68,10 @@ sudo -E env PATH=$PATH python3 adafruit-pitft.py --display=28r --rotation=90 --i
 > Đối với các loại màn khác, xem thêm ở <https://learn.adafruit.com/adafruit-pitft-28-inch-resistive-touchscreen-display-raspberry-pi/easy-install-2>
 {: .prompt-info }
 
-#### Chỉnh lại cảm ứng[^pitft-calibrate-touch]
-
-```bash
-cd /usr/share/X11/xorg.conf.d/
-ls
-```
-
-![](assets/img/rpi-magicmirror-deskclock/ssh-rotate-touch.png)
-_Tìm file `calibration.conf`. Trong hình sẽ là file `20-calibration.conf`_
-
-```bash
-nano 20-calibration.conf
-```
-
-Lưu lại ở chế độ xoay 270 độ
-
-```
-Section "InputClass"
-        Identifier "STMPE Touchscreen Calibration"
-        MatchProduct "stmpe"
-        MatchDevicePath "/dev/input/event*"
-        Driver "libinput"
-        Option "TransformationMatrix" "0 1 0 -1 0 1 0 0 1"
-EndSection
-```
-{: file='20-calibration.conf'}
-
-Các tham số khác:
-
-> - 90° = Option "TransformationMatrix" "0 -1 1 1 0 0 0 0 1"
-> - 180° = Option "TransformationMatrix" "-1 0 1 0 -1 1 0 0 1"
-> - 270° = Option "TransformationMatrix" "0 1 0 -1 0 1 0 0 1"
-
-Khởi động lại
-
-
 ### Build driver USB Wifi TPLink WR725N[^build-tplink-wr725n]
 
 > **KHÔNG** cắm WR725N vào Pi2
-{: .prompt-info }
+{: .prompt-warning }
 
 #### Cài các gói yêu cầu
 
@@ -265,13 +217,19 @@ pm2 show mm
 
 ### Thiết lập MagicMirror²
 
-#### Cài `mmpm`
+#### Cài `mmpm` và `mmpm web ui`
 
 ```bash
 cd ~
-source env/bin/activate
 python3 -m pip install --upgrade mmpm
-echo 'export PATH="$PATH:$HOME/.local/bin"' >> ~/.bashrc && source ~/.bashrc
+source ~/.bashrc
+```
+
+Khởi động lại `sudo reboot now` để bash nhận gói `mmpm`
+
+Hoặc chạy lệnh `echo 'export PATH="$PATH:$HOME/.local/bin"' >> ~/.bashrc && source ~/.bashrc`
+
+```bash
 mmpm ui install -y
 mmpm ui --url
 ```
@@ -287,8 +245,6 @@ pm2 save
 #### Cài module khác
 
 ```bash
-cd ~
-source env/bin/activate
 mmpm install -y MMM-Remote-Control
 ```
 
@@ -388,7 +344,6 @@ if (typeof module !== "undefined") { module.exports = config; }
 
 ```css
 body {
-    zoom: 66%;
     margin: 20px;
     position: absolute;
     height: calc(100% - 40px);
