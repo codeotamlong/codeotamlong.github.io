@@ -26,8 +26,7 @@ Tính năng của CasaOS
 - HDD SATA vẫn là đồ đi xin
 - Và 1 đường truyền internet cắm dây vì nhiều lí do linh tinh _Tí nữa sẽ giải thích_
 
-## Phần mềm
-### Cài Debian Bookworm
+## Thiết lập Debian 12 "Bookworm"
 
 > Dùng Debian 12 vì đây là hàng `Official Support`, `Tested` và `Recommended`
 {: .prompt-info}
@@ -36,15 +35,17 @@ Desktop Environment thì chọn `XFCE` cho nhẹ, hoặc `KDE` cho nhiều tính
 
 Nên cài = file ISO `netinstall`, chứ cài bằng file full lại phải vào `/etc/apt/sources.list` tắt cái source DVD đi. Không tắt thì `apt update` nó lại báo lỗi thiếu source, lằng nhằng lắm
 
+> Chạy với quyền `su`
+> ```bash
+> su -
+> ```
+{: .prompt-warning}
+
 ### Thêm user chính vào `sudo`
 
 ```bash
-su -
-sudo usermod -aG sudo codeotamlong
+usermod -aG sudo <username>
 ```
-
-`codeotamlong` là username đã tạo lúc cài Debian
-{: .prompt-info}
 
 ### Cài driver Wifi
 
@@ -52,7 +53,7 @@ sudo usermod -aG sudo codeotamlong
 {: .prompt-info}
 
 ```bash
-sudo nano /etc/apt/sources.list
+nano /etc/apt/sources.list
 ```
 
 Thêm `non-free` vào. Lúc sửa thì tìm đúng dòng để sửa: Thực ra thêm vào cuối file cũng được, nhưng mà sau này lúc nào `apt update` nó cũng báo trùng nhìn khó chịu lắm.
@@ -64,14 +65,14 @@ deb http://deb.debian.org/debian bookworm main contrib non-free-firmware non-fre
 Update dữ liệu gói và cài gói cần thiết `linux-image` tương ứng, `linux-headers` và `broadcom-sta-dkms`:
 
 ```bash
-sudo apt-get update
-sudo apt-get install linux-image-$(uname -r|sed 's,[^-]*-[^-]*-,,') linux-headers-$(uname -r|sed 's,[^-]*-[^-]*-,,') broadcom-sta-dkms
+apt-get update
+apt-get install linux-image-$(uname -r|sed 's,[^-]*-[^-]*-,,') linux-headers-$(uname -r|sed 's,[^-]*-[^-]*-,,') broadcom-sta-dkms
 ```
 
 > Nếu chẳng may cài lỗi
 ```bash
-sudo apt-get install -f
-sudo dpkg-reconfigure broadcom-sta-dkms
+apt-get install -f
+dpkg-reconfigure broadcom-sta-dkms
 ```
 {: .prompt-tip}
 
@@ -83,66 +84,109 @@ find /lib/modules/$(uname -r)/updates
 
 Tắt module xung đột
 ```bash
-sudo modprobe -r b44 b43 b43legacy ssb brcmsmac bcma
+modprobe -r b44 b43 b43legacy ssb brcmsmac bcma
 ```
 
 Nạp module `wl`
 ```bash
-sudo modprobe wl
+modprobe wl
 ```
 
 Dùng giao diện DE để kết nối wifi!
 
-### Cài `tailscale`
+### Tự động mount ổ cứng dữ liệu khi khởi động
 
-Tailscale là một dịch vụ VPN cho phép kết nối các thiết bị và ứng dụng của bạn ở khắp mọi nơi trên thế giới tạo thành một mạng LAN ảo. Các kết nối giữa hai thiết bị được mã hóa dựa trên giao thức WireGuard, bảo đảm chỉ có các thiết bị nằm trong hệ thống mạng riêng ảo có thể giao tiếp với nhau.
-
-Tailscale kết nối các thiết bị tạo thành hệ thống mạng dạng lưới ngang hàng (peer-to-peer mesh network), được gọi là tailnet. Nhờ vậy giúp cải thiện tốc độ kết nối, giảm độ trễ và tăng sự ổn định cho hệ thống mạng.
-
-> Quan trọng là `tailscale` có kèm theo `MagicDNS`, cho đặt tên miền (gọi là `tailname`) đối với máy trong mạng _Thế là không cần nhớ IP_
-{: .prompt-tip}
-
-Nhưng `MagicDNS` và `tailname` không hoạt động với subdomain: Tình cờ làm sao mà CasaOS truy cập tất cả các app là qua port! 
-
-> Cosmos Cloud thì mặc định là dùng subdomain (_đương nhiên là vẫn đặt port làm phương án phụ được_) Nhưng cái này để lúc khác nói
+> Nếu dùng các environment khác (ví dụ như `KDE`...) thì sẽ có giao diện đồ họa để config, nhưng XFCE rất là minimal nên phải dùng CLI thôi
 {: .prompt-info}
 
-#### Tự động
+![](assets/img/homeserver-casaos-bookworm/kde-partition-manager.png)
+_KDE Partition Manager > Edit Mount Point_
+
+#### Tìm đường dẫn phần cứng của ổ đĩa cần mount
 
 ```bash
-curl -fsSL https://tailscale.com/install.sh | sh
+lsblk
 ```
 
-#### Thủ công
-
-Thêm repo và chữ ký `tailscale` vào nguồn
+Kết quả: Phân vùng muốn mount là sda1
 
 ```bash
-curl -fsSL https://pkgs.tailscale.com/stable/debian/bookworm.noarmor.gpg | sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
-curl -fsSL https://pkgs.tailscale.com/stable/debian/bookworm.tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
+root@debian:~# lsblk
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+sda      8:0    0 232.9G  0 disk 
+└─sda1   8:1    0 232.9G  0 part 
 ```
 
-
-Cài `Tailscale`:
+#### Tìm UUID
 
 ```bash
-sudo apt-get update
-sudo apt-get install tailscale
+ls -al /dev/disk/by-uuid/
 ```
 
-Kết nối vào mạng Tailnet
+![](assets/img/homeserver-casaos-bookworm/fstab-lsblk-uuid.png)
+_Phân vùng cần mount là `/dev/sda1` và UUID của nó_
+
+#### Mount thủ công
 
 ```bash
-sudo tailscale up
+mkdir /media/storage
+mount /dev/sda1 /media/storage
 ```
 
-Kiểm tra IP
+#### Mount tự động khi khởi động bằng `fstab`
 
 ```bash
-tailscale ip -4
+nano /etc/fstab
+```
+Nội dung `/etc/fstab` sẽ thế này
+
+```
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# systemd generates mount units based on this file, see systemd.mount(5).
+# Please run 'systemctl daemon-reload' after making changes here.
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/sdb1 during installation
+UUID=410e1383-d8a0-41f4-92c9-5070c0dd8870 /               ext4    errors=remount-ro 0       1
+# swap was on /dev/sdb5 during installation
+UUID=7ad24829-f7ec-472e-be88-0f007dc90b12 none            swap    sw              0       0
+```
+{: file='/etc/fstab/'}
+
+Thêm vào `/etc/fstab`
+
+
+```bash
+# data drive
+UUID=0cbe24cf-b0df-4753-b7a7-bc9f9f66b86e /media/storage  ext4    defaults        0       0
 ```
 
-### Cài `CasaOS`
+Kiểm tra lỗi với `findmnt --verify`
+
+```bash
+root@debian:~# findmnt --verify
+   [W] your fstab has been modified, but systemd still uses the old version;
+       use 'systemctl daemon-reload' to reload
+
+0 parse errors, 0 errors, 1 warning
+root@debian:~# 
+```
+
+#### Unmount ổ đã mount thủ công (Optional)
+
+```bash
+umount /media/storage
+```
+
+> Khởi động lại `sudo reboot now` để mount tự động
+{: .prompt-info}
+
+## Cài `CasaOS`
 
 Thao tác đơn giản, nhanh gọn
 
@@ -160,8 +204,6 @@ Sau khi cài xong, sẽ hiển thị link để truy cập có dạng `http://<i
 
 > CasaOS hiện chỉ cho lập 1 tài khoản: _Nên là ta chỉ dùng để làm home-server_
 {: .prompt-info}
-
-## Các ứng dụng theo yêu cầu
 
 ### Thêm nguồn cho AppStore
 
@@ -408,3 +450,75 @@ x-casaos:
     custom: mopidy
 ```
 {: .file='mopidy-casaos-export.yaml'}
+
+
+## Mở cửa ra cho internet đi vào
+
+### Dùng `tailscale`
+
+Tailscale là một dịch vụ VPN cho phép kết nối các thiết bị và ứng dụng của bạn ở khắp mọi nơi trên thế giới tạo thành một mạng LAN ảo. Các kết nối giữa hai thiết bị được mã hóa dựa trên giao thức WireGuard, bảo đảm chỉ có các thiết bị nằm trong hệ thống mạng riêng ảo có thể giao tiếp với nhau.
+
+Tailscale kết nối các thiết bị tạo thành hệ thống mạng dạng lưới ngang hàng (peer-to-peer mesh network), được gọi là tailnet. Nhờ vậy giúp cải thiện tốc độ kết nối, giảm độ trễ và tăng sự ổn định cho hệ thống mạng.
+
+> Quan trọng là `tailscale` có kèm theo `MagicDNS`, cho đặt tên miền (gọi là `tailname`) đối với máy trong mạng _Thế là không cần nhớ IP_
+{: .prompt-tip}
+
+Nhưng `MagicDNS` và `tailname` không hoạt động với subdomain: Tình cờ làm sao mà CasaOS truy cập tất cả các app là qua port! 
+
+> Cosmos Cloud thì mặc định là dùng subdomain (_đương nhiên là vẫn đặt port làm phương án phụ được_) Nhưng cái này để lúc khác nói
+{: .prompt-info}
+
+#### Cài thẳng lên system
+
+##### Script cài tự động
+
+```bash
+curl -fsSL https://tailscale.com/install.sh | sh
+```
+
+##### Cài thủ công
+
+Thêm repo và chữ ký `tailscale` vào nguồn
+
+```bash
+curl -fsSL https://pkgs.tailscale.com/stable/debian/bookworm.noarmor.gpg | sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
+curl -fsSL https://pkgs.tailscale.com/stable/debian/bookworm.tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
+```
+
+
+Cài `Tailscale`:
+
+```bash
+sudo apt-get update
+sudo apt-get install tailscale
+```
+
+Kết nối vào mạng Tailnet
+
+```bash
+sudo tailscale up
+```
+
+Kiểm tra IP
+
+```bash
+tailscale ip -4
+```
+
+#### Chạy docker
+
+Nguồn: <https://hub.docker.com/r/tailscale/tailscale>
+
+Import `docker run` chạy agent vào CasaOS > + > Customized App
+
+```bash
+docker run -d --name=tailscaled -v /var/lib:/var/lib -v /dev/net/tun:/dev/net/tun --network=host --cap-add=NET_ADMIN --cap-add=NET_RAW tailscale/tailscale
+```
+
+Thêm biến môi trường
+
+Key
+: TS_AUTHKEY
+
+Value _tự tạo mới trên website <https://login.tailscale.com/admin/settings/keys>_
+: tskey-auth-ab1CDE2CNTRL-0123456789abcdef
