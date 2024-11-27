@@ -207,6 +207,15 @@ Sau khi cài xong, sẽ hiển thị link để truy cập có dạng `http://<i
 
 ### Thêm nguồn cho AppStore
 
+| Name | Link |
+|-|-|
+| Linux Server    | https://casaos-appstore.paodayag.dev/linuxserver.zip |
+| Cool Store      | https://casaos-appstore.paodayag.dev/coolstore.zip |
+| Home Automation | https://github.com/mr-manuel/CasaOS-HomeAutomation-AppStore/archive/refs/tags/latest.zip |
+| Big Bear CasaOS | https://github.com/bigbeartechworld/big-bear-casaos/archive/refs/heads/master.zip |
+| TMC Community   | https://github.com/mariosemes/CasaOS-TMCstore/archive/refs/heads/main.zip |
+| Pentest Docker  | https://github.com/arch3rPro/Pentest-Docker/archive/refs/heads/master.zip |
+
 ### MeTube
 
 #### Xóa quảng cáo với `SponsorBlock`
@@ -217,82 +226,11 @@ Key
 : `YTDL_OPTIONS`
 
 Value
-: `{postprocessors:[{key:SponsorBlock,categories:[sponsor]},{key:ModifyChapters,remove_sponsor_segments:[sponsor]}]}`
+: `{"postprocessors":[{"key":"SponsorBlock","categories":["sponsor"]},{"key":"ModifyChapters","remove_sponsor_segments":["sponsor"]}]}`
 
 
 ```
-{postprocessors:[{key:SponsorBlock,categories:[sponsor]},{key:ModifyChapters,remove_sponsor_segments:[sponsor]}]}
-```
-
-#### `docker-compose` export từ CasaOS
-
-```yaml
-name: metube-youtubedl
-services:
-  app:
-    cpu_shares: 90
-    command: []
-    deploy:
-      resources:
-        limits:
-          memory: 3811M
-    environment:
-      - DARK_MODE=true
-      - GID=1000
-      - UID=1000
-      - YTDL_OPTIONS={postprocessors:[{key:SponsorBlock,categories:[sponsor]},{key:ModifyChapters,remove_sponsor_segments:[sponsor]}]}
-    image: alexta69/metube:latest
-    labels:
-      icon: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/ytdlm.png
-    ports:
-      - target: 8081
-        published: "8081"
-        protocol: tcp
-    restart: unless-stopped
-    volumes:
-      - type: bind
-        source: /mnt/Storage1/Downloads/metube
-        target: /downloads
-    x-casaos:
-      envs: []
-    devices: []
-    cap_add: []
-    networks:
-      - default
-    privileged: false
-    container_name: ""
-    hostname: ""
-networks:
-  default:
-    name: metube-youtubedl_default
-x-casaos:
-  architectures:
-    - amd64
-    - arm
-    - arm64
-  author: WisdomSky
-  category: Coolstore
-  description:
-    en_us: Web GUI for youtube-dl with playlist support. Allows you to download
-      videos from YouTube and dozens of other sites
-      (https://ytdl-org.github.io/youtube-dl/supportedsites.html).
-  developer: ""
-  hostname: ""
-  icon: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/ytdlm.png
-  index: /
-  is_uncontrolled: false
-  main: app
-  port_map: "8081"
-  scheme: http
-  store_app_id: metube-youtubedl
-  tagline:
-    en_us: Web Gui For Youtube-dl With Playlist Support. Allows You To Download
-      Videos From Youtube And Dozens Of Other Sites
-      (https://ytdl-org.github.io/youtube-dl/supportedsites.html).
-  thumbnail: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/ytdlm.png
-  title:
-    custom: ""
-    en_us: Metube
+{"postprocessors":[{"key":"SponsorBlock","categories":["sponsor"]},{"key":"ModifyChapters","remove_sponsor_segments":["sponsor"]}]}
 ```
 
 ### Modipy
@@ -397,64 +335,106 @@ Nhược điểm
 : Bản trên `dockerhub` cũ rồi: Không chạy được `Youtube` _Dù là dùng homeserver để load nhạc từ Youtube thì hơi ngu, nhưng có thì vẫn hơn_
 : Tương thích phần cứng hên xui
 
-Compose export từ CasaOS
+Test audio, tự dưng thấy loa rú ầm lên là được
+
+```bash
+sudo docker run --rm \
+  --user root --device /dev/snd \
+  wernight/mopidy \
+  gst-launch-1.0 audiotestsrc ! audioresample ! autoaudiosink
+```
+
+`Install a customized app`
 
 ```yaml
-name: affectionate_dylan
-services:
-  main_app:
-    cpu_shares: 10
-    command:
-      - ""
-    container_name: mopidy
-    deploy:
-      resources:
-        limits:
-          memory: 256M
-    devices:
-      - /dev/snd:/dev/snd
-    hostname: mopidy
-    image: wernight/mopidy:latest
-    labels:
-      icon: https://icon.casaos.io/main/all/mopidy.png
-    ports:
-      - target: 6680
-        published: "6681"
-        protocol: tcp
-      - target: 6600
-        published: "6601"
-        protocol: tcp
-    restart: unless-stopped
-    volumes:
-      - type: bind
-        source: /mnt/Storage1/Music
-        target: /var/lib/mopidy/media
-      - type: bind
-        source: /DATA/AppData/Mopidy
-        target: /var/lib/mopidy/local
-    cap_add: []
-    environment: []
-    network_mode: bridge
-    privileged: false
-x-casaos:
-  author: self
-  category: self
-  hostname: ""
-  icon: https://icon.casaos.io/main/all/mopidy.png
-  index: /
-  is_uncontrolled: false
-  port_map: "6681"
-  scheme: http
-  store_app_id: affectionate_dylan
-  title:
-    custom: mopidy
+$ docker run -d \
+    --device /dev/snd \
+    -v "$PWD/media:/var/lib/mopidy/media:ro" \
+    -v "$PWD/local:/var/lib/mopidy/local" \
+    -p 6600:6600 -p 6680:6680 \
+    wernight/mopidy
 ```
-{: .file='mopidy-casaos-export.yaml'}
 
+
+Title
+: `wernight/mopidy`
+
+Icon URL
+: `https://raw.githubusercontent.com/mopidy/mopidy/refs/heads/main/docs/_static/mopidy.png`
+
+**Web UI**
+
+| http:// | | :6680 | /iris
+
+**Port**
+
+| Host | Container | Protocol |
+|:-:|:-:|:-:|
+| 6600 | 6600 | TCP |
+| 6680 | 6680 | TCP |
+
+**Volumes**
+
+| Host | Container |
+|:-|:-|
+| /media/storage1/ | /var/lib/mopidy/media |
+| /DATA/AppData/mopidy/local | /var/lib/mopidy/local |
+| /DATA/AppData/mopidy/mopidy.conf | /config/mopidy.conf |
+
+**Devices**
+
+| Host | Container |
+|:-|:-|
+| /dev/snd | /dev/snd |
+
+
+```config
+[core]
+data_dir = /var/lib/mopidy
+
+[local]
+media_dir = /var/lib/mopidy/media/Music
+
+[file]
+enabled = true
+media_dirs =
+    /var/lib/mopidy/media/Music|Music
+    /var/lib/mopidy/media/Downloads/metube|Metube
+    
+[audio]
+output = tee name=t ! queue ! autoaudiosink t. ! queue ! udpsink host=0.0.0.0 port=5555
+
+[m3u]
+playlists_dir = /var/lib/mopidy/playlists
+
+[http]
+hostname = 0.0.0.0
+
+[mpd]
+hostname = 0.0.0.0
+
+[spotify]
+username=USERNAME
+password=PASSWORD
+
+[gmusic]
+username=USERNAME
+password=PASSWORD
+
+[soundcloud]
+auth_token=TOKEN
+```
+{: file='/DATA/AppData/mopidy/mopidy.conf'}
+
+**Cập nhật dữ liệu cho module Mopidy-Local**: Chạy trong Settings của App > **[>_]** Terminal and Logs
+
+```bash
+mopidy local scan
+```
 
 ## Mở cửa ra cho internet đi vào
 
-### Dùng `tailscale`
+### TailScale
 
 Tailscale là một dịch vụ VPN cho phép kết nối các thiết bị và ứng dụng của bạn ở khắp mọi nơi trên thế giới tạo thành một mạng LAN ảo. Các kết nối giữa hai thiết bị được mã hóa dựa trên giao thức WireGuard, bảo đảm chỉ có các thiết bị nằm trong hệ thống mạng riêng ảo có thể giao tiếp với nhau.
 
@@ -468,48 +448,9 @@ Nhưng `MagicDNS` và `tailname` không hoạt động với subdomain: Tình c�
 > Cosmos Cloud thì mặc định là dùng subdomain (_đương nhiên là vẫn đặt port làm phương án phụ được_) Nhưng cái này để lúc khác nói
 {: .prompt-info}
 
-#### Cài thẳng lên system
-
-##### Script cài tự động
-
-```bash
-curl -fsSL https://tailscale.com/install.sh | sh
-```
-
-##### Cài thủ công
-
-Thêm repo và chữ ký `tailscale` vào nguồn
-
-```bash
-curl -fsSL https://pkgs.tailscale.com/stable/debian/bookworm.noarmor.gpg | sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
-curl -fsSL https://pkgs.tailscale.com/stable/debian/bookworm.tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
-```
-
-
-Cài `Tailscale`:
-
-```bash
-sudo apt-get update
-sudo apt-get install tailscale
-```
-
-Kết nối vào mạng Tailnet
-
-```bash
-sudo tailscale up
-```
-
-Kiểm tra IP
-
-```bash
-tailscale ip -4
-```
-
-#### Chạy docker
-
 Nguồn: <https://hub.docker.com/r/tailscale/tailscale>
 
-Import `docker run` chạy agent vào CasaOS > + > Customized App
+Import `docker run` chạy agent vào CasaOS > :heavy_plus_sign: > Customized App
 
 ```bash
 docker run -d --name=tailscaled -v /var/lib:/var/lib -v /dev/net/tun:/dev/net/tun --network=host --cap-add=NET_ADMIN --cap-add=NET_RAW tailscale/tailscale
@@ -522,3 +463,66 @@ Key
 
 Value _tự tạo mới trên website <https://login.tailscale.com/admin/settings/keys>_
 : tskey-auth-ab1CDE2CNTRL-0123456789abcdef
+
+> Lưu ý `--name=tailscaled` sẽ là tên thiết bị trên Dashboard của TailScale _Nếu thích thì có thể đổi tên khác_
+{: .prompt-tip}
+
+### Nginx Proxy Manager
+
+Ưu điểm
+: Docker: có tính đóng gói cao, xóa đi là sạch, không liên quan đến hệ thống
+: Public Domain và DNS: Không cần chạy VPN như TailScale với ZeroTier
+
+Nhược điểm
+: Public: Mở cửa ra cho tất cả mọi người, dễ toang
+: Cần 1 tên miền (phải mua hoặc xin)
+: Không truy cập được App từ WebUI của CasaOS theo port, phải gán từng tên miền cho từng App
+
+Đổi port của WebUI CasaOS (Vì thằng Nginx Proxy Manager cần port 80)
+
+![](assets/img/homeserver-casaos-bookworm/casaos-dashboard-change-port.png)
+
+Import `docker compose` chạy agent vào CasaOS > :heavy_plus_sign: > Customized App
+
+```yaml
+services:
+  app:
+    image: 'jc21/nginx-proxy-manager:latest'
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '81:81'
+      - '443:443'
+    volumes:
+      - /DATA/AppData/nginx-proxy-manager/data:/data
+      - /DATA/AppData/nginx-proxy-manager/letsencrypt:/etc/letsencrypt
+```
+
+Kiểm tra lại đường dẫn Web UI
+: | http:// | | :81 | / |
+
+Mở WebUI của Nginx Proxy Manager, đăng nhập theo tài khoản mặc định, xong rồi kiểu gì cũng phải đổi
+
+Username
+: admin@example.com
+
+Password
+: changeme
+
+**Host > Proxy Host > Add Proxy Host**
+
+**_Tab `Details`_**
+
+Domain Names
+: ví dụ `example.com`
+
+Scheme | Forward Hostname/IP   | Port |
+|-|-|-|
+`http`   | IP LAN của CasaOS | Port WebUI của App
+
+[] Cache Assets
+[] Block Common Exploits
+[] Websockets Support
+
+**_Tab `SSL`_**: Chọn `Request Lets Encrypt SSL` và Nhập Email
+
