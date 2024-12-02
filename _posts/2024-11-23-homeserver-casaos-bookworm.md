@@ -35,11 +35,82 @@ Desktop Environment thì chọn `XFCE` cho nhẹ, hoặc `KDE` cho nhiều tính
 
 Nên cài = file ISO `netinstall`, chứ cài bằng file full lại phải vào `/etc/apt/sources.list` tắt cái source DVD đi. Không tắt thì `apt update` nó lại báo lỗi thiếu source, lằng nhằng lắm
 
+
+
+> Cài Debian 12 đến bước chọn Desktop Environment có thể chọn luôn`XFCE`, `ssh server` và `standard system utilities` cho nhanh
+{: .prompt-info }
+
 > Chạy với quyền `su`
 > ```bash
 > su -
 > ```
 {: .prompt-warning}
+
+### Debian 12 "Bookworm" và XFCE Minimal[^minimal_bookworm_xfce] _(Vì tiết kiệm vài trăm MB mà ta thêm vài trăm bước thao tác)_
+
+![](assets/img/homeserver-casaos-bookworm/debian-bookworm-sw-selection.jpg)
+_Vì 1 hệ thống tối giản_
+
+> Debian chưa có gói `sudo` đâu nên vẫn phải chạy `su -` từ trước
+{: .prompt-info}
+
+```bash
+nano /etc/apt/sources
+```
+
+Thêm `non-free` vào. Lúc sửa thì tìm đúng dòng để sửa: Thực ra thêm vào cuối file cũng được, nhưng mà sau này lúc nào `apt update` nó cũng báo trùng nhìn khó chịu lắm.
+
+
+```
+deb http://deb.debian.org/debian bookworm main contrib non-free-firmware non-free
+```
+
+Cập nhật nguồn và cài `xfce` và các gói `xfce` khác
+
+```bash
+sudo apt update
+apt install sudo
+apt install xfce4
+apt install \
+  libxfce4ui-utils \
+  thunar \
+  xfce4-appfinder \
+  xfce4-panel \
+  xfce4-session \
+  xfce4-settings \
+  xfce4-terminal \
+  xfce4-power-manager \
+  xfconf \
+  xfdesktop4 \
+  xfwm4\
+  network-manager-gnome
+```
+
+Cài các phần mềm linh tinh khác _(Tùy sở thích)_
+
+```bash
+apt install \
+  epiphany-browser \ # Simple yet powerful GNOME web browser targeted at non-technical users
+  atril \ # simple multi-page document viewer: PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS and PDF
+  ristretto \ #  image viewer for the Xfce desktop environment
+```
+
+```bash
+reboot now
+```
+
+> Nếu sau khi khởi động lại mà Network Manager không hiển thị kết nối Ethernet/LAN dù vẫn có mạng:<br> 
+> Chạy lệnh `sudo nano /etc/NetworkManager/NetworkManager.conf`<br>
+> Sửa `[ifupdown] managed=false` thành `true`
+> Thêm dòng này vào cuối
+> ```conf
+> [keyfile]
+> unmanaged-devices=*,except:type:wifi,except:type:wwan,except:type:ethernet
+> ```
+> Khởi động lại service `sudo service network-manager restart`
+> Hoặc khởi động lại `sudo reboot now`
+{: .prompt-tip}
+
 
 ### Thêm user chính vào `sudo`
 
@@ -478,9 +549,77 @@ Nhược điểm
 : Cần 1 tên miền (phải mua hoặc xin)
 : Không truy cập được App từ WebUI của CasaOS theo port, phải gán từng tên miền cho từng App
 
-Đổi port của WebUI CasaOS (Vì thằng Nginx Proxy Manager cần port 80)
+#### Thiết lập DNS
+
+Mua/Xin 1 tên miền và thiết lập thêm bản ghi DNS (`DNS Record`) mới:
+
+Type
+: `A` _(khuyến nghị)_: bản ghi ánh xạ từ tên miền sang địa chỉ IPv4
+: `AAAA`: bản ghi ánh xạ từ tên miền sang địa chỉ IPv6 _(Nếu có dùng thì cũng nên đi kèm 1 bản ghi `A` vì IPv6 vẫn là câu chuyện tương lai - 10 năm nay nó vẫn là chuyện tương lai)
+: `CNAME`: bản ghi chuyển hướng tên miền, ví dụ: `www.example.com` về `example.com`
+
+Name
+: `@` hoặc/và `www` đối với tên miền gốc (còn gọi là `apex domain`, `root domain`,... ví dụ `example.com`)
+: `<subdomain>` nếu sử dụng các tên miền con (ví dụ `subdomain.example.com`)
+
+Value
+: Địa chỉ IP công khai của home-server, diễn Nôm thì là cái IP mà nhà mạng cấp cho cục modem của mình _Vào trang gateway <192.168.1.1> của modem xem là chắc nhất_ vì các trang web kiểu `whatismyip` có thể dính VPN
+: Nếu dùng bản ghi `Type CNAME` thì đặt là tên miền đích muốn chuyển đến
+
+TTL
+: Bao nhiêu cũng được, tùy thương gia bán tên miền thôi
+
+![](assets/img/homeserver-casaos-bookworm/godaddy-dns.png)
+_Ví dụ về bản ghi DNS của GoDaddy: `@` cho tên miền gốc, `subdomain` và `sub-của-sub-domain`. TTL được tùy chọn từ 1/2 tiếng đến 1 tuần thì mình chọn 1 tiếng cho đẹp!_
+
+#### Port Fowarding 
+
+> Thưở Internet sơ khai, trên các diễn đàn cổ xưa về Torrent thường được diễn Nôm là `mở port`. Nhưng giờ mình gọi là `chuyển tiếp cổng` cho nó sang mồm
+{: .prompt-info}
+
+![](assets/img/homeserver-casaos-bookworm/port-forwading-lazyadmin.png)
+_Mô hình mạng đơn giản mượn từ LazyAdmin_
+
+Đại khái là khi đi từ Internet vào home-server của mình sẽ có 1 con đường là `tên miền > modem > server`
+: Thông qua DNS đã thiết lập thì từ `tên miền` đã đi được đến `modem` thông qua địa chỉ IP công khai do nhà mạng cấp
+: Nhưng từ `modem` đến `server` thì cần có 1 thằng dẫn đường, và ở đây mình dùng thằng `port`
+: Lúc này `modem` sẽ chuyển yêu cầu kết nói qua `port` xác định đến địa chỉ một địa chỉ IP xác định
+
+Và ở đây mình cần làm 2 việc
+
+1. Đặt địa chỉ IP tĩnh cho server CasaOS
+2. Port forwarding thằng 2 cổng `80` và `443` tới địa chỉ IP của CasaOS
+
+##### 1. Đặt địa chỉ IP tĩnh cho server CasaOS
+
+**_Cách 1: Đặt địa chỉ trên system_**
+
+Tùy Desktop Environment sẽ có giao diện khác nhau, nhưng nhìn chung là có dạng kiểu này
+
+![](assets/img/homeserver-casaos-bookworm/desktop-environment-static-ip.png)
+_Giao diện Ubuntu_
+
+Tuy nhiên là **không nên** dùng cách này, vì đây là kiểu xin `Ê router, cho tao địa chỉ IP này đi`. Chẳng may không xin được là khỏi vào mạng!
+
+**_Cách 2: Config DHCP của router_** _(Khuyến nghị)_
+
+Đại khái là đặt gạch trước địa chỉ IP dành riêng cho card mạng của server (phân biệt bằng địa chỉ MAC): Đảm bảo là lúc nào cũng server cũng sẽ đúng địa chỉ nội bộ. Cũng tùy router và firmware mà có giao diện config khác nhau, lọ mọ quanh mấy từ khóa `DHCP Reservation`, `Reserve IP`,...
+
+![](assets/img/homeserver-casaos-bookworm/openwrt-dhcp-reservation.png)
+_Giao diện OpenWRT_
+
+##### 2. Port Forwading 2 cổng `80` và `443` tới CasaOS
+
+Mỗi Router, firmware lại có thao tác khác nhau. Nhưng nhìn chung sẽ quanh quẩn mấy từ khóa `NAT`, `Virtual Server`, `Port Forwarding`, `Applications and Gaming`...
+
+![](assets/img/homeserver-casaos-bookworm/vnpt-igate-port-forwarding.png)
+_Giao diện modem iGate của VNPT_
+
+#### Đổi port của WebUI CasaOS (Vì thằng Nginx Proxy Manager cần port 80)
 
 ![](assets/img/homeserver-casaos-bookworm/casaos-dashboard-change-port.png)
+
+#### Dựng Nginx Proxy Manager lên chạy thôi
 
 Import `docker compose` chạy agent vào CasaOS > :heavy_plus_sign: > Customized App
 
@@ -526,3 +665,5 @@ Scheme | Forward Hostname/IP   | Port |
 
 **_Tab `SSL`_**: Chọn `Request Lets Encrypt SSL` và Nhập Email
 
+## Nguồn/Tham khảo:
+[^minimal_bookworm_xfce]: <https://github.com/coonrad/Debian-Xfce4-Minimal-Install>
