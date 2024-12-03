@@ -477,6 +477,7 @@ Icon URL
 ```config
 [core]
 data_dir = /var/lib/mopidy
+restore_state = true
 
 [local]
 media_dir = /var/lib/mopidy/media/Music
@@ -489,6 +490,7 @@ media_dirs =
     
 [audio]
 output = tee name=t ! queue ! autoaudiosink t. ! queue ! udpsink host=0.0.0.0 port=5555
+mixer_volume = 61
 
 [m3u]
 playlists_dir = /var/lib/mopidy/playlists
