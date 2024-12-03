@@ -46,7 +46,9 @@ Nên cài = file ISO `netinstall`, chứ cài bằng file full lại phải vào
 > ```
 {: .prompt-warning}
 
-### Debian 12 "Bookworm" và XFCE Minimal[^minimal_bookworm_xfce] _(Vì tiết kiệm vài trăm MB mà ta thêm vài trăm bước thao tác)_
+### Debian 12 "Bookworm" và XFCE Minimal _(Vì tiết kiệm vài trăm MB mà ta thêm vài trăm bước thao tác)_
+
+#### Cài Debian không có DE - Sau đấy cài `XFCE`[^minimal_bookworm_xfce]
 
 ![](assets/img/homeserver-casaos-bookworm/debian-bookworm-sw-selection.jpg)
 _Vì 1 hệ thống tối giản_
@@ -65,7 +67,7 @@ Thêm `non-free` vào. Lúc sửa thì tìm đúng dòng để sửa: Thực ra 
 deb http://deb.debian.org/debian bookworm main contrib non-free-firmware non-free
 ```
 
-Cập nhật nguồn và cài `xfce` và các gói `xfce` khác
+Cập nhật nguồn và cài `xfce` và các gói bổ sung tính năng khác
 
 ```bash
 sudo apt update
@@ -111,6 +113,22 @@ reboot now
 > Hoặc khởi động lại `sudo reboot now`
 {: .prompt-tip}
 
+#### Cài Debian kèm XFCE - Sau đó xóa bớt[^minimal_bookworm_debloat]
+
+```bash
+cd ~
+https://github.com/LostByteSoft/Debian-10
+cd Debian-10
+cd Debian_12
+chmod +x *.sh
+./remove ALL deb 12.5 excep zzz.sh
+./remove zzz evince.sh
+./remove zzz firefox-esr.sh
+./remove zzz gimp.sh
+./remove zzz libreoffice.sh
+./remove zzz rhythmbox.sh
+apt autoremove 
+```
 
 ### Thêm user chính vào `sudo`
 
@@ -133,14 +151,20 @@ Thêm `non-free` vào. Lúc sửa thì tìm đúng dòng để sửa: Thực ra 
 deb http://deb.debian.org/debian bookworm main contrib non-free-firmware non-free
 ```
 
-Update dữ liệu gói và cài gói cần thiết `linux-image` tương ứng, `linux-headers` và `broadcom-sta-dkms`:
+Thao tác
+: Cập nhật danh sách gói <br>
+: Cài gói cần thiết `linux-image` tương ứng, `linux-headers` và `broadcom-sta-dkms` <br>
+: Vô hiệu hóa module xung đột
+: Nạp module `wl`
 
 ```bash
 apt-get update
 apt-get install linux-image-$(uname -r|sed 's,[^-]*-[^-]*-,,') linux-headers-$(uname -r|sed 's,[^-]*-[^-]*-,,') broadcom-sta-dkms
+modprobe -r b44 b43 b43legacy ssb brcmsmac bcma
+modprobe wl
 ```
 
-> Nếu chẳng may cài lỗi
+> Sửa nếu chẳng may cài lỗi
 ```bash
 apt-get install -f
 dpkg-reconfigure broadcom-sta-dkms
@@ -153,17 +177,8 @@ find /lib/modules/$(uname -r)/updates
 ```
 {: .prompt-tip}
 
-Tắt module xung đột
-```bash
-modprobe -r b44 b43 b43legacy ssb brcmsmac bcma
-```
-
-Nạp module `wl`
-```bash
-modprobe wl
-```
-
-Dùng giao diện DE để kết nối wifi!
+> Dùng giao diện DE để kết nối wifi!
+{: .prompt-info}
 
 ### Tự động mount ổ cứng dữ liệu khi khởi động
 
@@ -200,8 +215,8 @@ _Phân vùng cần mount là `/dev/sda1` và UUID của nó_
 #### Mount thủ công
 
 ```bash
-mkdir /media/storage
-mount /dev/sda1 /media/storage
+mkdir /media/storage1
+mount /dev/sda1 /media/storage1
 ```
 
 #### Mount tự động khi khởi động bằng `fstab`
@@ -234,7 +249,7 @@ Thêm vào `/etc/fstab`
 
 ```bash
 # data drive
-UUID=0cbe24cf-b0df-4753-b7a7-bc9f9f66b86e /media/storage  ext4    defaults        0       0
+UUID=0cbe24cf-b0df-4753-b7a7-bc9f9f66b86e /media/storage1  ext4    defaults        0       0
 ```
 
 Kiểm tra lỗi với `findmnt --verify`
@@ -251,7 +266,7 @@ root@debian:~#
 #### Unmount ổ đã mount thủ công (Optional)
 
 ```bash
-umount /media/storage
+umount /media/storage1
 ```
 
 > Khởi động lại `sudo reboot now` để mount tự động
@@ -418,14 +433,14 @@ sudo docker run --rm \
 `Install a customized app`
 
 ```yaml
-$ docker run -d \
-    --device /dev/snd \
-    -v "$PWD/media:/var/lib/mopidy/media:ro" \
-    -v "$PWD/local:/var/lib/mopidy/local" \
-    -p 6600:6600 -p 6680:6680 \
-    wernight/mopidy
+docker run -d \
+  --user root --device /dev/snd \
+  -v "/media/storage1/:/var/lib/mopidy/media:ro" \
+  -v "/DATA/AppData/mopidy/local:/var/lib/mopidy/local" \
+  -v "/DATA/AppData/mopidy/mopidy.conf:/config/mopidy.conf" \
+  -p 6600:6600 -p 6680:6680 \
+  wernight/mopidy
 ```
-
 
 Title
 : `wernight/mopidy`
@@ -667,3 +682,4 @@ Scheme | Forward Hostname/IP   | Port |
 
 ## Nguồn/Tham khảo:
 [^minimal_bookworm_xfce]: <https://github.com/coonrad/Debian-Xfce4-Minimal-Install>
+[^minimal_bookworm_debloat]: <https://github.com/LostByteSoft/Debian-10>
