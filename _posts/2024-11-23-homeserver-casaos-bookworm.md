@@ -319,8 +319,32 @@ Value
 {"postprocessors":[{"key":"SponsorBlock","categories":["sponsor"]},{"key":"ModifyChapters","remove_sponsor_segments":["sponsor"]}]}
 ```
 
+### Jellyfin
+
+#### Hardware acceleration
+
+> Không hiểu sao chạy bản ở store `Official` thì không được, mà chạy bản ở `TMC Community` thì được
+{: .prompt-tip}
+
+Thêm biến môi trường
+
+**Volumes**
+
+| Host | Container |
+|:-|:-|
+| /media/storage1 | /media |
+| /DATA/AppData/jellyfin-tmc/config | /config |
+| /DATA/AppData/jellyfin-tmc/cache | /cache |
+
+**Devices**
+
+| Host | Container |
+|:-|:-|
+| /dev/dri/ | /dev/dri/ |
+
+
 ### Modipy
-#### Cài thẳng vào Debian chạy nền `service`
+#### Chạy nền `service`
 
 Ưu điểm
 : Cập nhật mới nhất
