@@ -579,6 +579,12 @@ Value _tự tạo mới trên website <https://login.tailscale.com/admin/setting
 > Lưu ý `--name=tailscaled` sẽ là tên thiết bị trên Dashboard của TailScale _Nếu thích thì có thể đổi tên khác_
 {: .prompt-tip}
 
+**Tạo SSL**: Chạy trong Settings của App > **[>_]** Terminal and Logs
+
+```bash
+tailscale cert <domain_name>
+```
+
 ### Nginx Proxy Manager
 
 Ưu điểm
