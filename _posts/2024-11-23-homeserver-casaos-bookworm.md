@@ -215,8 +215,8 @@ _Phân vùng cần mount là `/dev/sda1` và UUID của nó_
 #### Mount thủ công
 
 ```bash
-mkdir /media/storage1
-mount /dev/sda1 /media/storage1
+mkdir /mnt/storage1
+mount /dev/sda1 /mnt/storage1
 ```
 
 #### Mount tự động khi khởi động bằng `fstab`
@@ -249,7 +249,7 @@ Thêm vào `/etc/fstab`
 
 ```bash
 # data drive
-UUID=0cbe24cf-b0df-4753-b7a7-bc9f9f66b86e /media/storage1  ext4    defaults        0       0
+UUID=0cbe24cf-b0df-4753-b7a7-bc9f9f66b86e /mnt/storage1  ext4    defaults        0       0
 ```
 
 Kiểm tra lỗi với `findmnt --verify`
@@ -266,7 +266,7 @@ root@debian:~#
 #### Unmount ổ đã mount thủ công (Optional)
 
 ```bash
-umount /media/storage1
+umount /mnt/storage1
 ```
 
 > Khởi động lại `sudo reboot now` để mount tự động
@@ -435,7 +435,7 @@ sudo docker run --rm \
 ```yaml
 docker run -d \
   --user root --device /dev/snd \
-  -v "/media/storage1/:/var/lib/mopidy/media:ro" \
+  -v "/mnt/storage1/:/var/lib/mopidy/media:ro" \
   -v "/DATA/AppData/mopidy/local:/var/lib/mopidy/local" \
   -v "/DATA/AppData/mopidy/mopidy.conf:/config/mopidy.conf" \
   -p 6600:6600 -p 6680:6680 \
@@ -463,7 +463,7 @@ Icon URL
 
 | Host | Container |
 |:-|:-|
-| /media/storage1/ | /var/lib/mopidy/media |
+| /mnt/storage1/ | /var/lib/mopidy/media |
 | /DATA/AppData/mopidy/local | /var/lib/mopidy/local |
 | /DATA/AppData/mopidy/mopidy.conf | /config/mopidy.conf |
 
