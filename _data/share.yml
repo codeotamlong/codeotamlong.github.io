@@ -18,13 +18,6 @@ platforms:
   #
   # - type: Linkedin
   #   icon: "fab fa-linkedin"
-<<<<<<< HEAD
-  #   link: "https://www.linkedin.com/sharing/share-offsite/?url=URL"
-  #
-  # - type: Weibo
-  #   icon: "fab fa-weibo"
-  #   link: "http://service.weibo.com/share/share.php?title=TITLE&url=URL"
-=======
   #   link: "https://www.linkedin.com/feed/?shareActive=true&shareUrl=URL"
   #
   # - type: Weibo
@@ -55,4 +48,3 @@ platforms:
   # - type: Threads
   #   icon: "fa-brands fa-square-threads"
   #   link: "https://www.threads.net/intent/post?text=TITLE%20URL"
->>>>>>> v7.3.0
