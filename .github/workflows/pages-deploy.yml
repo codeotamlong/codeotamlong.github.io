@@ -42,7 +42,11 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
+<<<<<<< HEAD
           ruby-version: 3
+=======
+          ruby-version: 3.3
+>>>>>>> v7.3.0
           bundler-cache: true
 
       - name: Build site
@@ -53,12 +57,20 @@ jobs:
       - name: Test site
         run: |
           bundle exec htmlproofer _site \
+<<<<<<< HEAD
             \-\-disable-external=true \
             \-\-ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/,http://www1.plala.or.jp/tete009/en-US/software.html#FFDL" \
             \-\-allow-missing-href=true
 
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v1
+=======
+            \-\-disable-external \
+            \-\-ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+>>>>>>> v7.3.0
         with:
           path: "_site${{ steps.pages.outputs.base_path }}"
 
@@ -71,4 +83,8 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
+<<<<<<< HEAD
         uses: actions/deploy-pages@v2
+=======
+        uses: actions/deploy-pages@v4
+>>>>>>> v7.3.0

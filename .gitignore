@@ -5,6 +5,10 @@ Gemfile.lock
 
 # Jekyll cache
 .jekyll-cache
+<<<<<<< HEAD
+=======
+.jekyll-metadata
+>>>>>>> v7.3.0
 _site
 
 # RubyGems
@@ -16,6 +20,7 @@ package-lock.json
 
 # IDE configurations
 .idea
+<<<<<<< HEAD
 .vscode
 
 # Misc
@@ -47,3 +52,13 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+=======
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/tasks.json
+
+# Misc
+_sass/vendors
+assets/js/dist
+>>>>>>> v7.3.0
