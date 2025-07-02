@@ -152,9 +152,112 @@ flatpak install flathub org.localsend.localsend_app
 flatpak run org.localsend.localsend_app
 ```
 
+### Vim/Neovim  + VimPlug
+
+> Awesome Neovim: <https://github.com/rockerBOO/awesome-neovim>
+{: .prompt-tip}
+
+```bash
+# Install neovim
+sudo apt install neovim
+
+# Install vimplug on vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# Install vimplug on neovim
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+```
+
+```bash
+" The default plugin directory will be as follows:
+"   - Vim (Linux/macOS): '~/.vim/plugged'
+"   - Vim (Windows): '~/vimfiles/plugged'
+"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
+" You can specify a custom plugin directory by passing it as the argument
+"   - e.g. `call plug#begin('~/.vim/plugged')`
+"   - Avoid using standard Vim directory names like 'plugin'
+
+call plug#begin()
+" List your plugins here
+Plug 'junegunn/fzf.vim'
+Plug 'preservim/nerdtree'
+Plug 'vim-airline/vim-airline' "Lean & mean status/tabline for vim that's light as air.
+Plug 'tyru/open-browser.vim' " opens url in browser
+Plug 'tpope/vim-fugitive'
+Plug 'ycm-core/YouCompleteMe', { 'do': './install.py' }
+" End list 
+call plug#end()
+
+" Config NERDTree
+" Start NERDTree and put the cursor back in the other window.
+autocmd VimEnter * NERDTree | wincmd p
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
+" Close the tab if NERDTree is the only window remaining in it.
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if winnr() == winnr('h') && bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+			\ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+```
+{: file='kate ~/.config/nvim/init.vim'}
+
 ### Tự động mount ổ cứng Data
 
 ![](assets/img/homeserver-casaos-bookworm/kde-partition-manager.png)
 _KDE Partition Manager > Edit Mount Point_
+
+### fastfetch
+
+> Ubuntu 20.04 or newer and Debian 11 or newer: Download from <https://github.com/fastfetch-cli/fastfetch/releases/latest>
+{: .prompt-info}
+
+```bash
+# Debian 13 or newer 
+sudo apt install fastfetch 
+```
+
+### tailscale
+
+```bash
+curl -fsSL https://tailscale.com/install.sh | sh
+```
+
+### Gõ tiếng Việt
+
+> Bamboo (Vietnamese Input Method) engine support for Fcitx: <https://github.com/fcitx/fcitx5-bamboo>
+{: .prompt-info}
+
+```bash 
+sudo apt install fcitx5 fcitx5-bamboo --install-recommends
+echo -e 'export XMODIFIERS="@im=fcitx"\nexport GTK_IM_MODULE=fcitx\nexport QT_IM_MODULE=fcitx' | tee ~/.xprofile ~/.bash_profile > /dev/null
+im-config -n fcitx5
+echo -e '[Desktop Entry]\nType=Application\nExec=fcitx5 -d\nHidden=false\nNoDisplay=false\nX-GNOME-Autostart-enabled=true\nName[en_US]=Fcitx 5\nName=Fcitx 5\nComment[en_US]=Input method\nComment=Input method\n' | tee ~/.config/autostart/fcitx5.desktop > /dev/null
+fcitx5-configtool # add Bamboo input method
+fcitx5 -dr
+```
+
+### AdguardVPN
+
+```bash
+# Install 
+curl -fsSL https://raw.githubusercontent.com/AdguardTeam/AdGuardVPNCLI/master/scripts/release/install.sh | sh -s -- -v
+
+# Login
+adguardvpn-cli login
+
+# Available locations
+adguardvpn-cli list-locations
+
+# Connect to a specific location (city, country, or ISO code)
+adguardvpn-cli connect -l LOCATION_NAME
+
+# Quick connect
+adguardvpn-cli connect
+
+# Help
+adguardvpn-cli --help-all
+```
 
 ## Nguồn/Tham khảo:
